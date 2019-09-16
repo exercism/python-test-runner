@@ -16,6 +16,12 @@
 # Example:
 # ./run-in-docker.sh two-fer ./relative/path/to/two-fer/solution/folder
 
+# If arguments not provided, print usage and exit
+if [ -z "$1" ] || [ -z "$2" ]; then
+    echo "usage: run-in-docker.sh exercise-slug ./relative/path/to/solution/folder"
+    exit 1
+fi
+
 # build docker image
 docker build -t python-test-runner .
 

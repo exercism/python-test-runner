@@ -23,4 +23,10 @@ test_file="${1/-/_}"
 # Put together path to the test file
 test_file="$2/$test_file"_test.py
 
-pytest "$test_file"
+# Run pytest and generate JUnit xml report
+pytest --junitxml="results.xml" "$test_file"
+
+# Convert JUnit report to results.json
+# At some future date, this script should be replaced
+# with one provided by exercism/automated-tests
+python process_results.py results.xml "$2/results.json"
