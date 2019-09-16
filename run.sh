@@ -23,4 +23,4 @@ test_file="${1/-/_}"
 # Put together path to the test file
 test_file="$2/$test_file"_test.py
 
-pytest "$test_file"
+pytest --exitfirst "$test_file"
