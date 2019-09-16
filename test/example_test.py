@@ -1,3 +1,4 @@
+"""Example Exercism/Python tests file"""
 import unittest
 
 
