@@ -11,3 +11,5 @@ jobs:
     - uses: actions/checkout@v1
     - name: Run python-test-runner on example files
       run: sh run-in-docker.sh example test/
+    - name: Verify that results.json is created
+      run: test -f test/results.json && cat test/results.json
