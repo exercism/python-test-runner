@@ -18,3 +18,7 @@ To run a solution's test in the Docker container, do the following:
 
 ### Known issues
 * The output format of the tests is the default `pytest` format, since a standard is still not set at [exercism automated tests](https://github.com/exercism/automated-tests).
+
+### Dummy
+
+Dummy content to create PR that forces Github Actions check to run.
