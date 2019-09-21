@@ -4,12 +4,11 @@ on: [push]
 
 jobs:
   build:
-
     runs-on: ubuntu-latest
-    
+
     steps:
-    - uses: actions/checkout@v1
-    - name: Run python-test-runner on example files
-      run: sh run-in-docker.sh example test/
-    - name: Verify that results.json is created
-      run: test -f test/results.json && cat test/results.json
+      - uses: actions/checkout@v1
+      - name: Run python-test-runner on example files
+        run: sh run-in-docker.sh example test/ test/output/
+      - name: Verify that results.json is created
+        run: test -f test/output/results.json && cat test/output/results.json
