@@ -2,17 +2,18 @@
 
 # Synopsis:
 # Automatically tests exercism's Python track solutions against corresponding test files.
-# Takes two arguments and makes sure all the tests are run
+# Takes three arguments and makes sure all the tests are run
 
 # Arguments:
 # $1: exercise slug
 # $2: path to solution folder (with trailing slash)
+# $3: path to output directory (with trailing slash)
 
 # Output:
-# Writes a results.json file with the test results in the solution directory
+# Writes a results.json file with the test results in the output directory
 
 # Example:
-# ./run.sh two-fer path/to/two-fer/solution/folder/
+# ./run.sh two-fer path/to/two-fer/solution/folder/ path/to/output/directory/
 
 
 pip3 install pytest
@@ -29,4 +30,4 @@ pytest --junitxml="results.xml" "$test_file"
 # Convert JUnit report to results.json
 # At some future date, this script should be replaced
 # with one provided by exercism/automated-tests
-python process_results.py results.xml "$2"results.json
+python process_results.py results.xml "$3"results.json
