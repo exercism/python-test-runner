@@ -9,7 +9,7 @@
 # $2: path to solution folder (with trailing slash)
 
 # Output:
-# [For now] writes the tests output to the terminal
+# Writes a results.json file with the test results in the solution directory
 
 # Example:
 # ./run.sh two-fer path/to/two-fer/solution/folder/
