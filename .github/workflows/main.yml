@@ -14,3 +14,5 @@ jobs:
         run: sh run-in-docker.sh example test/ test/output/
       - name: Verify that results.json is created
         run: test -f test/output/results.json && cat test/output/results.json
+      - name: Verify that test case order in results.json
+        run: bash verify_test_order.sh example test/ test/output

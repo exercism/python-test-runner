@@ -30,4 +30,10 @@ pytest --junitxml="results.xml" "$test_file"
 # Convert JUnit report to results.json
 # At some future date, this script should be replaced
 # with one provided by exercism/automated-tests
-python process_results.py results.xml "$3/results.json"
+echo "Converting JUnit output to Exercism schema..."
+python process_results.py results.xml results.json
+
+# Reorder test cases by appearance in test file;
+# pytest sorts cases alphabetically when running/reporting
+echo "Sorting test results by appearance in test file..."
+python sort_cases.py -v -o "$3/results.json" "$test_file" results.json
