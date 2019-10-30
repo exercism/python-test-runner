@@ -3,6 +3,7 @@
 # Synopsis:
 # Automatically tests exercism's Python track solutions against corresponding test files.
 # Takes three arguments and makes sure all the tests are run
+# Writes the results to the output directory
 
 # Arguments:
 # $1: exercise slug
