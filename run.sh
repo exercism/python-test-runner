@@ -3,17 +3,18 @@
 # Synopsis:
 # Automatically tests exercism's Python track solutions against corresponding test files.
 # Takes three arguments and makes sure all the tests are run
+# Writes the results to the output directory
 
 # Arguments:
 # $1: exercise slug
-# $2: path to solution folder (without trailing slash)
-# $3: path to output directory (without trailing slash)
+# $2: path to solution folder (with trailing slash)
+# $3: path to output directory (with trailing slash)
 
 # Output:
 # [For now] writes the tests output to the terminal
 
 # Example:
-# ./run.sh two-fer path/to/two-fer/solution/folder path/to/output/directory
+# ./run.sh two-fer path/to/two-fer/solution/folder/ path/to/output/directory/
 
 
 pip3 install pytest
@@ -22,7 +23,7 @@ pip3 install pytest
 test_file="${1/-/_}"
 
 # Put together path to the test file
-test_file="$2/$test_file"_test.py
+test_file="$2$test_file"_test.py
 
 # Run pytest and generate JUnit xml report
 pytest --junitxml="results.xml" "$test_file"
@@ -36,4 +37,4 @@ python process_results.py results.xml results.json
 # Reorder test cases by appearance in test file;
 # pytest sorts cases alphabetically when running/reporting
 echo "Sorting test results by appearance in test file..."
-python sort_cases.py -v -o "$3/results.json" "$test_file" results.json
+python sort_cases.py -v -o "$3results.json" "$test_file" results.json
