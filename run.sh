@@ -11,7 +11,8 @@
 # $3: path to output directory (with trailing slash)
 
 # Output:
-# [For now] writes the tests output to the terminal
+# Writes the test results to a results.json file in the passed-in output directory.
+# The test results are formatted according to the specifications at https://github.com/exercism/automated-tests/blob/master/docs/interface.md
 
 # Example:
 # ./run.sh two-fer path/to/two-fer/solution/folder/ path/to/output/directory/
