@@ -1,4 +1,5 @@
 #!/usr/bin/env bash
+set -e
 
 # Synopsis:
 # Test runner for run.sh in a docker container
@@ -25,10 +26,14 @@ if [ -z "$1" ] || [ -z "$2" ] || [ -z "$3" ]; then
 fi
 
 # build docker image
-docker build -t python-test-runner .
+docker build --rm --no-cache -t python-test-runner .
+
+# Create output directory if it doesn't exist
+output_dir="$3"
+mkdir -p "$output_dir"
 
 # run image passing the arguments
 docker run \
     --mount type=bind,src=$PWD/$2,dst=/solution \
-    --mount type=bind,src=$PWD/$3,dst=/output \
+    --mount type=bind,src=$PWD/$output_dir,dst=/output \
     python-test-runner $1 /solution/ /output/
