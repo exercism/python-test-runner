@@ -1,4 +1,5 @@
 #!/usr/bin/env bash
+set -e
 
 # Synopsis:
 # Automatically tests exercism's Python track solutions against corresponding test files.
@@ -21,7 +22,9 @@
 pip3 install pytest
 
 # Replace hyphen with underscore to follow Python snake-case filename convention
-test_file="${1/-/_}"
+test_file="${1//-/_}"
+solution_dir="$2"
+output_dir="$3"
 
 # Put together path to the test file
 test_file="$2$test_file"_test.py
@@ -38,4 +41,4 @@ python process_results.py results.xml results.json
 # Reorder test cases by appearance in test file;
 # pytest sorts cases alphabetically when running/reporting
 echo "Sorting test results by appearance in test file..."
-python sort_cases.py -v -o "$3results.json" "$test_file" results.json
+python sort_cases.py -v -o "${output_dir}results.json" "$test_file" results.json
