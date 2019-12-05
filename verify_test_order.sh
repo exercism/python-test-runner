@@ -1,9 +1,11 @@
 #!/bin/bash
+set -e
+
 EXERCISE_SLUG="$1"
 SOLUTION_DIR="$2"
 OUTPUT_DIR="$3"
 
-TEST_FILE="$2/${1/-/_}_test.py"
+TEST_FILE="$2/${1//-/_}_test.py"
 RESULTS_FILE="$3/results.json"
 
 from_test_file()

@@ -1,5 +1,5 @@
 #!/usr/bin/env bash
-set -e
+set -ex
 
 # Synopsis:
 # Automatically tests exercism's Python track solutions against corresponding test files.
@@ -18,9 +18,6 @@ set -e
 # Example:
 # ./run.sh two-fer path/to/two-fer/solution/folder/ path/to/output/directory/
 
-
-pip3 install pytest
-
 # Replace hyphen with underscore to follow Python snake-case filename convention
 test_file="${1//-/_}"
 solution_dir="$2"
@@ -30,15 +27,10 @@ output_dir="$3"
 test_file="$2$test_file"_test.py
 
 # Run pytest and generate JUnit xml report
-pytest --junitxml="results.xml" "$test_file"
+pytest -v --junitxml="results.xml" "$test_file"
 
 # Convert JUnit report to results.json
 # At some future date, this script should be replaced
 # with one provided by exercism/automated-tests
 echo "Converting JUnit output to Exercism schema..."
-python process_results.py results.xml results.json
-
-# Reorder test cases by appearance in test file;
-# pytest sorts cases alphabetically when running/reporting
-echo "Sorting test results by appearance in test file..."
-python sort_cases.py -v -o "${output_dir}results.json" "$test_file" results.json
+python process_results.py results.xml "${output_dir}results.json"
