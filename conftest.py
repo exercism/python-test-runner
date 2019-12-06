@@ -50,7 +50,7 @@ class TestOrderVisitor(ast.NodeVisitor):
         if node.nodeid not in TestOrderVisitor._cache:
             with open(node.fspath, "r") as src:
                 tree = ast.parse(src.read(), os.path.basename(node.fspath))
-            TestOrderVisitor(os.path.basename(node.fspath)).visit(tree)
+            TestOrderVisitor(node.nodeid.split("::")[0]).visit(tree)
         return TestOrderVisitor._cache[node.nodeid]
 
 
