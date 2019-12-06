@@ -13,5 +13,13 @@ class ExampleTest(unittest.TestCase):
         self.assertIs(True, True)
 
 
+class ABCTest(unittest.TestCase):
+    def test_dummy(self):
+        pass
+
+    def test_hello(self):
+        pass
+
+
 if __name__ == '__main__':
     unittest.main()
