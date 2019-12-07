@@ -1,5 +1,5 @@
 """
-Representer for Python.
+Test Runner for Python.
 """
 import time
 from json import dumps
