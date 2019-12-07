@@ -1,93 +1,17 @@
 """
 Test Runner for Python.
 """
-import time
-from json import dumps
-from typing import Dict, List
+from typing import Dict, List, Optional
+from pathlib import Path
 
 import pytest
 
-from . import utils
-
-
-import ast
-import os
-
-class TestOrderVisitor(ast.NodeVisitor):
-    """
-    Visits test_* methods and caches their definition order.
-    """
-
-    _cache = {}
-
-    def __init__(self, name):
-        super().__init__()
-        self._hierarchy = [name]
-
-    def visit_ClassDef(self, node):
-        """
-        Handles class definitions.
-        """
-        bases = {f"{b.value.id}.{b.attr}" for b in node.bases}
-        if "unittest.TestCase" in bases:
-            self._hierarchy.append(node.name)
-        self.generic_visit(node)
-        self._hierarchy.pop()
-
-    def visit_FunctionDef(self, node):
-        """
-        Handles function definitions
-        """
-        if node.name.startswith("test_"):
-            self._cache[self.get_hierarchy(node.name)] = node.lineno
-        self.generic_visit(node)
-
-    visit_AsyncFunctionDef = visit_FunctionDef
-
-    def get_hierarchy(self, name):
-        """
-        Returns the hierarchy :: joined.
-        """
-        return "::".join(self._hierarchy + [name])
-
-    @staticmethod
-    def definition_order(node):
-        """
-        Returns the line the given node was defined on.
-        """
-        if node.nodeid not in TestOrderVisitor._cache:
-            with open(node.fspath, "r") as src:
-                tree = ast.parse(src.read(), os.path.basename(node.fspath))
-            TestOrderVisitor(node.nodeid.split("::")[0]).visit(tree)
-        return TestOrderVisitor._cache[node.nodeid]
-
-from dataclasses import dataclass, field, asdict
-from typing import NewType, Optional
-
-Status = NewType("Status", str)
-
-PASS = Status("pass")
-FAIL = Status("fail")
-ERROR = Status("error")
-
-@dataclass
-class Test:
-    name: str
-    status: Status
-    message: Optional[str] = None
-
-@dataclass
-class Results:
-    status: Status = PASS
-    message: Optional[str] = None
-    tests: List[Test] = field(default_factory=list)
-
-    def add(self, name: str, status: Status, message: Optional[str] = None):
-        self.tests.append(Test(name, status, message))
+from .data import Slug, Directory, Hierarchy, Results, Test
+from .sort import TestOrder
 
 class ResultsReporter:
     def __init__(self):
-        self.report = Results()
+        self.results = Results()
         self.tests = {}
         self.last_err = None
 
@@ -95,7 +19,11 @@ class ResultsReporter:
         """
         Sorts the tests in definition order.
         """
-        items.sort(key=TestOrderVisitor.definition_order)
+        def _sort_by_lineno(item):
+            test_id = Hierarchy(item.nodeid)
+            source = Path(item.fspath)
+            return TestOrder.lineno(test_id, source)
+        items.sort(key=_sort_by_lineno)
 
     def pytest_runtest_logreport(self, report):
         """
@@ -103,7 +31,7 @@ class ResultsReporter:
         """
         name = ".".join(report.nodeid.split("::")[1:])
         if name not in self.tests:
-            self.tests[name] = Test(name, PASS)
+            self.tests[name] = Test(name)
         state = self.tests[name]
 
         # ignore succesful setup and teardown stages
@@ -111,34 +39,43 @@ class ResultsReporter:
             return
 
         # do not update tests that have already failed
-        if state.status != PASS:
+        if not state.is_passing():
             return
 
-        # determine failure state
+        # handle test failure
         if report.failed:
-            state.status = FAIL
+            message = None
+            if report.longrepr:
+                crash = report.longrepr.reprcrash
+                message = f"{crash.lineno}: {crash.message}"
+            
+            # test failed due to a setup / teardown error
             if report.when != "call":
-                state.status = ERROR
-
-        if report.longrepr:
-            crash = report.longrepr.reprcrash
-            state.message = f"{crash.lineno}: {crash.message}"
-
+                state.error(message)
+            else:
+                state.fail(message)
 
     def pytest_sessionfinish(self, session, exitstatus):
         """
         Processes the results into a report.
         """
         exitcode = pytest.ExitCode(int(exitstatus))
+
+        # at least one of the tests has failed
         if exitcode is pytest.ExitCode.TESTS_FAILED:
-            self.report.status = FAIL
+            self.results.fail()
+
+        # an error has been encountered
         elif exitcode is not pytest.ExitCode.OK:
-            self.report.status = ERROR
+            message = None
             if self.last_err is not None:
-                self.report.message = self.last_err
-            if self.report.message is None:
-                self.report.message = f"Unexpected ExitCode.{exitcode.name}: check logs for details"
-        self.report.tests = list(self.tests.values())
+                message = self.last_err
+            else:
+                message = f"Unexpected ExitCode.{exitcode.name}: check logs for details"
+            self.results.error(message)
+
+        for test in self.tests.values():
+            self.results.add(test)
 
     def pytest_terminal_summary(self, terminalreporter):
         """
@@ -154,15 +91,21 @@ class ResultsReporter:
             self.last_err = report.longreprtext
 
 
-def run(slug: utils.Slug, indir: utils.Directory, outdir: utils.Directory, args: List[str]) -> None:
+def run_tests(path: Path, args: Optional[List[str]] = None) -> Results:
+    """
+    Run the tests and generate Results for inspection.
+    """
+    reporter = ResultsReporter()
+    pytest.main(args or [] + [str(path)], plugins=[reporter])
+    return reporter.results
+
+def run(slug: Slug, indir: Directory, outdir: Directory, args: List[str]) -> None:
     """
     Run the tests for the given exercise and produce a results.json.
     """
     test_file = indir.joinpath(slug.replace("-", "_") + "_test.py")
     out_file = outdir.joinpath("results.json")
-
-    reporter = ResultsReporter()
-    pytest.main(args + [str(test_file)], plugins=[reporter])
-
-    # dump the results 
-    out_file.write_text(dumps(asdict(reporter.report), indent=2))
+    # run the tests and report 
+    results = run_tests(test_file, args)
+    # dump the report
+    out_file.write_text(results.as_json())

@@ -1,0 +1,9 @@
+{
+  "status": "pass",
+  "tests": [
+    {
+      "name": "ExampleWithLongerNameTest.test_sanity",
+      "status": "pass"
+    }
+  ]
+}

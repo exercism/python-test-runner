@@ -1,28 +1,23 @@
 """
-Test Runner for Python.
+Misc utils to support the Python test runner.
 """
+
 import errno
 import os
 import re
 from pathlib import Path
-from typing import NewType
 
-
-Slug = NewType("Slug", str)
-
-SLUG_RE = re.compile(r"^[a-z]+(-[0-9a-z]+)*$")
+from .data import Slug, Directory
 
 
 def slug(string: str) -> Slug:
     """
     Check if the given arg is a valid exercise slug.
     """
-    if not SLUG_RE.match(string):
-        raise ValueError(f"Does not match {SLUG_RE.pattern!r}: {string!r}")
+    pattern = r"^[a-z]+(-[0-9a-z]+)*$"
+    if not re.match(pattern, string):
+        raise ValueError(f"Does not match {pattern!r}: {string!r}")
     return Slug(string)
-
-
-Directory = NewType("Directory", Path)
 
 
 def directory(string: str) -> Directory:

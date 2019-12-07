@@ -5,6 +5,7 @@ CLI for the test runner for the Python track on Exercism.io.
 from argparse import ArgumentParser, ArgumentTypeError, REMAINDER
 
 import runner
+import runner.utils
 
 
 def _slug(arg):
