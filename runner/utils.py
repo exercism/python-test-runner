@@ -1,5 +1,5 @@
 """
-Representer for Python.
+Test Runner for Python.
 """
 import errno
 import os
@@ -39,4 +39,3 @@ def directory(string: str) -> Directory:
         msg = os.strerror(err)
         raise PermissionError(err, f"{msg}: {string!r}")
     return Directory(path)
-
