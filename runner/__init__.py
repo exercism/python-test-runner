@@ -9,6 +9,7 @@ import pytest
 from .data import Slug, Directory, Hierarchy, Results, Test
 from .sort import TestOrder
 
+
 class ResultsReporter:
     def __init__(self):
         self.results = Results()
@@ -19,10 +20,12 @@ class ResultsReporter:
         """
         Sorts the tests in definition order.
         """
+
         def _sort_by_lineno(item):
             test_id = Hierarchy(item.nodeid)
             source = Path(item.fspath)
             return TestOrder.lineno(test_id, source)
+
         items.sort(key=_sort_by_lineno)
 
     def pytest_runtest_logreport(self, report):
@@ -44,16 +47,22 @@ class ResultsReporter:
 
         # handle test failure
         if report.failed:
+
+            # traceback that caused the issued, if any
             message = None
             if report.longrepr:
-                crash = report.longrepr.reprcrash
-                message = f"{crash.lineno}: {crash.message}"
-            
+                message = str(report.longrepr.reprtraceback)
+
+            # captured stdout content, if any
+            output = None
+            if report.capstdout:
+                output = report.capstdout
+
             # test failed due to a setup / teardown error
             if report.when != "call":
-                state.error(message)
+                state.error(message, output)
             else:
-                state.fail(message)
+                state.fail(message, output)
 
     def pytest_sessionfinish(self, session, exitstatus):
         """
@@ -96,8 +105,9 @@ def run_tests(path: Path, args: Optional[List[str]] = None) -> Results:
     Run the tests and generate Results for inspection.
     """
     reporter = ResultsReporter()
-    pytest.main(args or [] + [str(path)], plugins=[reporter])
+    pytest.main((args or []) + [str(path)], plugins=[reporter])
     return reporter.results
+
 
 def run(slug: Slug, indir: Directory, outdir: Directory, args: List[str]) -> None:
     """
@@ -105,7 +115,7 @@ def run(slug: Slug, indir: Directory, outdir: Directory, args: List[str]) -> Non
     """
     test_file = indir.joinpath(slug.replace("-", "_") + "_test.py")
     out_file = outdir.joinpath("results.json")
-    # run the tests and report 
+    # run the tests and report
     results = run_tests(test_file, args)
     # dump the report
     out_file.write_text(results.as_json())

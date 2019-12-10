@@ -29,6 +29,7 @@ class Status(Enum):
 
 # a (optional) message for inclusion in results.json
 Message = Optional[str]
+Output = Optional[str]
 
 
 @dataclass
@@ -40,23 +41,32 @@ class Test:
     name: str
     status: Status = Status.PASS
     message: Message = None
+    output: Output = None
 
-    def _update(self, status: Status, message: Message = None) -> None:
+    def _update(
+        self, status: Status, message: Message = None, output: Output = None
+    ) -> None:
         self.status = status
         if message:
             self.message = message
+        if output:
+            output = output.strip()
+            truncate_msg = " [Output was truncated. Please limit to 500 chars]"
+            if len(output) > 500:
+                output = output[: 500 - len(truncate_msg)] + truncate_msg
+            self.output = output
 
-    def fail(self, message: Message = None) -> None:
+    def fail(self, message: Message = None, output: Output = None) -> None:
         """
         Indicate this test failed.
         """
-        self._update(Status.FAIL, message)
+        self._update(Status.FAIL, message, output)
 
-    def error(self, message: Message = None) -> None:
+    def error(self, message: Message = None, output: Output = None) -> None:
         """
         Indicate this test encountered an error.
         """
-        self._update(Status.ERROR, message)
+        self._update(Status.ERROR, message, output)
 
     def is_passing(self):
         """
@@ -100,7 +110,7 @@ class Results:
     def _factory(items):
         result = {}
         for k, v in items:
-            if k == "message" and v is None:
+            if k in {"message", "output"} and v is None:
                 continue
             if isinstance(v, Status):
                 v = v.name.lower()

@@ -1,0 +1,5 @@
+{
+  "status": "error",
+  "message": "/usr/lib/python3.8/site-packages/_pytest/python.py:492: in _importtestmodule\n    mod = self.fspath.pyimport(ensuresyspath=importmode)\n/usr/lib/python3.8/site-packages/py/_path/local.py:701: in pyimport\n    __import__(modname)\n<frozen importlib._bootstrap>:991: in _find_and_load\n    ???\n<frozen importlib._bootstrap>:975: in _find_and_load_unlocked\n    ???\n<frozen importlib._bootstrap>:671: in _load_unlocked\n    ???\n/usr/lib/python3.8/site-packages/_pytest/assertion/rewrite.py:143: in exec_module\n    exec(co, module.__dict__)\ntest/example-syntax-error/example_syntax_error_test.py:4: in <module>\n    from example_syntax_error import hello\nE     File \"/home/michael/Documents/dev/python-test-runner/test/example-syntax-error/example_syntax_error.py\", line 3\nE       def hello();\nE                  ^\nE   SyntaxError: invalid syntax",
+  "tests": []
+}

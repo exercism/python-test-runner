@@ -1,0 +1,21 @@
+{
+  "status": "pass",
+  "tests": [
+    {
+      "name": "ExampleImportFailTest.test_hello",
+      "status": "pass"
+    },
+    {
+      "name": "ExampleImportFailTest.test_abc",
+      "status": "pass"
+    },
+    {
+      "name": "ExampleImportFailOtherTest.test_dummy",
+      "status": "pass"
+    },
+    {
+      "name": "ExampleImportFailOtherTest.test_hello",
+      "status": "pass"
+    }
+  ]
+}

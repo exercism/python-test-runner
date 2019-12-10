@@ -1,0 +1,5 @@
+{
+  "status": "error",
+  "message": "ImportError while importing test module '/home/michael/Documents/dev/python-test-runner/test/example-empty-file/example_empty_file_test.py'.\nHint: make sure your test modules/packages have valid Python names.\nTraceback:\ntest/example-empty-file/example_empty_file_test.py:4: in <module>\n    from example_empty_file import hello\nE   ImportError: cannot import name 'hello' from 'example_empty_file' (/home/michael/Documents/dev/python-test-runner/test/example-empty-file/example_empty_file.py)",
+  "tests": []
+}

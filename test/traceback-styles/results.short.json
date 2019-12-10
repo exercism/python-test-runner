@@ -1,0 +1,10 @@
+{
+  "status": "fail",
+  "tests": [
+    {
+      "name": "TracebackStylesTest.test_hello",
+      "status": "fail",
+      "message": "test/traceback-styles/traceback_styles_test.py:9: in test_hello\n    self.assertEqual(hello(), \"Goodbye\")\nE   AssertionError: 'Hello, World!' != 'Goodbye'\nE   - Hello, World!\nE   + Goodbye"
+    }
+  ]
+}
