@@ -1,5 +1,35 @@
 {
-  "status": "error",
-  "message": "/usr/lib/python3.8/site-packages/_pytest/python.py:492: in _importtestmodule\n    mod = self.fspath.pyimport(ensuresyspath=importmode)\n/usr/lib/python3.8/site-packages/py/_path/local.py:701: in pyimport\n    __import__(modname)\n<frozen importlib._bootstrap>:991: in _find_and_load\n    ???\n<frozen importlib._bootstrap>:975: in _find_and_load_unlocked\n    ???\n<frozen importlib._bootstrap>:671: in _load_unlocked\n    ???\n/usr/lib/python3.8/site-packages/_pytest/assertion/rewrite.py:143: in exec_module\n    exec(co, module.__dict__)\ntest/example-has-stdout/example_has_stdout_test.py:4: in <module>\n    from example_has_stdout import hello\nE     File \"/home/michael/Documents/dev/python-test-runner/test/example-has-stdout/example_has_stdout.py\", line 4\nE       print 'Hello, World!'\nE             ^\nE   SyntaxError: Missing parentheses in call to 'print'. Did you mean print('Hello, World!')?",
-  "tests": []
+  "status": "fail",
+  "tests": [
+    {
+      "name": "ExampleHasStdoutTest.test_hello",
+      "status": "fail",
+      "message": "self = <example_has_stdout_test.ExampleHasStdoutTest testMethod=test_hello>\n\n    def test_hello(self):\n>       self.assertEqual(hello(), \"Hello, World!\")\nE       AssertionError: None != 'Hello, World!'\n\ntest/example-has-stdout/example_has_stdout_test.py:9: AssertionError",
+      "output": "Hello, World!"
+    },
+    {
+      "name": "ExampleHasStdoutTest.test_abc",
+      "status": "fail",
+      "message": "self = <example_has_stdout_test.ExampleHasStdoutTest testMethod=test_abc>\n\n    def test_abc(self):\n>       self.assertEqual(hello(), \"Hello, World!\")\nE       AssertionError: None != 'Hello, World!'\n\ntest/example-has-stdout/example_has_stdout_test.py:12: AssertionError",
+      "output": "Hello, World!"
+    },
+    {
+      "name": "ExampleHasStdoutTest.test_trancation",
+      "status": "fail",
+      "message": "self = <example_has_stdout_test.ExampleHasStdoutTest testMethod=test_trancation>\n\n    def test_trancation(self):\n>       self.assertEqual(must_truncate(), \"Hello, World!\")\nE       AssertionError: 'Goodbye!' != 'Hello, World!'\nE       - Goodbye!\nE       + Hello, World!\n\ntest/example-has-stdout/example_has_stdout_test.py:15: AssertionError",
+      "output": "Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Vulputate ut pharetra sit amet aliquam. Amet dictum sit amet justo donec enim diam vulputate ut. Consequat nisl vel pretium lectus quam id leo. Maecenas accumsan lacus vel facilisis volutpat est velit egestas dui. Faucibus et molestie ac feugiat sed. Fringilla phasellus faucibus scelerisque eleifend donec pretium vulputate s [Output was truncated. Please limit to 500 chars]"
+    },
+    {
+      "name": "ExampleHasStdoutOtherTest.test_dummy",
+      "status": "fail",
+      "message": "self = <example_has_stdout_test.ExampleHasStdoutOtherTest testMethod=test_dummy>\n\n    def test_dummy(self):\n>       self.assertEqual(hello(), \"Hello, World!\")\nE       AssertionError: None != 'Hello, World!'\n\ntest/example-has-stdout/example_has_stdout_test.py:20: AssertionError",
+      "output": "Hello, World!"
+    },
+    {
+      "name": "ExampleHasStdoutOtherTest.test_hello",
+      "status": "fail",
+      "message": "self = <example_has_stdout_test.ExampleHasStdoutOtherTest testMethod=test_hello>\n\n    def test_hello(self):\n>       self.assertEqual(hello(), \"Hello, World!\")\nE       AssertionError: None != 'Hello, World!'\n\ntest/example-has-stdout/example_has_stdout_test.py:23: AssertionError",
+      "output": "Hello, World!"
+    }
+  ]
 }

@@ -1,7 +1,7 @@
 import unittest
 
 
-from example_has_stdout import hello
+from example_has_stdout import hello, must_truncate
 
 
 class ExampleHasStdoutTest(unittest.TestCase):
@@ -10,6 +10,9 @@ class ExampleHasStdoutTest(unittest.TestCase):
 
     def test_abc(self):
         self.assertEqual(hello(), "Hello, World!")
+
+    def test_trancation(self):
+        self.assertEqual(must_truncate(), "Hello, World!")
 
 
 class ExampleHasStdoutOtherTest(unittest.TestCase):
