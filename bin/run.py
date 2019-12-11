@@ -26,9 +26,7 @@ def main():
     """
     Parse CLI arguments and run the tests.
     """
-    parser = ArgumentParser(
-        description="Run the tests of a Python exercise."
-    )
+    parser = ArgumentParser(description="Run the tests of a Python exercise.")
 
     parser.add_argument(
         "slug", metavar="SLUG", type=_slug, help="name of the exercise to process",
