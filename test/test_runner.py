@@ -8,8 +8,6 @@ from pathlib import Path
 
 import pytest
 
-from runner import run_tests
-
 ROOT = Path(__file__).parent
 RUNNER = ROOT.joinpath("..", "bin", "run.sh").resolve(strict=True)
 
@@ -49,20 +47,18 @@ def test_results_matches_golden_file(test_with_golden):
 
 
 # the below are the --tb=STYLE options for traceback styling, see pytest -h
-@pytest.fixture(params="long/short/line/native/no".split("/"))
-def style_test_and_golden(request):
+@pytest.fixture(params="auto/long/short/line/native/no".split("/"))
+def style(request):
     """
-    Path to a style's test and its golden file.
+    Path to a style's test and its golden file. We want to verify that passing neither
+    a single "--tb=STYLE" or a split "--tb STYLE" effect the result.json.
     """
-    style = request.param
-    golden = STYLE_TEST.parent.joinpath(f"results.{style}.json").resolve(strict=True)
-    return style, STYLE_TEST, golden
+    return request.param
 
 
-def test_style_matches_golden_file(style_test_and_golden):
+def test_style_matches_golden_file(test_with_golden, style):
     """
     Test the various traceback styles generate correctly.
     """
-    style, test_file, golden_file = style_test_and_golden
-    results, golden = run_in_subprocess(test_file, golden_file, args=[f"--tb={style}"])
+    results, golden = run_in_subprocess(*test_with_golden, args=[f"--tb={style}"])
     assert results == golden

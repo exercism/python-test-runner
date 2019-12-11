@@ -121,5 +121,4 @@ class Results:
         """
         Dump the current Results to formatted JSON.
         """
-
         return dumps(asdict(self, dict_factory=self._factory), indent=2)

@@ -1,6 +1,10 @@
 """
 Test Runner for Python.
 """
+import os
+import re
+from textwrap import dedent
+from copy import deepcopy
 from typing import Dict, List, Optional
 from pathlib import Path
 
@@ -51,7 +55,9 @@ class ResultsReporter:
             # traceback that caused the issued, if any
             message = None
             if report.longrepr:
-                message = str(report.longrepr.reprtraceback)
+                trace = report.longrepr.reprtraceback
+                crash = report.longrepr.reprcrash
+                message = self._make_message(trace, crash)
 
             # captured stdout content, if any
             output = None
@@ -96,17 +102,42 @@ class ResultsReporter:
         """
         Catch the last exception handled in case the test run itself errors.
         """
-        if report.longreprtext:
-            self.last_err = report.longreprtext
+        if report.outcome == "failed":
+            excinfo = call.excinfo
+            err = excinfo.getrepr(style="no", abspath=False)
+            trace = err.chain[0][0]
+            crash = err.chain[0][1]
+            self.last_err = self._make_message(trace, crash)
+
+    def _make_message(self, trace, crash=None):
+        """
+        Make a formatted message for reporting.
+        """
+        # stringify the traceback, strip pytest-specific formatting
+        message = dedent(re.sub("^E ", "  ", str(trace), flags=re.M))
+
+        # if a path exists that's relative to the runner we can strip it out
+        if crash:
+            common = os.path.commonpath([Path.cwd(), Path(crash.path)])
+            message = message.replace(common, ".")
+        return message
 
 
-def run_tests(path: Path, args: Optional[List[str]] = None) -> Results:
-    """
-    Run the tests and generate Results for inspection.
-    """
-    reporter = ResultsReporter()
-    pytest.main((args or []) + [str(path)], plugins=[reporter])
-    return reporter.results
+def _sanitize_args(args: List[str]) -> List[str]:
+    clean = []
+    skip_next = False
+    for arg in args:
+        if skip_next:
+            skip_next = False
+            continue
+        if arg == "--tb":
+            skip_next = True
+            continue
+        elif arg.startswith("--tb="):
+            continue
+        clean.append(arg)
+    clean.append("--tb=no")
+    return clean
 
 
 def run(slug: Slug, indir: Directory, outdir: Directory, args: List[str]) -> None:
@@ -116,6 +147,7 @@ def run(slug: Slug, indir: Directory, outdir: Directory, args: List[str]) -> Non
     test_file = indir.joinpath(slug.replace("-", "_") + "_test.py")
     out_file = outdir.joinpath("results.json")
     # run the tests and report
-    results = run_tests(test_file, args)
+    reporter = ResultsReporter()
+    pytest.main(_sanitize_args(args or []) + [str(test_file)], plugins=[reporter])
     # dump the report
-    out_file.write_text(results.as_json())
+    out_file.write_text(reporter.results.as_json())

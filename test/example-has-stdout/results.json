@@ -4,31 +4,31 @@
     {
       "name": "ExampleHasStdoutTest.test_hello",
       "status": "fail",
-      "message": "self = <example_has_stdout_test.ExampleHasStdoutTest testMethod=test_hello>\n\n    def test_hello(self):\n>       self.assertEqual(hello(), \"Hello, World!\")\nE       AssertionError: None != 'Hello, World!'\n\ntest/example-has-stdout/example_has_stdout_test.py:9: AssertionError",
+      "message": "AssertionError: None != 'Hello, World!'",
       "output": "Hello, World!"
     },
     {
       "name": "ExampleHasStdoutTest.test_abc",
       "status": "fail",
-      "message": "self = <example_has_stdout_test.ExampleHasStdoutTest testMethod=test_abc>\n\n    def test_abc(self):\n>       self.assertEqual(hello(), \"Hello, World!\")\nE       AssertionError: None != 'Hello, World!'\n\ntest/example-has-stdout/example_has_stdout_test.py:12: AssertionError",
+      "message": "AssertionError: None != 'Hello, World!'",
       "output": "Hello, World!"
     },
     {
       "name": "ExampleHasStdoutTest.test_trancation",
       "status": "fail",
-      "message": "self = <example_has_stdout_test.ExampleHasStdoutTest testMethod=test_trancation>\n\n    def test_trancation(self):\n>       self.assertEqual(must_truncate(), \"Hello, World!\")\nE       AssertionError: 'Goodbye!' != 'Hello, World!'\nE       - Goodbye!\nE       + Hello, World!\n\ntest/example-has-stdout/example_has_stdout_test.py:15: AssertionError",
+      "message": "AssertionError: 'Goodbye!' != 'Hello, World!'\n- Goodbye!\n+ Hello, World!",
       "output": "Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Vulputate ut pharetra sit amet aliquam. Amet dictum sit amet justo donec enim diam vulputate ut. Consequat nisl vel pretium lectus quam id leo. Maecenas accumsan lacus vel facilisis volutpat est velit egestas dui. Faucibus et molestie ac feugiat sed. Fringilla phasellus faucibus scelerisque eleifend donec pretium vulputate s [Output was truncated. Please limit to 500 chars]"
     },
     {
       "name": "ExampleHasStdoutOtherTest.test_dummy",
       "status": "fail",
-      "message": "self = <example_has_stdout_test.ExampleHasStdoutOtherTest testMethod=test_dummy>\n\n    def test_dummy(self):\n>       self.assertEqual(hello(), \"Hello, World!\")\nE       AssertionError: None != 'Hello, World!'\n\ntest/example-has-stdout/example_has_stdout_test.py:20: AssertionError",
+      "message": "AssertionError: None != 'Hello, World!'",
       "output": "Hello, World!"
     },
     {
       "name": "ExampleHasStdoutOtherTest.test_hello",
       "status": "fail",
-      "message": "self = <example_has_stdout_test.ExampleHasStdoutOtherTest testMethod=test_hello>\n\n    def test_hello(self):\n>       self.assertEqual(hello(), \"Hello, World!\")\nE       AssertionError: None != 'Hello, World!'\n\ntest/example-has-stdout/example_has_stdout_test.py:23: AssertionError",
+      "message": "AssertionError: None != 'Hello, World!'",
       "output": "Hello, World!"
     }
   ]

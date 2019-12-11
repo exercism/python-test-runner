@@ -4,7 +4,7 @@
     {
       "name": "ExamplePartialFailTest.test_hello",
       "status": "fail",
-      "message": "self = <example_partial_fail_test.ExamplePartialFailTest testMethod=test_hello>\n\n    def test_hello(self):\n>       self.assertEqual(hello(), \"Goodbye\")\nE       AssertionError: 'Hello, World!' != 'Goodbye'\nE       - Hello, World!\nE       + Goodbye\n\ntest/example-partial-fail/example_partial_fail_test.py:9: AssertionError"
+      "message": "AssertionError: 'Hello, World!' != 'Goodbye'\n- Hello, World!\n+ Goodbye"
     },
     {
       "name": "ExamplePartialFailTest.test_abc",
@@ -13,7 +13,7 @@
     {
       "name": "ExamplePartialFailOtherTest.test_dummy",
       "status": "fail",
-      "message": "self = <example_partial_fail_test.ExamplePartialFailOtherTest testMethod=test_dummy>\n\n    def test_dummy(self):\n>       self.assertEqual(hello(), \"Goodbye\")\nE       AssertionError: 'Hello, World!' != 'Goodbye'\nE       - Hello, World!\nE       + Goodbye\n\ntest/example-partial-fail/example_partial_fail_test.py:17: AssertionError"
+      "message": "AssertionError: 'Hello, World!' != 'Goodbye'\n- Hello, World!\n+ Goodbye"
     },
     {
       "name": "ExamplePartialFailOtherTest.test_hello",

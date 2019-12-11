@@ -4,22 +4,22 @@
     {
       "name": "ExampleAllFailTest.test_hello",
       "status": "fail",
-      "message": "self = <example_all_fail_test.ExampleAllFailTest testMethod=test_hello>\n\n    def test_hello(self):\n>       self.assertEqual(hello(), \"Hello, World!\")\nE       AssertionError: 'Goodbye!' != 'Hello, World!'\nE       - Goodbye!\nE       + Hello, World!\n\ntest/example-all-fail/example_all_fail_test.py:9: AssertionError"
+      "message": "AssertionError: 'Goodbye!' != 'Hello, World!'\n- Goodbye!\n+ Hello, World!"
     },
     {
       "name": "ExampleAllFailTest.test_abc",
       "status": "fail",
-      "message": "self = <example_all_fail_test.ExampleAllFailTest testMethod=test_abc>\n\n    def test_abc(self):\n>       self.assertEqual(hello(), \"Hello, World!\")\nE       AssertionError: 'Goodbye!' != 'Hello, World!'\nE       - Goodbye!\nE       + Hello, World!\n\ntest/example-all-fail/example_all_fail_test.py:12: AssertionError"
+      "message": "AssertionError: 'Goodbye!' != 'Hello, World!'\n- Goodbye!\n+ Hello, World!"
     },
     {
       "name": "ExampleAllFailOtherTest.test_dummy",
       "status": "fail",
-      "message": "self = <example_all_fail_test.ExampleAllFailOtherTest testMethod=test_dummy>\n\n    def test_dummy(self):\n>       self.assertEqual(hello(), \"Hello, World!\")\nE       AssertionError: 'Goodbye!' != 'Hello, World!'\nE       - Goodbye!\nE       + Hello, World!\n\ntest/example-all-fail/example_all_fail_test.py:17: AssertionError"
+      "message": "AssertionError: 'Goodbye!' != 'Hello, World!'\n- Goodbye!\n+ Hello, World!"
     },
     {
       "name": "ExampleAllFailOtherTest.test_hello",
       "status": "fail",
-      "message": "self = <example_all_fail_test.ExampleAllFailOtherTest testMethod=test_hello>\n\n    def test_hello(self):\n>       self.assertEqual(hello(), \"Hello, World!\")\nE       AssertionError: 'Goodbye!' != 'Hello, World!'\nE       - Goodbye!\nE       + Hello, World!\n\ntest/example-all-fail/example_all_fail_test.py:20: AssertionError"
+      "message": "AssertionError: 'Goodbye!' != 'Hello, World!'\n- Goodbye!\n+ Hello, World!"
     }
   ]
 }
