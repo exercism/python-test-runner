@@ -16,6 +16,7 @@ RUNNER = ROOT.joinpath("..", "bin", "run.sh").resolve(strict=True)
 STYLE_TEST = ROOT.joinpath("traceback-styles/traceback_styles_test.py")
 TESTS = sorted(ROOT.glob("example*/example*_test.py"))
 
+
 def run_in_subprocess(test_path, golden_path, args=None):
     """
     Run given tests against the given golden file.
@@ -24,7 +25,7 @@ def run_in_subprocess(test_path, golden_path, args=None):
     exercise_name = exercise_dir.name
     args = ["--color=no"] + (args or [])
     with tempfile.TemporaryDirectory(prefix="test-runner-tests") as tmp_dir:
-        subprocess.run([RUNNER, exercise_name, exercise_dir, tmp_dir] + args, env={})
+        subprocess.run([RUNNER, exercise_name, exercise_dir, tmp_dir] + args, env={}, shell=True)
         results = Path(tmp_dir).joinpath("results.json").resolve(strict=True)
         return json.loads(results.read_text()), json.loads(golden_path.read_text())
 
@@ -65,4 +66,3 @@ def test_style_matches_golden_file(style_test_and_golden):
     style, test_file, golden_file = style_test_and_golden
     results, golden = run_in_subprocess(test_file, golden_file, args=[f"--tb={style}"])
     assert results == golden
-
