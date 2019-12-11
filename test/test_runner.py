@@ -24,8 +24,8 @@ def run_in_subprocess(test_path, golden_path, args=None):
     exercise_dir = test_path.parent
     exercise_name = exercise_dir.name
     args = ["--color=no"] + (args or [])
-    with tempfile.TemporaryDirectory(prefix="test-runner-tests") as tmp_dir:
-        subprocess.run([RUNNER, exercise_name, exercise_dir, tmp_dir] + args, env={}, shell=True)
+    with tempfile.TemporaryDirectory(prefix="test-runner-tests", dir=ROOT) as tmp_dir:
+        subprocess.run([RUNNER, exercise_name, exercise_dir, tmp_dir] + args, env={})
         results = Path(tmp_dir).joinpath("results.json").resolve(strict=True)
         return json.loads(results.read_text()), json.loads(golden_path.read_text())
 
