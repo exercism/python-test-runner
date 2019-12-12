@@ -1,0 +1,23 @@
+{
+  "status": "fail",
+  "tests": [
+    {
+      "name": "ExamplePartialFailTest.test_hello",
+      "status": "fail",
+      "message": "AssertionError: 'Hello, World!' != 'Goodbye'\n- Hello, World!\n+ Goodbye"
+    },
+    {
+      "name": "ExamplePartialFailTest.test_abc",
+      "status": "pass"
+    },
+    {
+      "name": "ExamplePartialFailOtherTest.test_dummy",
+      "status": "fail",
+      "message": "AssertionError: 'Hello, World!' != 'Goodbye'\n- Hello, World!\n+ Goodbye"
+    },
+    {
+      "name": "ExamplePartialFailOtherTest.test_hello",
+      "status": "pass"
+    }
+  ]
+}

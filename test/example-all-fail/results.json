@@ -1,0 +1,25 @@
+{
+  "status": "fail",
+  "tests": [
+    {
+      "name": "ExampleAllFailTest.test_hello",
+      "status": "fail",
+      "message": "AssertionError: 'Goodbye!' != 'Hello, World!'\n- Goodbye!\n+ Hello, World!"
+    },
+    {
+      "name": "ExampleAllFailTest.test_abc",
+      "status": "fail",
+      "message": "AssertionError: 'Goodbye!' != 'Hello, World!'\n- Goodbye!\n+ Hello, World!"
+    },
+    {
+      "name": "ExampleAllFailOtherTest.test_dummy",
+      "status": "fail",
+      "message": "AssertionError: 'Goodbye!' != 'Hello, World!'\n- Goodbye!\n+ Hello, World!"
+    },
+    {
+      "name": "ExampleAllFailOtherTest.test_hello",
+      "status": "fail",
+      "message": "AssertionError: 'Goodbye!' != 'Hello, World!'\n- Goodbye!\n+ Hello, World!"
+    }
+  ]
+}

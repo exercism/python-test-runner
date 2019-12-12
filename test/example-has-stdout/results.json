@@ -1,0 +1,35 @@
+{
+  "status": "fail",
+  "tests": [
+    {
+      "name": "ExampleHasStdoutTest.test_hello",
+      "status": "fail",
+      "message": "AssertionError: None != 'Hello, World!'",
+      "output": "Hello, World!"
+    },
+    {
+      "name": "ExampleHasStdoutTest.test_abc",
+      "status": "fail",
+      "message": "AssertionError: None != 'Hello, World!'",
+      "output": "Hello, World!"
+    },
+    {
+      "name": "ExampleHasStdoutTest.test_trancation",
+      "status": "fail",
+      "message": "AssertionError: 'Goodbye!' != 'Hello, World!'\n- Goodbye!\n+ Hello, World!",
+      "output": "Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Vulputate ut pharetra sit amet aliquam. Amet dictum sit amet justo donec enim diam vulputate ut. Consequat nisl vel pretium lectus quam id leo. Maecenas accumsan lacus vel facilisis volutpat est velit egestas dui. Faucibus et molestie ac feugiat sed. Fringilla phasellus faucibus scelerisque eleifend donec pretium vulputate s [Output was truncated. Please limit to 500 chars]"
+    },
+    {
+      "name": "ExampleHasStdoutOtherTest.test_dummy",
+      "status": "fail",
+      "message": "AssertionError: None != 'Hello, World!'",
+      "output": "Hello, World!"
+    },
+    {
+      "name": "ExampleHasStdoutOtherTest.test_hello",
+      "status": "fail",
+      "message": "AssertionError: None != 'Hello, World!'",
+      "output": "Hello, World!"
+    }
+  ]
+}
