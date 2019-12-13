@@ -23,9 +23,11 @@ def run_in_subprocess(test_path, golden_path, args=None):
     exercise_name = exercise_dir.name
     args = ["--color=no"] + (args or [])
     with tempfile.TemporaryDirectory(prefix="test-runner-tests", dir=ROOT) as tmp_dir:
-        subprocess.run([RUNNER, exercise_name, exercise_dir, tmp_dir] + args, env={})
+        rc = subprocess.run(
+            [RUNNER, exercise_name, exercise_dir, tmp_dir] + args, env={}
+        ).returncode
         results = Path(tmp_dir).joinpath("results.json").resolve(strict=True)
-        return json.loads(results.read_text()), json.loads(golden_path.read_text())
+        return json.loads(results.read_text()), json.loads(golden_path.read_text()), rc
 
 
 @pytest.fixture(params=TESTS)
@@ -42,8 +44,9 @@ def test_results_matches_golden_file(test_with_golden):
     """
     Test that the results of a run matches the golden file.
     """
-    results, golden = run_in_subprocess(*test_with_golden)
-    assert results == golden
+    results, golden, rc = run_in_subprocess(*test_with_golden)
+    assert results == golden, "results must match the golden file"
+    assert rc == 0, f"return code must be 0 even when errors occur: got {rc}"
 
 
 # the below are the --tb=STYLE options for traceback styling, see pytest -h
@@ -58,7 +61,8 @@ def style(request):
 
 def test_style_matches_golden_file(test_with_golden, style):
     """
-    Test the various traceback styles generate correctly.
+    Test that --tb=STYLE arguments don't change the results.json contents.
     """
-    results, golden = run_in_subprocess(*test_with_golden, args=[f"--tb={style}"])
-    assert results == golden
+    results, golden, rc = run_in_subprocess(*test_with_golden, args=[f"--tb={style}"])
+    assert results == golden, f"results with --tb={style} must not change results.json"
+    assert rc == 0, f"return code must be 0 even when errors occur: got {rc}"
