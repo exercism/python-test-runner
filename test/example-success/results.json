@@ -3,19 +3,23 @@
   "tests": [
     {
       "name": "ExampleSuccessTest.test_hello",
-      "status": "pass"
+      "status": "pass",
+      "output": "User output is captured!"
     },
     {
       "name": "ExampleSuccessTest.test_abc",
-      "status": "pass"
+      "status": "pass",
+      "output": "User output is captured!"
     },
     {
       "name": "ExampleSuccessOtherTest.test_dummy",
-      "status": "pass"
+      "status": "pass",
+      "output": "User output is captured!"
     },
     {
       "name": "ExampleSuccessOtherTest.test_hello",
-      "status": "pass"
+      "status": "pass",
+      "output": "User output is captured!"
     }
   ]
 }

@@ -41,32 +41,49 @@ class Test:
     name: str
     status: Status = Status.PASS
     message: Message = None
-    output: Output = None
 
-    def _update(
-        self, status: Status, message: Message = None, output: Output = None
-    ) -> None:
+    # for an explanation of why both of these are necessary see
+    # https://florimond.dev/blog/articles/2018/10/reconciling-dataclasses-and-properties-in-python/
+    output: Output = None
+    _output: Output = field(default=None, init=False, repr=False)
+
+    def _update(self, status: Status, message: Message = None) -> None:
         self.status = status
         if message:
             self.message = message
-        if output:
-            output = output.strip()
-            truncate_msg = " [Output was truncated. Please limit to 500 chars]"
-            if len(output) > 500:
-                output = output[: 500 - len(truncate_msg)] + truncate_msg
-            self.output = output
 
-    def fail(self, message: Message = None, output: Output = None) -> None:
+    @property
+    def output(self) -> Output:
+        return self._output
+
+    @output.setter
+    def output(self, captured: Output) -> None:
+
+        # this test is necessary due to a curious artifact of @dataclass when
+        # combined with @property; if no value is passed to the Test constructor
+        # then the generated __init__ will attempt to call the property.setter
+        # with the property itself; by ignoring that we let the private field's 
+        # default value (in this case None) remain in place
+        if isinstance(captured, property):
+            return
+
+        captured = captured.strip()
+        truncate_msg = " [Output was truncated. Please limit to 500 chars]"
+        if len(captured) > 500:
+            captured = captured[: 500 - len(truncate_msg)] + truncate_msg
+        self._output = captured
+
+    def fail(self, message: Message = None) -> None:
         """
         Indicate this test failed.
         """
-        self._update(Status.FAIL, message, output)
+        self._update(Status.FAIL, message)
 
-    def error(self, message: Message = None, output: Output = None) -> None:
+    def error(self, message: Message = None) -> None:
         """
         Indicate this test encountered an error.
         """
-        self._update(Status.ERROR, message, output)
+        self._update(Status.ERROR, message)
 
     def is_passing(self):
         """
@@ -110,7 +127,7 @@ class Results:
     def _factory(items):
         result = {}
         for k, v in items:
-            if k in {"message", "output"} and v is None:
+            if k == "_output" or k in {"message", "output"} and v is None:
                 continue
             if isinstance(v, Status):
                 v = v.name.lower()

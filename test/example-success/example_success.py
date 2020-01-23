@@ -2,4 +2,5 @@
 
 
 def hello():
+    print("User output is captured!")
     return "Hello, World!"

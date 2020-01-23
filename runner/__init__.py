@@ -49,6 +49,10 @@ class ResultsReporter:
         if not state.is_passing():
             return
 
+        # captured stdout content, if any
+        if report.capstdout:
+            state.output = report.capstdout
+
         # handle test failure
         if report.failed:
 
@@ -59,16 +63,11 @@ class ResultsReporter:
                 crash = report.longrepr.reprcrash
                 message = self._make_message(trace, crash)
 
-            # captured stdout content, if any
-            output = None
-            if report.capstdout:
-                output = report.capstdout
-
             # test failed due to a setup / teardown error
             if report.when != "call":
-                state.error(message, output)
+                state.error(message)
             else:
-                state.fail(message, output)
+                state.fail(message)
 
     def pytest_sessionfinish(self, session, exitstatus):
         """
