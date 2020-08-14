@@ -36,4 +36,4 @@ mkdir -p "$output_dir"
 docker run \
     --mount type=bind,src=$PWD/$2,dst=/solution \
     --mount type=bind,src=$PWD/$output_dir,dst=/output \
-    python-test-runner $1 /solution/ /output/
+    python-test-runner $1 /solution/ /output/ -v
