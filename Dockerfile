@@ -8,4 +8,4 @@ COPY . /opt/test-runner
 
 WORKDIR /opt/test-runner
 
-ENTRYPOINT [ "sh", "bin/run.sh", "-v" ]
+ENTRYPOINT [ "sh", "bin/run.sh" ]
