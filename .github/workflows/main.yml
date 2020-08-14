@@ -26,4 +26,4 @@ jobs:
         run: docker build -f Dockerfile -t python-test-runner .
 
       - name: Run Tests
-        run: docker run --entrypoint "pytest" python-test-runner
+        run: docker run --entrypoint "pytest -v" python-test-runner
