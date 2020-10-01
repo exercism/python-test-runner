@@ -19,4 +19,4 @@ COPY . /opt/test-runner
 
 WORKDIR /opt/test-runner
 
-ENTRYPOINT [ "sh", "bin/run.sh" ]
+ENTRYPOINT [ "/opt/test-runner/bin/run.sh" ]
