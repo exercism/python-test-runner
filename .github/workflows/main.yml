@@ -9,11 +9,6 @@ on:
       - '.gitignore'
       - 'LICENSE'
       - '**.md'
-  push:
-    paths-ignore:
-      - '.gitignore'
-      - 'LICENSE'
-      - '**.md'
 
 jobs:
   build:
