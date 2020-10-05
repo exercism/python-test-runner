@@ -1,6 +1,7 @@
 #! /usr/bin/env python3
 """
 CLI for the test runner for the Python track on Exercism.io.
+./bin/run.sh two_fer ~/solution-238382y7sds7fsadfasj23j/ ~/solution-238382y7sds7fsadfasj23j/output/
 """
 from argparse import ArgumentParser, ArgumentTypeError, REMAINDER
 
