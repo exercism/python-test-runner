@@ -7,22 +7,12 @@
       "output": "User output is captured!"
     },
     {
-      "name": "ExampleFirstTest.test_abc",
-      "status": "pass",
-      "output": "User output is captured!"
-    },
-    {
-      "name": "ExampleFirstTest.test_dummy",
-      "status": "pass",
-      "output": "User output is captured!"
-    },
-    {
-      "name": "ExampleFirstTest.test_hello",
-      "status": "pass",
-      "output": "User output is captured!"
-    },
-    {
       "name": "ExampleSecondTest.test_hello",
+      "status": "pass",
+      "output": "User output is captured!"
+    },
+    {
+      "name": "ExampleFirstTest.test_abc",
       "status": "pass",
       "output": "User output is captured!"
     },
@@ -32,12 +22,22 @@
       "output": "User output is captured!"
     },
     {
-      "name": "ExampleSecondTest.test_dummy",
+      "name": "ExampleFirstOtherTest.test_dummy",
       "status": "pass",
       "output": "User output is captured!"
     },
     {
-      "name": "ExampleSecondTest.test_hello",
+      "name": "ExampleSecondOtherTest.test_dummy",
+      "status": "pass",
+      "output": "User output is captured!"
+    },
+    {
+      "name": "ExampleFirstOtherTest.test_hello",
+      "status": "pass",
+      "output": "User output is captured!"
+    },
+    {
+      "name": "ExampleSecondOtherTest.test_hello",
       "status": "pass",
       "output": "User output is captured!"
     }
