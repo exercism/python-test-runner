@@ -143,10 +143,18 @@ def run(slug: Slug, indir: Directory, outdir: Directory, args: List[str]) -> Non
     """
     Run the tests for the given exercise and produce a results.json.
     """
-    test_file = indir.joinpath(slug.replace("-", "_") + "_test.py")
+    test_files = []
+    config_file = indir.joinpath(".meta").joinpath("config.json")
+    if config_file.is_file():
+        config_data = json.loads(config_file.read_text())
+        editor_config = config_data.get("editor", {})
+        for filename in config_data.get("test_files", []):
+            test_files.append(indir.joinpath(filename))
+    if not test_files:
+        test_files.append(indir.joinpath(slug.replace("-", "_") + "_test.py"))
     out_file = outdir.joinpath("results.json")
     # run the tests and report
     reporter = ResultsReporter()
-    pytest.main(_sanitize_args(args or []) + [str(test_file)], plugins=[reporter])
+    pytest.main(_sanitize_args(args or []) + [str(tf) for tf in test_files], plugins=[reporter])
     # dump the report
     out_file.write_text(reporter.results.as_json())
