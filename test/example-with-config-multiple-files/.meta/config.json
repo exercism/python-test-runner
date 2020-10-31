@@ -1,0 +1,5 @@
+{
+    "editor": {
+        "test_files": ["example_first_test.py", "example_second_test.py"]
+    }
+}
