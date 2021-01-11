@@ -4,21 +4,25 @@
     {
       "name": "ExampleWithConfigTest.test_hello",
       "status": "pass",
+      "test_code": "self.assertEqual(hello(), \"Hello, World!\")",
       "output": "User output is captured!"
     },
     {
       "name": "ExampleWithConfigTest.test_abc",
       "status": "pass",
+      "test_code": "self.assertEqual(hello(), \"Hello, World!\")",
       "output": "User output is captured!"
     },
     {
       "name": "ExampleWithConfigOtherTest.test_dummy",
       "status": "pass",
+      "test_code": "self.assertEqual(hello(), \"Hello, World!\")",
       "output": "User output is captured!"
     },
     {
       "name": "ExampleWithConfigOtherTest.test_hello",
       "status": "pass",
+      "test_code": "self.assertEqual(hello(), \"Hello, World!\")",
       "output": "User output is captured!"
     }
   ]
