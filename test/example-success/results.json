@@ -4,21 +4,25 @@
     {
       "name": "ExampleSuccessTest.test_hello",
       "status": "pass",
+      "test_code": "self.assertEqual(hello(), \"Hello, World!\")",
       "output": "User output is captured!"
     },
     {
       "name": "ExampleSuccessTest.test_abc",
       "status": "pass",
+      "test_code": "self.assertEqual(hello(), \"Hello, World!\")",
       "output": "User output is captured!"
     },
     {
       "name": "ExampleSuccessOtherTest.test_dummy",
       "status": "pass",
+      "test_code": "self.assertEqual(hello(), \"Hello, World!\")",
       "output": "User output is captured!"
     },
     {
       "name": "ExampleSuccessOtherTest.test_hello",
       "status": "pass",
+      "test_code": "self.assertEqual(hello(), \"Hello, World!\")",
       "output": "User output is captured!"
     }
   ]

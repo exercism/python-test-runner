@@ -4,20 +4,24 @@
     {
       "name": "ExamplePartialFailTest.test_hello",
       "status": "fail",
-      "message": "AssertionError: 'Hello, World!' != 'Goodbye'\n- Hello, World!\n+ Goodbye"
+      "message": "AssertionError: 'Hello, World!' != 'Goodbye'\n- Hello, World!\n+ Goodbye",
+      "test_code": "self.assertEqual(hello(), \"Goodbye\")"
     },
     {
       "name": "ExamplePartialFailTest.test_abc",
-      "status": "pass"
+      "status": "pass",
+      "test_code": "self.assertEqual(hello(), \"Hello, World!\")"
     },
     {
       "name": "ExamplePartialFailOtherTest.test_dummy",
       "status": "fail",
-      "message": "AssertionError: 'Hello, World!' != 'Goodbye'\n- Hello, World!\n+ Goodbye"
+      "message": "AssertionError: 'Hello, World!' != 'Goodbye'\n- Hello, World!\n+ Goodbye",
+      "test_code": "self.assertEqual(hello(), \"Goodbye\")"
     },
     {
       "name": "ExamplePartialFailOtherTest.test_hello",
-      "status": "pass"
+      "status": "pass",
+      "test_code": "self.assertEqual(hello(), \"Hello, World!\")"
     }
   ]
 }

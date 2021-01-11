@@ -1,11 +1,20 @@
 """
 Test Runner for Python.
 """
-from ast import NodeVisitor, ClassDef, FunctionDef, AsyncFunctionDef, parse
+from ast import (
+    NodeVisitor,
+    ClassDef,
+    FunctionDef,
+    AsyncFunctionDef,
+    parse,
+    For,
+    While,
+    If,
+)
 from pathlib import Path
 from typing import Dict, overload
 
-from .data import Hierarchy
+from .data import Hierarchy, TestInfo
 
 # pylint: disable=invalid-name, no-self-use
 
@@ -15,7 +24,7 @@ class TestOrder(NodeVisitor):
     Visits test_* methods in a file and caches their definition order.
     """
 
-    _cache: Dict[Hierarchy, int] = {}
+    _cache: Dict[Hierarchy, TestInfo] = {}
 
     def __init__(self, root: Hierarchy) -> None:
         super().__init__()
@@ -41,7 +50,12 @@ class TestOrder(NodeVisitor):
 
     def _visit_definition(self, node):
         if node.name.startswith("test_"):
-            self._cache[self.get_hierarchy(Hierarchy(node.name))] = node.lineno
+            last_body = node.body[-1]
+            while isinstance(last_body, (For, While, If)):
+                last_body = last_body.Body[-1]
+            testinfo = TestInfo(node.lineno, last_body.lineno)
+
+            self._cache[self.get_hierarchy(Hierarchy(node.name))] = testinfo
         self.generic_visit(node)
 
     def visit_FunctionDef(self, node: FunctionDef) -> None:
@@ -70,4 +84,22 @@ class TestOrder(NodeVisitor):
         if test_id not in cls._cache:
             tree = parse(source.read_text(), source.name)
             cls(Hierarchy(test_id.split("::")[0])).visit(tree)
-        return cls._cache[test_id]
+        return cls._cache[test_id].lineno
+
+    @classmethod
+    def function_source(cls, test_id: Hierarchy, source: Path) -> str:
+        """
+        Returns the line that the given test was defined on.
+        """
+        text = source.read_text()
+        if test_id not in cls._cache:
+            tree = parse(text, source.name)
+            cls(Hierarchy(test_id.split("::")[0])).visit(tree)
+        testinfo = cls._cache[test_id]
+        lines = text.splitlines()[testinfo.lineno: testinfo.end_lineno + 1]
+        if not lines[-1]:
+            lines.pop()
+        # dedent source
+        while all(line.startswith(' ') for line in lines):
+            lines = [line[1:] for line in lines]
+        return '\n'.join(lines)

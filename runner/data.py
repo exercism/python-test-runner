@@ -33,6 +33,12 @@ Output = Optional[str]
 
 
 @dataclass
+class TestInfo:
+    lineno: int
+    end_lineno: int
+
+
+@dataclass
 class Test:
     """
     An individual test's results.
@@ -41,6 +47,7 @@ class Test:
     name: str
     status: Status = Status.PASS
     message: Message = None
+    test_code: str = ""
 
     # for an explanation of why both of these are necessary see
     # https://florimond.dev/blog/articles/2018/10/reconciling-dataclasses-and-properties-in-python/

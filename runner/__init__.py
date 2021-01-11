@@ -70,6 +70,10 @@ class ResultsReporter:
             else:
                 state.fail(message)
 
+        test_id = Hierarchy(report.nodeid)
+        source = Path(report.location[0])
+        state.test_code = TestOrder.function_source(test_id, source)
+
     def pytest_sessionfinish(self, session, exitstatus):
         """
         Processes the results into a report.

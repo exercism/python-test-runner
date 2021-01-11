@@ -4,41 +4,49 @@
     {
       "name": "ExampleFirstTest.test_hello",
       "status": "pass",
+      "test_code": "self.assertEqual(hello(), \"Hello, World!\")",
       "output": "User output is captured!"
     },
     {
       "name": "ExampleSecondTest.test_hello",
       "status": "pass",
+      "test_code": "self.assertEqual(hello(), \"Hello, World!\")",
       "output": "User output is captured!"
     },
     {
       "name": "ExampleFirstTest.test_abc",
       "status": "pass",
+      "test_code": "self.assertEqual(hello(), \"Hello, World!\")",
       "output": "User output is captured!"
     },
     {
       "name": "ExampleSecondTest.test_abc",
       "status": "pass",
+      "test_code": "self.assertEqual(hello(), \"Hello, World!\")",
       "output": "User output is captured!"
     },
     {
       "name": "ExampleFirstOtherTest.test_dummy",
       "status": "pass",
+      "test_code": "self.assertEqual(hello(), \"Hello, World!\")",
       "output": "User output is captured!"
     },
     {
       "name": "ExampleSecondOtherTest.test_dummy",
       "status": "pass",
+      "test_code": "self.assertEqual(hello(), \"Hello, World!\")",
       "output": "User output is captured!"
     },
     {
       "name": "ExampleFirstOtherTest.test_hello",
       "status": "pass",
+      "test_code": "self.assertEqual(hello(), \"Hello, World!\")",
       "output": "User output is captured!"
     },
     {
       "name": "ExampleSecondOtherTest.test_hello",
       "status": "pass",
+      "test_code": "self.assertEqual(hello(), \"Hello, World!\")",
       "output": "User output is captured!"
     }
   ]
