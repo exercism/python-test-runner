@@ -105,6 +105,7 @@ class Results:
     Overall results of a test run.
     """
 
+    version: int = 2
     status: Status = Status.PASS
     message: Message = None
     tests: List[Test] = field(default_factory=list)
