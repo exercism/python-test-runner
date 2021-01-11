@@ -89,7 +89,7 @@ class TestOrder(NodeVisitor):
     @classmethod
     def function_source(cls, test_id: Hierarchy, source: Path) -> str:
         """
-        Returns the line that the given test was defined on.
+        Returns the source code of the given test.
         """
         text = source.read_text()
         if test_id not in cls._cache:
