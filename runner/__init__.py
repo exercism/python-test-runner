@@ -20,6 +20,10 @@ class ResultsReporter:
         self.results = Results()
         self.tests = {}
         self.last_err = None
+        self.config = None
+
+    def pytest_configure(self, config):
+        self.config = config
 
     def pytest_collection_modifyitems(self, session, config, items):
         """
@@ -71,7 +75,7 @@ class ResultsReporter:
                 state.fail(message)
 
         test_id = Hierarchy(report.nodeid)
-        source = Path(report.location[0])
+        source = Path(self.config.rootdir) / report.fspath
         state.test_code = TestOrder.function_source(test_id, source)
 
     def pytest_sessionfinish(self, session, exitstatus):
