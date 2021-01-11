@@ -52,7 +52,7 @@ class TestOrder(NodeVisitor):
         if node.name.startswith("test_"):
             last_body = node.body[-1]
             while isinstance(last_body, (For, While, If)):
-                last_body = last_body.Body[-1]
+                last_body = last_body.body[-1]
             testinfo = TestInfo(node.lineno, last_body.lineno)
 
             self._cache[self.get_hierarchy(Hierarchy(node.name))] = testinfo
@@ -100,6 +100,6 @@ class TestOrder(NodeVisitor):
         if not lines[-1]:
             lines.pop()
         # dedent source
-        while all(line.startswith(' ') for line in lines):
-            lines = [line[1:] for line in lines]
+        while all(line.startswith(' ') for line in lines if line):
+            lines = [line[1:] if line else line for line in lines]
         return '\n'.join(lines)
