@@ -156,8 +156,7 @@ def run(slug: Slug, indir: Directory, outdir: Directory, args: List[str]) -> Non
     config_file = indir.joinpath(".meta").joinpath("config.json")
     if config_file.is_file():
         config_data = json.loads(config_file.read_text())
-        editor_config = config_data.get("editor", {})
-        for filename in editor_config.get("test_files", []):
+        for filename in config_data.get('files', {}).get('test', []):
             test_files.append(indir.joinpath(filename))
     if not test_files:
         test_files.append(indir.joinpath(slug.replace("-", "_") + "_test.py"))
