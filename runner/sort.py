@@ -2,7 +2,9 @@
 Test Runner for Python.
 """
 from ast import (
+    walk,
     NodeVisitor,
+    NodeTransformer,
     ClassDef,
     FunctionDef,
     AsyncFunctionDef,
@@ -51,11 +53,18 @@ class TestOrder(NodeVisitor):
     def _visit_definition(self, node):
         if node.name.startswith("test_"):
             last_body = node.body[-1]
+
             while isinstance(last_body, (For, While, If)):
                 last_body = last_body.body[-1]
-            testinfo = TestInfo(node.lineno, last_body.lineno)
-
+            testinfo = TestInfo(node.lineno, last_body.lineno, 1)
             self._cache[self.get_hierarchy(Hierarchy(node.name))] = testinfo
+
+
+            for node in walk(last_body):
+                if any(hasattr(node, 'attr') and node.attr == 'subTest' for node in walk(last_body)):
+                    pass
+
+
         self.generic_visit(node)
 
     def visit_FunctionDef(self, node: FunctionDef) -> None:
