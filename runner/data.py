@@ -36,6 +36,7 @@ Output = Optional[str]
 class TestInfo:
     lineno: int
     end_lineno: int
+    variants: int
 
 
 @dataclass
@@ -47,12 +48,13 @@ class Test:
     name: str
     status: Status = Status.PASS
     message: Message = None
-    test_code: str = ""
 
     # for an explanation of why both of these are necessary see
     # https://florimond.dev/blog/articles/2018/10/reconciling-dataclasses-and-properties-in-python/
     output: Output = None
     _output: Output = field(default=None, init=False, repr=False)
+
+    test_code: str = ""
 
     def _update(self, status: Status, message: Message = None) -> None:
         self.status = status
@@ -75,6 +77,7 @@ class Test:
             return
 
         captured = captured.strip()
+        print(captured)
         truncate_msg = " [Output was truncated. Please limit to 500 chars]"
         if len(captured) > 500:
             captured = captured[: 500 - len(truncate_msg)] + truncate_msg
@@ -135,7 +138,7 @@ class Results:
     def _factory(items):
         result = {}
         for k, v in items:
-            if k == "_output" or k in {"message", "output"} and v is None:
+            if k == "_output" or k in {"message", "output", "subtest"} and v is None:
                 continue
             if isinstance(v, Status):
                 v = v.name.lower()
