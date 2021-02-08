@@ -4,8 +4,7 @@ Test Runner for Python.
 import os
 import re
 from textwrap import dedent
-from copy import deepcopy
-from typing import Dict, List, Optional
+from typing import List
 from pathlib import Path
 import json
 
