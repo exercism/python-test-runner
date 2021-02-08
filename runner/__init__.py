@@ -8,6 +8,7 @@ from copy import deepcopy
 from typing import Dict, List, Optional
 from pathlib import Path
 import json
+import stat
 
 import pytest
 
@@ -166,4 +167,4 @@ def run(slug: Slug, indir: Directory, outdir: Directory, args: List[str]) -> Non
     pytest.main(_sanitize_args(args or []) + [str(tf) for tf in test_files], plugins=[reporter])
     # dump the report
     out_file.write_text(reporter.results.as_json())
-    out_file.chmod(664)
+    out_file.chmod(stat.S_IWUSR | stat.S_IRUSR | stat.S_IRGRP | stat.S_IROTH)
