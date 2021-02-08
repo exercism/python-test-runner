@@ -7,6 +7,7 @@ from textwrap import dedent
 from typing import List
 from pathlib import Path
 import json
+import shutil
 
 import pytest
 
@@ -165,3 +166,8 @@ def run(slug: Slug, indir: Directory, outdir: Directory, args: List[str]) -> Non
     pytest.main(_sanitize_args(args or []) + [str(tf) for tf in test_files], plugins=[reporter])
     # dump the report
     out_file.write_text(reporter.results.as_json())
+    # remove cache directories
+    for cache_dir in ['.pytest_cache', '__pycache__']:
+        dirpath = indir / cache_dir
+        if dirpath.is_dir() and dirpath.owner() == os.getlogin():
+            shutil.rmtree(dirpath)
