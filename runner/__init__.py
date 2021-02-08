@@ -165,4 +165,3 @@ def run(slug: Slug, indir: Directory, outdir: Directory, args: List[str]) -> Non
     pytest.main(_sanitize_args(args or []) + [str(tf) for tf in test_files], plugins=[reporter])
     # dump the report
     out_file.write_text(reporter.results.as_json())
-    out_file.chmod(664)
