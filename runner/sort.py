@@ -1,10 +1,13 @@
 """
 Test Runner for Python.
 """
+import astor
 from ast import (
     walk,
+    iter_child_nodes,
     NodeVisitor,
     NodeTransformer,
+    Assign,
     ClassDef,
     FunctionDef,
     AsyncFunctionDef,
@@ -12,6 +15,7 @@ from ast import (
     For,
     While,
     If,
+    Delete
 )
 from pathlib import Path
 from typing import Dict, overload
@@ -36,7 +40,7 @@ class TestOrder(NodeVisitor):
         """
         Handles class definitions.
         """
-        bases = {f"{b.value.id}.{b.attr}" for b in node.bases}
+        bases = {f"{base.value.id}.{base.attr}" for base in node.bases}
         if "unittest.TestCase" in bases:
             self._hierarchy.append(Hierarchy(node.name))
         self.generic_visit(node)
@@ -56,14 +60,10 @@ class TestOrder(NodeVisitor):
 
             while isinstance(last_body, (For, While, If)):
                 last_body = last_body.body[-1]
+
             testinfo = TestInfo(node.lineno, last_body.lineno, 1)
+
             self._cache[self.get_hierarchy(Hierarchy(node.name))] = testinfo
-
-
-            for node in walk(last_body):
-                if any(hasattr(node, 'attr') and node.attr == 'subTest' for node in walk(last_body)):
-                    pass
-
 
         self.generic_visit(node)
 
@@ -85,6 +85,7 @@ class TestOrder(NodeVisitor):
         """
         return Hierarchy("::".join(self._hierarchy + [name]))
 
+
     @classmethod
     def lineno(cls, test_id: Hierarchy, source: Path) -> int:
         """
@@ -95,19 +96,25 @@ class TestOrder(NodeVisitor):
             cls(Hierarchy(test_id.split("::")[0])).visit(tree)
         return cls._cache[test_id].lineno
 
+
     @classmethod
     def function_source(cls, test_id: Hierarchy, source: Path) -> str:
         """
         Returns the source code of the given test.
         """
         text = source.read_text()
+
         if test_id not in cls._cache:
             tree = parse(text, source.name)
             cls(Hierarchy(test_id.split("::")[0])).visit(tree)
+
         testinfo = cls._cache[test_id]
+
         lines = text.splitlines()[testinfo.lineno: testinfo.end_lineno + 1]
+
         if not lines[-1]:
             lines.pop()
+
         # dedent source
         while all(line.startswith(' ') for line in lines if line):
             lines = [line[1:] if line else line for line in lines]
