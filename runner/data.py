@@ -137,12 +137,17 @@ class Results:
     @staticmethod
     def _factory(items):
         result = {}
-        for k, v in items:
-            if k == "_output" or k in {"message", "output", "subtest"} and v is None:
+        for key, value in items:
+
+            if key == "_output" or key in {"message", "output", "subtest"} and value is None:
                 continue
-            if isinstance(v, Status):
-                v = v.name.lower()
-            result[k] = v
+
+            elif key == "_output" or key in {"message", "output", "subtest"} and "\u001b[31mF\u001b[0m" in value:
+                continue
+
+            if isinstance(value, Status):
+                value = value.name.lower()
+            result[key] = value
         return result
 
     def as_json(self):
