@@ -41,9 +41,12 @@ class ResultsReporter:
         """
         Process a test setup / call / teardown report.
         """
-        name = ".".join(report.nodeid.split("::")[1:])
+
+        name = report.head_line if report.head_line else ".".join(report.nodeid.split("::")[1:])
+
         if name not in self.tests:
             self.tests[name] = Test(name)
+
         state = self.tests[name]
 
         # ignore succesful setup and teardown stages
@@ -54,7 +57,7 @@ class ResultsReporter:
         if not state.is_passing():
             return
 
-        # captured stdout content, if any
+        # captured relevant stdout content, if any
         if report.capstdout:
             state.output = report.capstdout
 
@@ -154,16 +157,21 @@ def run(slug: Slug, indir: Directory, outdir: Directory, args: List[str]) -> Non
     """
     test_files = []
     config_file = indir.joinpath(".meta").joinpath("config.json")
+
     if config_file.is_file():
         config_data = json.loads(config_file.read_text())
         for filename in config_data.get('files', {}).get('test', []):
             test_files.append(indir.joinpath(filename))
+
     if not test_files:
         test_files.append(indir.joinpath(slug.replace("-", "_") + "_test.py"))
+
     out_file = outdir.joinpath("results.json")
+
     # run the tests and report
     reporter = ResultsReporter()
     pytest.main(_sanitize_args(args or []) + [str(tf) for tf in test_files], plugins=[reporter])
+
     # dump the report
     out_file.write_text(reporter.results.as_json())
     # remove cache directories
