@@ -136,15 +136,14 @@ class Results:
     def _factory(items):
         result = {}
         for key, value in items:
-
             if key == "_output" or key in {"message", "output", "subtest"} and value is None:
                 continue
-
             elif key == "_output" or key in {"message", "output", "subtest"} and "\u001b[31mF\u001b[0m" in value:
                 continue
 
             if isinstance(value, Status):
                 value = value.name.lower()
+
             result[key] = value
         return result
 
