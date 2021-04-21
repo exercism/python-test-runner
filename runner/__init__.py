@@ -162,7 +162,6 @@ def run(slug: Slug, indir: Directory, outdir: Directory, args: List[str]) -> Non
     if config_file.is_file():
         config_data = json.loads(config_file.read_text())
         for filename in config_data.get('files', {}).get('test', []):
-
             test_files.append(indir.joinpath(filename))
 
     if not test_files:

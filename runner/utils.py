@@ -29,6 +29,7 @@ def directory(string: str) -> Directory:
         err = errno.ENOENT
         msg = os.strerror(err)
         raise FileNotFoundError(err, f"{msg}: {string!r}")
+
     if not os.access(path, os.R_OK | os.W_OK):
         err = errno.EACCES
         msg = os.strerror(err)

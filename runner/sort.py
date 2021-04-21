@@ -62,7 +62,6 @@ class TestOrder(NodeVisitor):
                 last_body = last_body.body[-1]
 
             testinfo = TestInfo(node.lineno, last_body.lineno, 1)
-
             self._cache[self.get_hierarchy(Hierarchy(node.name))] = testinfo
 
         self.generic_visit(node)
@@ -103,14 +102,12 @@ class TestOrder(NodeVisitor):
         Returns the source code of the given test.
         """
         text = source.read_text()
+        testinfo = cls._cache[test_id]
+        lines = text.splitlines()[testinfo.lineno: testinfo.end_lineno + 1]
 
         if test_id not in cls._cache:
             tree = parse(text, source.name)
             cls(Hierarchy(test_id.split("::")[0])).visit(tree)
-
-        testinfo = cls._cache[test_id]
-
-        lines = text.splitlines()[testinfo.lineno: testinfo.end_lineno + 1]
 
         if not lines[-1]:
             lines.pop()
