@@ -1,21 +1,15 @@
 """
 Test Runner for Python.
 """
-import astor
 from ast import (
-    walk,
-    iter_child_nodes,
     NodeVisitor,
-    NodeTransformer,
-    Assign,
     ClassDef,
     FunctionDef,
     AsyncFunctionDef,
     parse,
     For,
     While,
-    If,
-    Delete
+    If
 )
 from pathlib import Path
 from typing import Dict, overload
@@ -41,8 +35,10 @@ class TestOrder(NodeVisitor):
         Handles class definitions.
         """
         bases = {f"{base.value.id}.{base.attr}" for base in node.bases}
+
         if "unittest.TestCase" in bases:
             self._hierarchy.append(Hierarchy(node.name))
+
         self.generic_visit(node)
         self._hierarchy.pop()
 

@@ -11,7 +11,6 @@ import shutil
 
 import pytest
 
-
 from .data import Slug, Directory, Hierarchy, Results, Test
 from .sort import TestOrder
 
