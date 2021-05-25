@@ -57,6 +57,7 @@ class TestOrder(NodeVisitor):
             while isinstance(last_body, (For, While, If)):
                 last_body = last_body.body[-1]
 
+
             testinfo = TestInfo(node.lineno, last_body.lineno, 1)
             self._cache[self.get_hierarchy(Hierarchy(node.name))] = testinfo
 
