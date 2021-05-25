@@ -23,12 +23,20 @@ class ResultsReporter:
         self.config = None
 
     def pytest_configure(self, config):
+        config.addinivalue_line("markers", "task(taskno): this marks the exercise task number.")
         self.config = config
 
     def pytest_collection_modifyitems(self, session, config, items):
         """
-        Sorts the tests in definition order.
+        Sorts the tests in definition order & extracts task_id
         """
+        for item in items:
+            test_id = Hierarchy(item.nodeid)
+            name = '.'.join(test_id.split("::")[1:])
+
+            for mark in item.iter_markers(name='task'):
+                self.tests[name] = Test(name=name, task_id=mark.kwargs['taskno'])
+
 
         def _sort_by_lineno(item):
             test_id = Hierarchy(item.nodeid)
@@ -44,8 +52,10 @@ class ResultsReporter:
 
         name = report.head_line if report.head_line else ".".join(report.nodeid.split("::")[1:])
 
+
         if name not in self.tests:
             self.tests[name] = Test(name)
+
 
         state = self.tests[name]
 
@@ -80,6 +90,19 @@ class ResultsReporter:
         test_id = Hierarchy(report.nodeid)
         source = Path(self.config.rootdir) / report.fspath
         state.test_code = TestOrder.function_source(test_id, source)
+
+        # Looks up tast_ids from parent when the test is a subtest.
+        if state.task_id == 0 and 'variation' in state.name:
+            parent_test_name = state.name.split(' ')[0]
+            parent_task_id = self.tests[parent_test_name].task_id
+            state.task_id = parent_task_id
+
+            # Changes status of parent to fail if any of the subtests fail.
+            if state.fail:
+                self.tests[parent_test_name].fail(
+                    message="One or more subtests for this test failed. Details can be found under each variant."
+                )
+                self.tests[parent_test_name].test_code = state.test_code
 
     def pytest_sessionfinish(self, session, exitstatus):
         """
