@@ -49,6 +49,7 @@ class Test:
     status: Status = Status.PASS
     message: Message = None
     test_code: str = ""
+    task_id: int = 0
 
     # for an explanation of why both of these are necessary see
     # https://florimond.dev/blog/articles/2018/10/reconciling-dataclasses-and-properties-in-python/
@@ -57,6 +58,7 @@ class Test:
 
     def _update(self, status: Status, message: Message = None) -> None:
         self.status = status
+
         if message:
             self.message = message
 
@@ -93,6 +95,7 @@ class Test:
         """
         self._update(Status.ERROR, message)
 
+
     def is_passing(self):
         """
         Check if the test is currently passing.
@@ -106,7 +109,7 @@ class Results:
     Overall results of a test run.
     """
 
-    version: int = 2
+    version: int = 3
     status: Status = Status.PASS
     message: Message = None
     tests: List[Test] = field(default_factory=list)
@@ -117,6 +120,7 @@ class Results:
         """
         if test.status is Status.FAIL:
             self.fail()
+
         self.tests.append(test)
 
     def fail(self) -> None:
