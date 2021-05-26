@@ -5,7 +5,7 @@ import pytest
 from example_has_stdout_and_tasks import hello, must_truncate
 
 
-class ExampleHasStdoutTest(unittest.TestCase):
+class ExampleHasStdoutAndTasksTest(unittest.TestCase):
 
     @pytest.mark.task(taskno=1)
     def test_hello(self):
@@ -20,7 +20,7 @@ class ExampleHasStdoutTest(unittest.TestCase):
         self.assertEqual(must_truncate(), "Hello, World!")
 
 
-class ExampleHasStdoutOtherTest(unittest.TestCase):
+class ExampleHasStdoutAndTasksOtherTest(unittest.TestCase):
 
     @pytest.mark.task(taskno=4)
     def test_dummy(self):
