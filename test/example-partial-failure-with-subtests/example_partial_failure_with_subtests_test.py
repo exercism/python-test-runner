@@ -5,7 +5,7 @@ import pytest
 from example_partial_failure_with_subtests import hello
 
 
-class ExampleSuccessTest(unittest.TestCase):
+class ExamplePartialFailureWithSubtestsTest(unittest.TestCase):
 
     @pytest.mark.task(taskno=1)
     def test_hello(self):
@@ -29,7 +29,7 @@ class ExampleSuccessTest(unittest.TestCase):
                 self.assertEqual(hello(param), result,
                                  msg=f'Expected: {result} but got something else instead.')
 
-class ExampleSuccessOtherTest(unittest.TestCase):
+class ExamplePartialFailureWithSubtestsOtherTest(unittest.TestCase):
 
     @pytest.mark.task(taskno=2)
     def test_dummy(self):
