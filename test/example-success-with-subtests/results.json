@@ -1,0 +1,34 @@
+{
+  "version": 3,
+  "status": "pass",
+  "tests": [
+    {
+      "name": "ExampleSuccessTest.test_abc",
+      "status": "pass",
+      "test_code": "input_data = ['frog', 'fish', 'coconut', 'pineapple', 'carrot', 'cucumber', 'grass', 'tree']\nresult_data = [(\"Hello, World!\", param) for param in input_data]\nnumber_of_variants = range(1, len(input_data) + 1)\n\nfor variant, param, result in zip(number_of_variants, input_data, result_data):\n    with self.subTest(f\"variation #{variant}\", param=param, result=result):\n        self.assertEqual(hello(param), result,",
+      "task_id": 1,
+      "output": "User output is captured!\nUser output is captured!\nUser output is captured!\nUser output is captured!\nUser output is captured!\nUser output is captured!\nUser output is captured!\nUser output is captured!"
+    },
+    {
+      "name": "ExampleSuccessTest.test_hello",
+      "status": "pass",
+      "test_code": "input_data = [1, 2, 5, 10, 15, 23, 33, 39]\nresult_data = [(\"Hello, World!\", param) for param in input_data]\nnumber_of_variants = range(1, len(input_data) + 1)\n\nfor variant, param, result in zip(number_of_variants, input_data, result_data):\n    with self.subTest(f\"variation #{variant}\", param=param, result=result):\n        self.assertEqual(hello(param), result,",
+      "task_id": 1,
+      "output": "User output is captured!\nUser output is captured!\nUser output is captured!\nUser output is captured!\nUser output is captured!\nUser output is captured!\nUser output is captured!\nUser output is captured!"
+    },
+    {
+      "name": "ExampleSuccessOtherTest.test_dummy",
+      "status": "pass",
+      "test_code": "input_data = ['frog', 'fish', 'coconut', 'pineapple', 'carrot', 'cucumber', 'grass', 'tree']\nresult_data = [(\"Hello, World!\", param) for param in input_data]\nnumber_of_variants = range(1, len(input_data) + 1)\n\nfor variant, param, result in zip(number_of_variants, input_data, result_data):\n    with self.subTest(f\"variation #{variant}\", param=param, result=result):\n        self.assertEqual(hello(param), result,",
+      "task_id": 2,
+      "output": "User output is captured!\nUser output is captured!\nUser output is captured!\nUser output is captured!\nUser output is captured!\nUser output is captured!\nUser output is captured!\nUser output is captured!"
+    },
+    {
+      "name": "ExampleSuccessOtherTest.test_hello",
+      "status": "pass",
+      "test_code": "input_data = [1, 2, 5, 10, 15, 23, 33, 39]\nresult_data = [(\"Hello, World!\", param) for param in input_data]\nnumber_of_variants = range(1, len(input_data) + 1)\n\nfor variant, param, result in zip(number_of_variants, input_data, result_data):\n    with self.subTest(f\"variation #{variant}\", param=param, result=result):\n        self.assertEqual(hello(param), result,",
+      "task_id": 2,
+      "output": "User output is captured!\nUser output is captured!\nUser output is captured!\nUser output is captured!\nUser output is captured!\nUser output is captured!\nUser output is captured!\nUser output is captured!"
+    }
+  ]
+}
