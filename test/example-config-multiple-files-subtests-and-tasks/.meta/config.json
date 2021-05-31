@@ -1,0 +1,5 @@
+{
+    "files": {
+        "test": ["example_first_file_with_tasks_test.py", "example_second_file_with_tasks_and_subtests_test.py"]
+    }
+}
