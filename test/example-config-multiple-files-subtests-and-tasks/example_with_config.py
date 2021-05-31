@@ -2,6 +2,5 @@
 
 
 def hello(param):
-    param = param
-    print("User output is captured!")
+    print("User output is captured!", param)
     return ("Hello, World!", param)
