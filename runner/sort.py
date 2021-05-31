@@ -9,6 +9,7 @@ from ast import (
     parse,
     For,
     While,
+    With,
     If
 )
 from pathlib import Path
@@ -54,9 +55,9 @@ class TestOrder(NodeVisitor):
         if node.name.startswith("test_"):
             last_body = node.body[-1]
 
-            while isinstance(last_body, (For, While, If)):
+            # We need to account for subtests here by including "With" nodes
+            while isinstance(last_body, (For, While, If, With)):
                 last_body = last_body.body[-1]
-
 
             testinfo = TestInfo(node.lineno, last_body.lineno, 1)
             self._cache[self.get_hierarchy(Hierarchy(node.name))] = testinfo
@@ -96,10 +97,14 @@ class TestOrder(NodeVisitor):
     @classmethod
     def function_source(cls, test_id: Hierarchy, source: Path) -> str:
         """
-        Returns the source code of the given test.
+
+        :param test_id: Hierarchy position of test in AST
+        :param source: Path of source code file
+        :return: str of the source code of the given test.
         """
         text = source.read_text()
         testinfo = cls._cache[test_id]
+
         lines = text.splitlines()[testinfo.lineno: testinfo.end_lineno + 1]
 
         if test_id not in cls._cache:
@@ -109,7 +114,7 @@ class TestOrder(NodeVisitor):
         if not lines[-1]:
             lines.pop()
 
-        # dedent source
+        # Dedents source.
         while all(line.startswith(' ') for line in lines if line):
             lines = [line[1:] if line else line for line in lines]
         return '\n'.join(lines)
