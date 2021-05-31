@@ -1,6 +1,6 @@
 {
   "version": 3,
   "status": "error",
-  "message": "  File \".solution.example_syntax_error.py\", line 3\n    def hello();\n               ^\nSyntaxError: invalid syntax",
+  "message": "  File \"./test/example-syntax-error/example_syntax_error.py\", line 3\n    def hello();\n               ^\nSyntaxError: invalid syntax",
   "tests": []
 }
