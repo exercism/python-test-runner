@@ -6,6 +6,7 @@ from enum import Enum, auto
 from json import JSONEncoder, dumps
 from typing import Any, List, NewType, Optional
 from pathlib import Path
+from re import compile, match, sub
 
 # an exercise slug, ie two-fer
 Slug = NewType("Slug", str)
@@ -153,6 +154,15 @@ class Results:
 
     def as_json(self):
         """
-        Dump the current Results to formatted JSON.
+        Trim off the TestClass name and test_ prefix from each test_name.
+        Replace underscores with spaces for more human-readable strings.
+        Sort the current tests array by task_id and then Dump all results to formatted JSON.
         """
-        return dumps(asdict(self, dict_factory=self._factory), indent=2)
+        trim_name = compile(r'^(.+)(Test\.test_)')
+        results = asdict(self, dict_factory=self._factory)
+
+        for item in results["tests"]:
+            item["name"] = sub(trim_name, '\\1 > ', item["name"]).replace('_', ' ')
+
+        results["tests"] = sorted(results["tests"], key= lambda item: item["task_id"])
+        return dumps(results, indent=2)
