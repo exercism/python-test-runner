@@ -3,28 +3,28 @@
   "status": "pass",
   "tests": [
     {
-      "name": "ExampleWithConfigTest.test_hello",
+      "name": "ExampleWithConfig > hello",
       "status": "pass",
       "test_code": "self.assertEqual(hello(), \"Hello, World!\")",
       "task_id": 0,
       "output": "User output is captured!"
     },
     {
-      "name": "ExampleWithConfigTest.test_abc",
+      "name": "ExampleWithConfig > abc",
       "status": "pass",
       "test_code": "self.assertEqual(hello(), \"Hello, World!\")",
       "task_id": 0,
       "output": "User output is captured!"
     },
     {
-      "name": "ExampleWithConfigOtherTest.test_dummy",
+      "name": "ExampleWithConfigOther > dummy",
       "status": "pass",
       "test_code": "self.assertEqual(hello(), \"Hello, World!\")",
       "task_id": 0,
       "output": "User output is captured!"
     },
     {
-      "name": "ExampleWithConfigOtherTest.test_hello",
+      "name": "ExampleWithConfigOther > hello",
       "status": "pass",
       "test_code": "self.assertEqual(hello(), \"Hello, World!\")",
       "task_id": 0,

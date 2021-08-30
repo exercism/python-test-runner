@@ -3,28 +3,28 @@
   "status": "fail",
   "tests": [
     {
-      "name": "ExampleAllFailTest.test_hello",
+      "name": "ExampleAllFail > hello",
       "status": "fail",
       "message": "AssertionError: 'Goodbye!' != 'Hello, World!'\n- Goodbye!\n+ Hello, World!",
       "test_code": "self.assertEqual(hello(), \"Hello, World!\")",
       "task_id": 0
     },
     {
-      "name": "ExampleAllFailTest.test_abc",
+      "name": "ExampleAllFail > abc",
       "status": "fail",
       "message": "AssertionError: 'Goodbye!' != 'Hello, World!'\n- Goodbye!\n+ Hello, World!",
       "test_code": "self.assertEqual(hello(), \"Hello, World!\")",
       "task_id": 0
     },
     {
-      "name": "ExampleAllFailOtherTest.test_dummy",
+      "name": "ExampleAllFailOther > dummy",
       "status": "fail",
       "message": "AssertionError: 'Goodbye!' != 'Hello, World!'\n- Goodbye!\n+ Hello, World!",
       "test_code": "self.assertEqual(hello(), \"Hello, World!\")",
       "task_id": 0
     },
     {
-      "name": "ExampleAllFailOtherTest.test_hello",
+      "name": "ExampleAllFailOther > hello",
       "status": "fail",
       "message": "AssertionError: 'Goodbye!' != 'Hello, World!'\n- Goodbye!\n+ Hello, World!",
       "test_code": "self.assertEqual(hello(), \"Hello, World!\")",
