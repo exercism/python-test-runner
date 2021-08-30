@@ -3,56 +3,56 @@
   "status": "pass",
   "tests": [
     {
-      "name": "ExampleFirstTest.test_hello",
+      "name": "ExampleFirst > hello",
       "status": "pass",
       "test_code": "self.assertEqual(hello(), \"Hello, World!\")",
       "task_id": 0,
       "output": "User output is captured!"
     },
     {
-      "name": "ExampleSecondTest.test_hello",
+      "name": "ExampleSecond > hello",
       "status": "pass",
       "test_code": "self.assertEqual(hello(), \"Hello, World!\")",
       "task_id": 0,
       "output": "User output is captured!"
     },
     {
-      "name": "ExampleFirstTest.test_abc",
+      "name": "ExampleFirst > abc",
       "status": "pass",
       "test_code": "self.assertEqual(hello(), \"Hello, World!\")",
       "task_id": 0,
       "output": "User output is captured!"
     },
     {
-      "name": "ExampleSecondTest.test_abc",
+      "name": "ExampleSecond > abc",
       "status": "pass",
       "test_code": "self.assertEqual(hello(), \"Hello, World!\")",
       "task_id": 0,
       "output": "User output is captured!"
     },
     {
-      "name": "ExampleFirstOtherTest.test_dummy",
+      "name": "ExampleFirstOther > dummy",
       "status": "pass",
       "test_code": "self.assertEqual(hello(), \"Hello, World!\")",
       "task_id": 0,
       "output": "User output is captured!"
     },
     {
-      "name": "ExampleSecondOtherTest.test_dummy",
+      "name": "ExampleSecondOther > dummy",
       "status": "pass",
       "test_code": "self.assertEqual(hello(), \"Hello, World!\")",
       "task_id": 0,
       "output": "User output is captured!"
     },
     {
-      "name": "ExampleFirstOtherTest.test_hello",
+      "name": "ExampleFirstOther > hello",
       "status": "pass",
       "test_code": "self.assertEqual(hello(), \"Hello, World!\")",
       "task_id": 0,
       "output": "User output is captured!"
     },
     {
-      "name": "ExampleSecondOtherTest.test_hello",
+      "name": "ExampleSecondOther > hello",
       "status": "pass",
       "test_code": "self.assertEqual(hello(), \"Hello, World!\")",
       "task_id": 0,

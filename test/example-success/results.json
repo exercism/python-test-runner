@@ -3,28 +3,28 @@
   "status": "pass",
   "tests": [
     {
-      "name": "ExampleSuccessTest.test_hello",
+      "name": "ExampleSuccess > hello",
       "status": "pass",
       "test_code": "self.assertEqual(hello(), \"Hello, World!\")",
       "task_id": 0,
       "output": "User output is captured!"
     },
     {
-      "name": "ExampleSuccessTest.test_abc",
+      "name": "ExampleSuccess > abc",
       "status": "pass",
       "test_code": "self.assertEqual(hello(), \"Hello, World!\")",
       "task_id": 0,
       "output": "User output is captured!"
     },
     {
-      "name": "ExampleSuccessOtherTest.test_dummy",
+      "name": "ExampleSuccessOther > dummy",
       "status": "pass",
       "test_code": "self.assertEqual(hello(), \"Hello, World!\")",
       "task_id": 0,
       "output": "User output is captured!"
     },
     {
-      "name": "ExampleSuccessOtherTest.test_hello",
+      "name": "ExampleSuccessOther > hello",
       "status": "pass",
       "test_code": "self.assertEqual(hello(), \"Hello, World!\")",
       "task_id": 0,

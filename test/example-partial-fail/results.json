@@ -3,27 +3,27 @@
   "status": "fail",
   "tests": [
     {
-      "name": "ExamplePartialFailTest.test_hello",
+      "name": "ExamplePartialFail > hello",
       "status": "fail",
       "message": "AssertionError: 'Hello, World!' != 'Goodbye'\n- Hello, World!\n+ Goodbye",
       "test_code": "self.assertEqual(hello(), \"Goodbye\")",
       "task_id": 0
     },
     {
-      "name": "ExamplePartialFailTest.test_abc",
+      "name": "ExamplePartialFail > abc",
       "status": "pass",
       "test_code": "self.assertEqual(hello(), \"Hello, World!\")",
       "task_id": 0
     },
     {
-      "name": "ExamplePartialFailOtherTest.test_dummy",
+      "name": "ExamplePartialFailOther > dummy",
       "status": "fail",
       "message": "AssertionError: 'Hello, World!' != 'Goodbye'\n- Hello, World!\n+ Goodbye",
       "test_code": "self.assertEqual(hello(), \"Goodbye\")",
       "task_id": 0
     },
     {
-      "name": "ExamplePartialFailOtherTest.test_hello",
+      "name": "ExamplePartialFailOther > hello",
       "status": "pass",
       "test_code": "self.assertEqual(hello(), \"Hello, World!\")",
       "task_id": 0
