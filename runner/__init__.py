@@ -100,7 +100,7 @@ class ResultsReporter:
             # Changes status of parent to fail if any of the subtests fail.
             if state.fail:
                 self.tests[parent_test_name].fail(
-                    message="One or more subtests for this test failed. Details can be found under each variant."
+                    message="One or more variations of this test failed. Details can be found under each [variant#]."
                 )
                 self.tests[parent_test_name].test_code = state.test_code
 
