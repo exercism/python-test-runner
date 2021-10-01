@@ -59,7 +59,7 @@ class ResultsReporter:
 
         state = self.tests[name]
 
-        # ignore succesful setup and teardown stages
+        # ignore successful setup and teardown stages
         if report.passed and report.when != "call":
             return
 
@@ -73,7 +73,7 @@ class ResultsReporter:
 
         # handle test failure
         if report.failed:
-
+            state.output = report.capstdout
             # traceback that caused the issued, if any
             message = None
             if report.longrepr:
@@ -91,7 +91,7 @@ class ResultsReporter:
         source = Path(self.config.rootdir) / report.fspath
         state.test_code = TestOrder.function_source(test_id, source)
 
-        # Looks up tast_ids from parent when the test is a subtest.
+        # Looks up test_ids from parent when the test is a subtest.
         if state.task_id == 0 and 'variation' in state.name:
             parent_test_name = state.name.split(' ')[0]
             parent_task_id = self.tests[parent_test_name].task_id
@@ -139,7 +139,7 @@ class ResultsReporter:
         if report.outcome == "failed":
             excinfo = call.excinfo
             err = excinfo.getrepr(style="no", abspath=False)
-            trace = err.chain[0][0]
+            trace = err.chain[-1][0]
             crash = err.chain[0][1]
             self.last_err = self._make_message(trace, crash)
 
@@ -147,8 +147,9 @@ class ResultsReporter:
         """
         Make a formatted message for reporting.
         """
+
         # stringify the traceback, strip pytest-specific formatting
-        message = dedent(re.sub("^E ", "  ", str(trace), flags=re.M))
+        message = dedent(re.sub("^E | _pytest.nodes.Collector.CollectError: ", "  ", str(trace), flags=re.M))
 
         # if a path exists that's relative to the runner we can strip it out
         if crash:
