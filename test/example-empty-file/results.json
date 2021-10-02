@@ -1,6 +1,6 @@
 {
   "version": 3,
   "status": "error",
-  "message": "ImportError: cannot import name 'hello' from 'example_empty_file' (./test/example-empty-file/example_empty_file.py)",
+  "message": " ImportError while importing test module '.solution.example_empty_file_test.py'.\nHint: make sure your test modules.packages have valid Python names.\nTraceback:\n.usr.local.lib.python3.9.importlib.__init__.py:127: in import_module\n    return _bootstrap._gcd_import(name[level:], package, level)\n.solution.example_empty_file_test.py:4: in <module>\n    from example_empty_file import hello\nE   ImportError: cannot import name 'hello' from 'example_empty_file' (.solution.example_empty_file.py)",
   "tests": []
 }

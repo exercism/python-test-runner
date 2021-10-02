@@ -73,7 +73,7 @@ class ResultsReporter:
 
         # handle test failure
         if report.failed:
-            #state.output = report.capstdout
+
             # traceback that caused the issued, if any
             message = None
             if report.longrepr:
