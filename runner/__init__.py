@@ -139,7 +139,13 @@ class ResultsReporter:
         if report.outcome == "failed":
             excinfo = call.excinfo
             err = excinfo.getrepr(style="no", abspath=False)
-            trace = err.chain[-1][0]
+
+            # trim off full traceback for first exercise to be friendlier and clearer
+            if 'lasagna_test.py' in str(err.chain[0]):
+                trace = err.chain[-2][0]
+            else:
+                trace = err.chain[-1][0]
+
             crash = err.chain[0][1]
             self.last_err = self._make_message(trace, crash)
 
@@ -149,7 +155,7 @@ class ResultsReporter:
         """
 
         # stringify the traceback, strip pytest-specific formatting
-        message = dedent(re.sub("^E | _pytest.nodes.Collector.CollectError: ", "  ", str(trace), flags=re.M))
+        message = dedent(re.sub("^E |_pytest.nodes.Collector.CollectError: ", "  ", str(trace), flags=re.M))
 
         # if a path exists that's relative to the runner we can strip it out
         if crash:
