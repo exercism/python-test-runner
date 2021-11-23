@@ -1,0 +1,7 @@
+.appends
+.git
+.github
+.gitignore
+.gitattributes
+.dockerignore
+Dockerfile
