@@ -11,23 +11,21 @@ class ExampleAllFailTest(unittest.TestCase):
     def test_hello(self):
         input_data = [15, 23, 33, 39]
         result_data = [("Hello, World!", param) for param in input_data]
-        number_of_variants = range(1, len(input_data) + 1)
 
-        for variant, param, result in zip(number_of_variants, input_data, result_data):
+        for variant, (param, result) in enumerate(zip(input_data, result_data), start=1):
+            failure_msg=f'Expected: {result} but got something else instead.'
             with self.subTest(f"variation #{variant}", param=param, result=result):
-                self.assertEqual(hello(param), result,
-                                 msg=f'Expected: {result} but got something else instead.')
+                self.assertEqual(hello(param), result, msg=failure_msg)
 
     @pytest.mark.task(taskno=1)
     def test_abc(self):
         input_data = ['frog', 'fish', 'coconut', 'pineapple', 'carrot', 'cucumber', 'grass', 'tree']
         result_data = [("Hello, World!", param) for param in input_data]
-        number_of_variants = range(1, len(input_data) + 1)
 
-        for variant, param, result in zip(number_of_variants, input_data, result_data):
+        for variant, (param, result) in enumerate(zip(input_data, result_data), start=1):
+            failure_msg=f'Expected: {result} but got something else instead.'
             with self.subTest(f"variation #{variant}", param=param, result=result):
-                self.assertEqual(hello(param), result,
-                                 msg=f'Expected: {result} but got something else instead.')
+                self.assertEqual(hello(param), result, msg=failure_msg)
 
 
 class ExampleAllFailOtherTest(unittest.TestCase):
@@ -36,24 +34,18 @@ class ExampleAllFailOtherTest(unittest.TestCase):
     def test_dummy(self):
         input_data = ['frog', 'fish', 'coconut', 'pineapple', 'carrot', 'cucumber', 'grass', 'tree']
         result_data = [("Hello, World!", param) for param in input_data]
-        number_of_variants = range(1, len(input_data) + 1)
 
-        for variant, param, result in zip(number_of_variants, input_data, result_data):
+        for variant, (param, result) in enumerate(zip(input_data, result_data), start=1):
+            failure_msg=f'Expected: {result} but got something else instead.'
             with self.subTest(f"variation #{variant}", param=param, result=result):
-                self.assertEqual(hello(param), result,
-                                 msg=f'Expected: {result} but got something else instead.')
+                self.assertEqual(hello(param), result, msg=failure_msg)
 
     @pytest.mark.task(taskno=2)
     def test_hello(self):
         input_data = [1, 2, 5, 10]
         result_data = [("Hello, World!", param) for param in input_data]
-        number_of_variants = range(1, len(input_data) + 1)
 
-        for variant, param, result in zip(number_of_variants, input_data, result_data):
+        for variant, (param, result) in enumerate(zip(input_data, result_data), start=1):
+            failure_msg=f'Expected: {result} but got something else instead.'
             with self.subTest(f"variation #{variant}", param=param, result=result):
-                self.assertEqual(hello(param), result,
-                                 msg=f'Expected: {result} but got something else instead.')
-
-
-if __name__ == "__main__":
-    unittest.main()
+                self.assertEqual(hello(param), result, msg=failure_msg)
