@@ -63,15 +63,17 @@ class ResultsReporter:
         if report.passed and report.when != "call":
             return
 
-        # do not update tests that have already failed
+        # Update tests that have already failed with capstdout and return.
         if not state.is_passing():
+            if report.capstdout.rstrip('FFFFFFFF '):
+                state.output = report.capstdout.rstrip('FFFFFFFF ')
             return
 
-        # captured relevant stdout content, if any
+        # Record captured relevant stdout content for passed tests.
         if report.capstdout:
             state.output = report.capstdout
 
-        # handle test failure
+        # Handle details of test failure
         if report.failed:
 
             # traceback that caused the issued, if any
@@ -91,11 +93,13 @@ class ResultsReporter:
         source = Path(self.config.rootdir) / report.fspath
         state.test_code = TestOrder.function_source(test_id, source)
 
+
         # Looks up test_ids from parent when the test is a subtest.
         if state.task_id == 0 and 'variation' in state.name:
             parent_test_name = state.name.split(' ')[0]
             parent_task_id = self.tests[parent_test_name].task_id
             state.task_id = parent_task_id
+
 
             # Changes status of parent to fail if any of the subtests fail.
             if state.fail:
@@ -103,6 +107,7 @@ class ResultsReporter:
                     message="One or more variations of this test failed. Details can be found under each [variant#]."
                 )
                 self.tests[parent_test_name].test_code = state.test_code
+
 
     def pytest_sessionfinish(self, session, exitstatus):
         """
@@ -141,7 +146,7 @@ class ResultsReporter:
             err = excinfo.getrepr(style="no", abspath=False)
 
             # trim off full traceback for first exercise to be friendlier and clearer
-            if 'lasagna_test.py' in str(err.chain[0]):
+            if 'Lasagna' in node.name and 'ImportError' in str(err.chain[0]):
                 trace = err.chain[-2][0]
             else:
                 trace = err.chain[-1][0]
