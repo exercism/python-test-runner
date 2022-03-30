@@ -2,3 +2,4 @@
 # Changelog: https://docs.pytest.org/en/stable/changelog.html#pytest-5-4-0-2020-03-12
 pytest ~= 6.2.5
 pytest-subtests~=0.5.0
+tomli
