@@ -1,6 +1,0 @@
-{
-  "version": 3,
-  "status": "error",
-  "message": "Unexpected ExitCode.USAGE_ERROR: check logs for details",
-  "tests": []
-}
