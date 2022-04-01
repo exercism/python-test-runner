@@ -1,5 +1,5 @@
 # cmccandless: Breaking changes in pytest 5.4.0
 # Changelog: https://docs.pytest.org/en/stable/changelog.html#pytest-5-4-0-2020-03-12
-pytest
+pytest~=7.0.1
 pytest-subtests~=0.5.0
 tomli
