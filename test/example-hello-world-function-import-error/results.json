@@ -1,0 +1,6 @@
+{
+  "version": 3,
+  "status": "error",
+  "message": "ImportError: \n\nMISSING FUNCTION --> In your 'hello_world.py' file, we can not find or import the function named 'hello_world()'. \nThe tests for this first exercise expect a function that returns the string \"Hello, World!\"\n\nDid you use print(\"Hello, World!\") instead?",
+  "tests": []
+}
