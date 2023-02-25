@@ -145,8 +145,8 @@ class ResultsReporter:
             excinfo = call.excinfo
             err = excinfo.getrepr(style="no", abspath=False)
 
-            # trim off full traceback for first exercise to be friendlier and clearer
-            if ('lasagna' in node.name or 'hello world') and 'ImportError' in str(err.chain[0]):
+            # trim off full traceback for first two exercises to be friendlier and clearer
+            if ('lasagna' in node.name or 'hello_world' in node.name) and 'ImportError' in str(err.chain[0]):
                 trace = err.chain[-2][0]
             else:
                 trace = err.chain[-1][0]
