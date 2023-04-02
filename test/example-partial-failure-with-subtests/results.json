@@ -13,7 +13,8 @@
       "status": "fail",
       "message": "One or more variations of this test failed. Details can be found under each [variant#].",
       "test_code": "input_data = [1, 2, 5, 10]\nresult_data = [(\"Hello, World!\", param) for param in input_data]\n\nfor variant, (param, result) in enumerate(zip(input_data, result_data), start=1):\n    with self.subTest(f\"variation #{variant}\", param=param, result=result):\n        self.assertEqual(hello(param), result,\n                         msg=f'Expected: {result} but got something else instead.')",
-      "task_id": 1
+      "task_id": 1,
+      "output": "uuuu"
     },
     {
       "name": "ExamplePartialFailureWithSubtests > hello [variation #1] (param=1, result=('Hello, World!', 1))",
@@ -54,7 +55,8 @@
       "status": "fail",
       "message": "One or more variations of this test failed. Details can be found under each [variant#].",
       "test_code": "input_data = [15, 23, 33, 39]\nresult_data = [(\"Hello, World!\", param) for param in input_data]\n\nfor variant, (param, result) in enumerate(zip(input_data, result_data), start=1):\n    with self.subTest(f\"variation #{variant}\", param=param, result=result):\n        self.assertEqual(hello(param), result,\n                         msg=f'Expected: {result} but got something else instead.')",
-      "task_id": 2
+      "task_id": 2,
+      "output": "uuuu"
     },
     {
       "name": "ExamplePartialFailureWithSubtestsOther > hello [variation #1] (param=15, result=('Hello, World!', 15))",
