@@ -65,8 +65,8 @@ class ResultsReporter:
 
         # Update tests that have already failed with capstdout and return.
         if not state.is_passing():
-            if report.capstdout.rstrip('FFFFFFFF '):
-                state.output = report.capstdout.rstrip('FFFFFFFF ')
+            if report.capstdout.rstrip('FFFFFFFF ').rstrip('uuuuu'):
+                state.output = report.capstdout.rstrip('FFFFFFFF ').rstrip('uuuuu')
             return
 
         # Record captured relevant stdout content for passed tests.
