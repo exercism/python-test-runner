@@ -25,7 +25,6 @@ docker run \
     --read-only \
     --mount type=bind,src="${PWD}/test",dst=/opt/test-runner/test \
     --mount type=volume,dst=/tmp \
-    --volume "${PWD}/bin/run-tests.sh:/opt/test-runner/bin/run-tests.sh" \
     --workdir /opt/test-runner \
-    --entrypoint /opt/test-runner/bin/run-tests.sh \
+    --entrypoint pytest \
     exercism/python-test-runner
