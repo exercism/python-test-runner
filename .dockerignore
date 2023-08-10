@@ -7,5 +7,4 @@
 Dockerfile
 bin/run-in-docker.sh
 bin/run-tests-in-docker.sh
-bin/run-tests.sh
 test/
