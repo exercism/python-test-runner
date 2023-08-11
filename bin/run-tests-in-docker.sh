@@ -27,4 +27,4 @@ docker run \
     --mount type=volume,dst=/tmp \
     --workdir /opt/test-runner \
     --entrypoint pytest \
-    exercism/python-test-runner
+    exercism/python-test-runner -vv
