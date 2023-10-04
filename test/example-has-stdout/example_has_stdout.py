@@ -19,3 +19,9 @@ def must_truncate():
         Porta non pulvinar neque laoreet suspendisse interdum consectetur libero. Id faucibus nisl tincidunt eget nullam. Ultricies lacus sed turpis tincidunt id. Hendrerit dolor magna eget est lorem ipsum. Enim ut sem viverra aliquet. Eget nulla facilisi etiam dignissim diam quis enim lobortis scelerisque. Ac tortor dignissim convallis aenean et tortor at. Non tellus orci ac auctor augue. Nec dui nunc mattis enim ut tellus. Eget nunc lobortis mattis aliquam faucibus purus in massa tempor. Elementum nibh tellus molestie nunc. Ornare lectus sit amet est placerat in. Nec feugiat in fermentum posuere urna nec tincidunt praesent. Vestibulum rhoncus est pellentesque elit. Mollis nunc sed id semper risus in. Vitae elementum curabitur vitae nunc sed velit. Duis tristique sollicitudin nibh sit amet commodo nulla facilisi."""
     )
     return "Goodbye!"
+
+
+def other():
+    print("Hello, World!")
+    print(5, 6, 7)
+    return "hello, world."

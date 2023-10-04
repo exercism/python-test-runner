@@ -79,6 +79,7 @@ class Test:
             return
 
         captured = captured.strip()
+
         truncate_msg = " [Output was truncated. Please limit to 500 chars]"
         if len(captured) > 500:
             captured = captured[: 500 - len(truncate_msg)] + truncate_msg
@@ -141,9 +142,7 @@ class Results:
     def _factory(items):
         result = {}
         for key, value in items:
-            if key == "_output" or key in {"message", "output", "subtest"} and value is None:
-                continue
-            elif key == "_output" or key in {"message", "output", "subtest"} and "\u001b[31mF\u001b[0m" in value:
+            if key == "_output" or key in {"message", "output", "subtest"} and value in (None, "", " "):
                 continue
 
             if isinstance(value, Status):

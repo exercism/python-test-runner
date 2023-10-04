@@ -1,17 +1,15 @@
-FROM python:3.11.2-slim
+FROM python:3.11.5-alpine3.18
 
 COPY requirements.txt /requirements.txt
 
 RUN pip install -r /requirements.txt
 
-RUN apt-get update \
- && apt-get install curl -y \
- && apt-get remove curl -y \
- && apt-get autoremove -y \
- && rm -rf /var/lib/apt/lists/*
+RUN apk update && apk upgrade\
+ && apk --no-cache add curl bash\
+ && apk cache clean
 
 COPY . /opt/test-runner
 
 WORKDIR /opt/test-runner
 
-ENTRYPOINT [ "/opt/test-runner/bin/run.sh" ]
+ENTRYPOINT ["sh", "/opt/test-runner/bin/run.sh" ]
