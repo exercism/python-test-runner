@@ -7,128 +7,142 @@
       "status": "fail",
       "message": "One or more variations of this test failed. Details can be found under each [variant#].",
       "test_code": "input_data = [1, 2, 5, 10, 15, 23, 33, 39]\nresult_data = [(\"Hello, World!\", param) for param in input_data]\nnumber_of_variants = range(1, len(input_data) + 1)\n\nfor variant, param, result in zip(number_of_variants, input_data, result_data):\n    with self.subTest(f\"variation #{variant}\", param=param, result=result):\n        self.assertEqual(hello(param), result,\n                         msg=f'Expected: {result} but got something else instead.')",
-      "task_id": 1,
-      "output": "Hello, World! 1\nuHello, World! 2\nuHello, World! 5\nuHello, World! 10\nuHello, World! 15\nuHello, World! 23\nuHello, World! 33\nuHello, World! 39"
+      "task_id": 1
     },
     {
-      "name": "ExampleHasStdout > hello [variation #1] (param=1, result=('Hello, World!', 1))",
+      "name": "ExampleHasStdout > hello [variation #1]",
       "status": "fail",
       "message": "AssertionError: None != ('Hello, World!', 1) : Expected: ('Hello, World!', 1) but got something else instead.",
       "test_code": "input_data = [1, 2, 5, 10, 15, 23, 33, 39]\nresult_data = [(\"Hello, World!\", param) for param in input_data]\nnumber_of_variants = range(1, len(input_data) + 1)\n\nfor variant, param, result in zip(number_of_variants, input_data, result_data):\n    with self.subTest(f\"variation #{variant}\", param=param, result=result):\n        self.assertEqual(hello(param), result,\n                         msg=f'Expected: {result} but got something else instead.')",
-      "task_id": 1
+      "task_id": 1,
+      "output": "Hello, World! 1"
     },
     {
-      "name": "ExampleHasStdout > hello [variation #2] (param=2, result=('Hello, World!', 2))",
+      "name": "ExampleHasStdout > hello [variation #2]",
       "status": "fail",
       "message": "AssertionError: None != ('Hello, World!', 2) : Expected: ('Hello, World!', 2) but got something else instead.",
       "test_code": "input_data = [1, 2, 5, 10, 15, 23, 33, 39]\nresult_data = [(\"Hello, World!\", param) for param in input_data]\nnumber_of_variants = range(1, len(input_data) + 1)\n\nfor variant, param, result in zip(number_of_variants, input_data, result_data):\n    with self.subTest(f\"variation #{variant}\", param=param, result=result):\n        self.assertEqual(hello(param), result,\n                         msg=f'Expected: {result} but got something else instead.')",
-      "task_id": 1
+      "task_id": 1,
+      "output": "Hello, World! 2"
     },
     {
-      "name": "ExampleHasStdout > hello [variation #3] (param=5, result=('Hello, World!', 5))",
+      "name": "ExampleHasStdout > hello [variation #3]",
       "status": "fail",
       "message": "AssertionError: None != ('Hello, World!', 5) : Expected: ('Hello, World!', 5) but got something else instead.",
       "test_code": "input_data = [1, 2, 5, 10, 15, 23, 33, 39]\nresult_data = [(\"Hello, World!\", param) for param in input_data]\nnumber_of_variants = range(1, len(input_data) + 1)\n\nfor variant, param, result in zip(number_of_variants, input_data, result_data):\n    with self.subTest(f\"variation #{variant}\", param=param, result=result):\n        self.assertEqual(hello(param), result,\n                         msg=f'Expected: {result} but got something else instead.')",
-      "task_id": 1
+      "task_id": 1,
+      "output": "Hello, World! 5"
     },
     {
-      "name": "ExampleHasStdout > hello [variation #4] (param=10, result=('Hello, World!', 10))",
+      "name": "ExampleHasStdout > hello [variation #4]",
       "status": "fail",
       "message": "AssertionError: None != ('Hello, World!', 10) : Expected: ('Hello, World!', 10) but got something else instead.",
       "test_code": "input_data = [1, 2, 5, 10, 15, 23, 33, 39]\nresult_data = [(\"Hello, World!\", param) for param in input_data]\nnumber_of_variants = range(1, len(input_data) + 1)\n\nfor variant, param, result in zip(number_of_variants, input_data, result_data):\n    with self.subTest(f\"variation #{variant}\", param=param, result=result):\n        self.assertEqual(hello(param), result,\n                         msg=f'Expected: {result} but got something else instead.')",
-      "task_id": 1
+      "task_id": 1,
+      "output": "Hello, World! 10"
     },
     {
-      "name": "ExampleHasStdout > hello [variation #5] (param=15, result=('Hello, World!', 15))",
+      "name": "ExampleHasStdout > hello [variation #5]",
       "status": "fail",
       "message": "AssertionError: None != ('Hello, World!', 15) : Expected: ('Hello, World!', 15) but got something else instead.",
       "test_code": "input_data = [1, 2, 5, 10, 15, 23, 33, 39]\nresult_data = [(\"Hello, World!\", param) for param in input_data]\nnumber_of_variants = range(1, len(input_data) + 1)\n\nfor variant, param, result in zip(number_of_variants, input_data, result_data):\n    with self.subTest(f\"variation #{variant}\", param=param, result=result):\n        self.assertEqual(hello(param), result,\n                         msg=f'Expected: {result} but got something else instead.')",
-      "task_id": 1
+      "task_id": 1,
+      "output": "Hello, World! 15"
     },
     {
-      "name": "ExampleHasStdout > hello [variation #6] (param=23, result=('Hello, World!', 23))",
+      "name": "ExampleHasStdout > hello [variation #6]",
       "status": "fail",
       "message": "AssertionError: None != ('Hello, World!', 23) : Expected: ('Hello, World!', 23) but got something else instead.",
       "test_code": "input_data = [1, 2, 5, 10, 15, 23, 33, 39]\nresult_data = [(\"Hello, World!\", param) for param in input_data]\nnumber_of_variants = range(1, len(input_data) + 1)\n\nfor variant, param, result in zip(number_of_variants, input_data, result_data):\n    with self.subTest(f\"variation #{variant}\", param=param, result=result):\n        self.assertEqual(hello(param), result,\n                         msg=f'Expected: {result} but got something else instead.')",
-      "task_id": 1
+      "task_id": 1,
+      "output": "Hello, World! 23"
     },
     {
-      "name": "ExampleHasStdout > hello [variation #7] (param=33, result=('Hello, World!', 33))",
+      "name": "ExampleHasStdout > hello [variation #7]",
       "status": "fail",
       "message": "AssertionError: None != ('Hello, World!', 33) : Expected: ('Hello, World!', 33) but got something else instead.",
       "test_code": "input_data = [1, 2, 5, 10, 15, 23, 33, 39]\nresult_data = [(\"Hello, World!\", param) for param in input_data]\nnumber_of_variants = range(1, len(input_data) + 1)\n\nfor variant, param, result in zip(number_of_variants, input_data, result_data):\n    with self.subTest(f\"variation #{variant}\", param=param, result=result):\n        self.assertEqual(hello(param), result,\n                         msg=f'Expected: {result} but got something else instead.')",
-      "task_id": 1
+      "task_id": 1,
+      "output": "Hello, World! 33"
     },
     {
-      "name": "ExampleHasStdout > hello [variation #8] (param=39, result=('Hello, World!', 39))",
+      "name": "ExampleHasStdout > hello [variation #8]",
       "status": "fail",
       "message": "AssertionError: None != ('Hello, World!', 39) : Expected: ('Hello, World!', 39) but got something else instead.",
       "test_code": "input_data = [1, 2, 5, 10, 15, 23, 33, 39]\nresult_data = [(\"Hello, World!\", param) for param in input_data]\nnumber_of_variants = range(1, len(input_data) + 1)\n\nfor variant, param, result in zip(number_of_variants, input_data, result_data):\n    with self.subTest(f\"variation #{variant}\", param=param, result=result):\n        self.assertEqual(hello(param), result,\n                         msg=f'Expected: {result} but got something else instead.')",
-      "task_id": 1
+      "task_id": 1,
+      "output": "Hello, World! 39"
     },
     {
       "name": "ExampleHasStdout > abc",
       "status": "fail",
       "message": "One or more variations of this test failed. Details can be found under each [variant#].",
       "test_code": "input_data = ['frog', 'fish', 'coconut', 'pineapple', 'carrot', 'cucumber', 'grass', 'tree']\nresult_data = [(\"Hello, World!\", param) for param in input_data]\nnumber_of_variants = range(1, len(input_data) + 1)\n\nfor variant, param, result in zip(number_of_variants, input_data, result_data):\n    with self.subTest(f\"variation #{variant}\", param=param, result=result):\n        self.assertEqual(hello(param), result,\n                         msg=f'Expected: {result} but got something else instead.')",
-      "task_id": 2,
-      "output": "Hello, World! frog\nuHello, World! fish\nuHello, World! coconut\nuHello, World! pineapple\nuHello, World! carrot\nuHello, World! cucumber\nuHello, World! grass\nuHello, World! tree"
+      "task_id": 2
     },
     {
-      "name": "ExampleHasStdout > abc [variation #1] (param='frog', result=('Hello, World!', 'frog'))",
+      "name": "ExampleHasStdout > abc [variation #1]",
       "status": "fail",
       "message": "AssertionError: None != ('Hello, World!', 'frog') : Expected: ('Hello, World!', 'frog') but got something else instead.",
       "test_code": "input_data = ['frog', 'fish', 'coconut', 'pineapple', 'carrot', 'cucumber', 'grass', 'tree']\nresult_data = [(\"Hello, World!\", param) for param in input_data]\nnumber_of_variants = range(1, len(input_data) + 1)\n\nfor variant, param, result in zip(number_of_variants, input_data, result_data):\n    with self.subTest(f\"variation #{variant}\", param=param, result=result):\n        self.assertEqual(hello(param), result,\n                         msg=f'Expected: {result} but got something else instead.')",
-      "task_id": 2
+      "task_id": 2,
+      "output": "Hello, World! frog"
     },
     {
-      "name": "ExampleHasStdout > abc [variation #2] (param='fish', result=('Hello, World!', 'fish'))",
+      "name": "ExampleHasStdout > abc [variation #2]",
       "status": "fail",
       "message": "AssertionError: None != ('Hello, World!', 'fish') : Expected: ('Hello, World!', 'fish') but got something else instead.",
       "test_code": "input_data = ['frog', 'fish', 'coconut', 'pineapple', 'carrot', 'cucumber', 'grass', 'tree']\nresult_data = [(\"Hello, World!\", param) for param in input_data]\nnumber_of_variants = range(1, len(input_data) + 1)\n\nfor variant, param, result in zip(number_of_variants, input_data, result_data):\n    with self.subTest(f\"variation #{variant}\", param=param, result=result):\n        self.assertEqual(hello(param), result,\n                         msg=f'Expected: {result} but got something else instead.')",
-      "task_id": 2
+      "task_id": 2,
+      "output": "Hello, World! fish"
     },
     {
-      "name": "ExampleHasStdout > abc [variation #3] (param='coconut', result=('Hello, World!', 'coconut'))",
+      "name": "ExampleHasStdout > abc [variation #3]",
       "status": "fail",
       "message": "AssertionError: None != ('Hello, World!', 'coconut') : Expected: ('Hello, World!', 'coconut') but got something else instead.",
       "test_code": "input_data = ['frog', 'fish', 'coconut', 'pineapple', 'carrot', 'cucumber', 'grass', 'tree']\nresult_data = [(\"Hello, World!\", param) for param in input_data]\nnumber_of_variants = range(1, len(input_data) + 1)\n\nfor variant, param, result in zip(number_of_variants, input_data, result_data):\n    with self.subTest(f\"variation #{variant}\", param=param, result=result):\n        self.assertEqual(hello(param), result,\n                         msg=f'Expected: {result} but got something else instead.')",
-      "task_id": 2
+      "task_id": 2,
+      "output": "Hello, World! coconut"
     },
     {
-      "name": "ExampleHasStdout > abc [variation #4] (param='pineapple', result=('Hello, World!', 'pineapple'))",
+      "name": "ExampleHasStdout > abc [variation #4]",
       "status": "fail",
       "message": "AssertionError: None != ('Hello, World!', 'pineapple') : Expected: ('Hello, World!', 'pineapple') but got something else instead.",
       "test_code": "input_data = ['frog', 'fish', 'coconut', 'pineapple', 'carrot', 'cucumber', 'grass', 'tree']\nresult_data = [(\"Hello, World!\", param) for param in input_data]\nnumber_of_variants = range(1, len(input_data) + 1)\n\nfor variant, param, result in zip(number_of_variants, input_data, result_data):\n    with self.subTest(f\"variation #{variant}\", param=param, result=result):\n        self.assertEqual(hello(param), result,\n                         msg=f'Expected: {result} but got something else instead.')",
-      "task_id": 2
+      "task_id": 2,
+      "output": "Hello, World! pineapple"
     },
     {
-      "name": "ExampleHasStdout > abc [variation #5] (param='carrot', result=('Hello, World!', 'carrot'))",
+      "name": "ExampleHasStdout > abc [variation #5]",
       "status": "fail",
       "message": "AssertionError: None != ('Hello, World!', 'carrot') : Expected: ('Hello, World!', 'carrot') but got something else instead.",
       "test_code": "input_data = ['frog', 'fish', 'coconut', 'pineapple', 'carrot', 'cucumber', 'grass', 'tree']\nresult_data = [(\"Hello, World!\", param) for param in input_data]\nnumber_of_variants = range(1, len(input_data) + 1)\n\nfor variant, param, result in zip(number_of_variants, input_data, result_data):\n    with self.subTest(f\"variation #{variant}\", param=param, result=result):\n        self.assertEqual(hello(param), result,\n                         msg=f'Expected: {result} but got something else instead.')",
-      "task_id": 2
+      "task_id": 2,
+      "output": "Hello, World! carrot"
     },
     {
-      "name": "ExampleHasStdout > abc [variation #6] (param='cucumber', result=('Hello, World!', 'cucumber'))",
+      "name": "ExampleHasStdout > abc [variation #6]",
       "status": "fail",
       "message": "AssertionError: None != ('Hello, World!', 'cucumber') : Expected: ('Hello, World!', 'cucumber') but got something else instead.",
       "test_code": "input_data = ['frog', 'fish', 'coconut', 'pineapple', 'carrot', 'cucumber', 'grass', 'tree']\nresult_data = [(\"Hello, World!\", param) for param in input_data]\nnumber_of_variants = range(1, len(input_data) + 1)\n\nfor variant, param, result in zip(number_of_variants, input_data, result_data):\n    with self.subTest(f\"variation #{variant}\", param=param, result=result):\n        self.assertEqual(hello(param), result,\n                         msg=f'Expected: {result} but got something else instead.')",
-      "task_id": 2
+      "task_id": 2,
+      "output": "Hello, World! cucumber"
     },
     {
-      "name": "ExampleHasStdout > abc [variation #7] (param='grass', result=('Hello, World!', 'grass'))",
+      "name": "ExampleHasStdout > abc [variation #7]",
       "status": "fail",
       "message": "AssertionError: None != ('Hello, World!', 'grass') : Expected: ('Hello, World!', 'grass') but got something else instead.",
       "test_code": "input_data = ['frog', 'fish', 'coconut', 'pineapple', 'carrot', 'cucumber', 'grass', 'tree']\nresult_data = [(\"Hello, World!\", param) for param in input_data]\nnumber_of_variants = range(1, len(input_data) + 1)\n\nfor variant, param, result in zip(number_of_variants, input_data, result_data):\n    with self.subTest(f\"variation #{variant}\", param=param, result=result):\n        self.assertEqual(hello(param), result,\n                         msg=f'Expected: {result} but got something else instead.')",
-      "task_id": 2
+      "task_id": 2,
+      "output": "Hello, World! grass"
     },
     {
-      "name": "ExampleHasStdout > abc [variation #8] (param='tree', result=('Hello, World!', 'tree'))",
+      "name": "ExampleHasStdout > abc [variation #8]",
       "status": "fail",
       "message": "AssertionError: None != ('Hello, World!', 'tree') : Expected: ('Hello, World!', 'tree') but got something else instead.",
       "test_code": "input_data = ['frog', 'fish', 'coconut', 'pineapple', 'carrot', 'cucumber', 'grass', 'tree']\nresult_data = [(\"Hello, World!\", param) for param in input_data]\nnumber_of_variants = range(1, len(input_data) + 1)\n\nfor variant, param, result in zip(number_of_variants, input_data, result_data):\n    with self.subTest(f\"variation #{variant}\", param=param, result=result):\n        self.assertEqual(hello(param), result,\n                         msg=f'Expected: {result} but got something else instead.')",
-      "task_id": 2
+      "task_id": 2,
+      "output": "Hello, World! tree"
     },
     {
       "name": "ExampleHasStdout > truncation",
@@ -143,128 +157,142 @@
       "status": "fail",
       "message": "One or more variations of this test failed. Details can be found under each [variant#].",
       "test_code": "input_data = ['frog', 'fish', 'coconut', 'pineapple', 'carrot', 'cucumber', 'grass', 'tree']\nresult_data = [(\"Hello, World!\", param) for param in input_data]\nnumber_of_variants = range(1, len(input_data) + 1)\n\nfor variant, param, result in zip(number_of_variants, input_data, result_data):\n    with self.subTest(f\"variation #{variant}\", param=param, result=result):\n        self.assertEqual(hello(param), result,\n                         msg=f'Expected: {result} but got something else instead.')",
-      "task_id": 4,
-      "output": "Hello, World! frog\nuHello, World! fish\nuHello, World! coconut\nuHello, World! pineapple\nuHello, World! carrot\nuHello, World! cucumber\nuHello, World! grass\nuHello, World! tree"
+      "task_id": 4
     },
     {
-      "name": "ExampleHasStdoutOther > dummy [variation #1] (param='frog', result=('Hello, World!', 'frog'))",
+      "name": "ExampleHasStdoutOther > dummy [variation #1]",
       "status": "fail",
       "message": "AssertionError: None != ('Hello, World!', 'frog') : Expected: ('Hello, World!', 'frog') but got something else instead.",
       "test_code": "input_data = ['frog', 'fish', 'coconut', 'pineapple', 'carrot', 'cucumber', 'grass', 'tree']\nresult_data = [(\"Hello, World!\", param) for param in input_data]\nnumber_of_variants = range(1, len(input_data) + 1)\n\nfor variant, param, result in zip(number_of_variants, input_data, result_data):\n    with self.subTest(f\"variation #{variant}\", param=param, result=result):\n        self.assertEqual(hello(param), result,\n                         msg=f'Expected: {result} but got something else instead.')",
-      "task_id": 4
+      "task_id": 4,
+      "output": "Hello, World! frog"
     },
     {
-      "name": "ExampleHasStdoutOther > dummy [variation #2] (param='fish', result=('Hello, World!', 'fish'))",
+      "name": "ExampleHasStdoutOther > dummy [variation #2]",
       "status": "fail",
       "message": "AssertionError: None != ('Hello, World!', 'fish') : Expected: ('Hello, World!', 'fish') but got something else instead.",
       "test_code": "input_data = ['frog', 'fish', 'coconut', 'pineapple', 'carrot', 'cucumber', 'grass', 'tree']\nresult_data = [(\"Hello, World!\", param) for param in input_data]\nnumber_of_variants = range(1, len(input_data) + 1)\n\nfor variant, param, result in zip(number_of_variants, input_data, result_data):\n    with self.subTest(f\"variation #{variant}\", param=param, result=result):\n        self.assertEqual(hello(param), result,\n                         msg=f'Expected: {result} but got something else instead.')",
-      "task_id": 4
+      "task_id": 4,
+      "output": "Hello, World! fish"
     },
     {
-      "name": "ExampleHasStdoutOther > dummy [variation #3] (param='coconut', result=('Hello, World!', 'coconut'))",
+      "name": "ExampleHasStdoutOther > dummy [variation #3]",
       "status": "fail",
       "message": "AssertionError: None != ('Hello, World!', 'coconut') : Expected: ('Hello, World!', 'coconut') but got something else instead.",
       "test_code": "input_data = ['frog', 'fish', 'coconut', 'pineapple', 'carrot', 'cucumber', 'grass', 'tree']\nresult_data = [(\"Hello, World!\", param) for param in input_data]\nnumber_of_variants = range(1, len(input_data) + 1)\n\nfor variant, param, result in zip(number_of_variants, input_data, result_data):\n    with self.subTest(f\"variation #{variant}\", param=param, result=result):\n        self.assertEqual(hello(param), result,\n                         msg=f'Expected: {result} but got something else instead.')",
-      "task_id": 4
+      "task_id": 4,
+      "output": "Hello, World! coconut"
     },
     {
-      "name": "ExampleHasStdoutOther > dummy [variation #4] (param='pineapple', result=('Hello, World!', 'pineapple'))",
+      "name": "ExampleHasStdoutOther > dummy [variation #4]",
       "status": "fail",
       "message": "AssertionError: None != ('Hello, World!', 'pineapple') : Expected: ('Hello, World!', 'pineapple') but got something else instead.",
       "test_code": "input_data = ['frog', 'fish', 'coconut', 'pineapple', 'carrot', 'cucumber', 'grass', 'tree']\nresult_data = [(\"Hello, World!\", param) for param in input_data]\nnumber_of_variants = range(1, len(input_data) + 1)\n\nfor variant, param, result in zip(number_of_variants, input_data, result_data):\n    with self.subTest(f\"variation #{variant}\", param=param, result=result):\n        self.assertEqual(hello(param), result,\n                         msg=f'Expected: {result} but got something else instead.')",
-      "task_id": 4
+      "task_id": 4,
+      "output": "Hello, World! pineapple"
     },
     {
-      "name": "ExampleHasStdoutOther > dummy [variation #5] (param='carrot', result=('Hello, World!', 'carrot'))",
+      "name": "ExampleHasStdoutOther > dummy [variation #5]",
       "status": "fail",
       "message": "AssertionError: None != ('Hello, World!', 'carrot') : Expected: ('Hello, World!', 'carrot') but got something else instead.",
       "test_code": "input_data = ['frog', 'fish', 'coconut', 'pineapple', 'carrot', 'cucumber', 'grass', 'tree']\nresult_data = [(\"Hello, World!\", param) for param in input_data]\nnumber_of_variants = range(1, len(input_data) + 1)\n\nfor variant, param, result in zip(number_of_variants, input_data, result_data):\n    with self.subTest(f\"variation #{variant}\", param=param, result=result):\n        self.assertEqual(hello(param), result,\n                         msg=f'Expected: {result} but got something else instead.')",
-      "task_id": 4
+      "task_id": 4,
+      "output": "Hello, World! carrot"
     },
     {
-      "name": "ExampleHasStdoutOther > dummy [variation #6] (param='cucumber', result=('Hello, World!', 'cucumber'))",
+      "name": "ExampleHasStdoutOther > dummy [variation #6]",
       "status": "fail",
       "message": "AssertionError: None != ('Hello, World!', 'cucumber') : Expected: ('Hello, World!', 'cucumber') but got something else instead.",
       "test_code": "input_data = ['frog', 'fish', 'coconut', 'pineapple', 'carrot', 'cucumber', 'grass', 'tree']\nresult_data = [(\"Hello, World!\", param) for param in input_data]\nnumber_of_variants = range(1, len(input_data) + 1)\n\nfor variant, param, result in zip(number_of_variants, input_data, result_data):\n    with self.subTest(f\"variation #{variant}\", param=param, result=result):\n        self.assertEqual(hello(param), result,\n                         msg=f'Expected: {result} but got something else instead.')",
-      "task_id": 4
+      "task_id": 4,
+      "output": "Hello, World! cucumber"
     },
     {
-      "name": "ExampleHasStdoutOther > dummy [variation #7] (param='grass', result=('Hello, World!', 'grass'))",
+      "name": "ExampleHasStdoutOther > dummy [variation #7]",
       "status": "fail",
       "message": "AssertionError: None != ('Hello, World!', 'grass') : Expected: ('Hello, World!', 'grass') but got something else instead.",
       "test_code": "input_data = ['frog', 'fish', 'coconut', 'pineapple', 'carrot', 'cucumber', 'grass', 'tree']\nresult_data = [(\"Hello, World!\", param) for param in input_data]\nnumber_of_variants = range(1, len(input_data) + 1)\n\nfor variant, param, result in zip(number_of_variants, input_data, result_data):\n    with self.subTest(f\"variation #{variant}\", param=param, result=result):\n        self.assertEqual(hello(param), result,\n                         msg=f'Expected: {result} but got something else instead.')",
-      "task_id": 4
+      "task_id": 4,
+      "output": "Hello, World! grass"
     },
     {
-      "name": "ExampleHasStdoutOther > dummy [variation #8] (param='tree', result=('Hello, World!', 'tree'))",
+      "name": "ExampleHasStdoutOther > dummy [variation #8]",
       "status": "fail",
       "message": "AssertionError: None != ('Hello, World!', 'tree') : Expected: ('Hello, World!', 'tree') but got something else instead.",
       "test_code": "input_data = ['frog', 'fish', 'coconut', 'pineapple', 'carrot', 'cucumber', 'grass', 'tree']\nresult_data = [(\"Hello, World!\", param) for param in input_data]\nnumber_of_variants = range(1, len(input_data) + 1)\n\nfor variant, param, result in zip(number_of_variants, input_data, result_data):\n    with self.subTest(f\"variation #{variant}\", param=param, result=result):\n        self.assertEqual(hello(param), result,\n                         msg=f'Expected: {result} but got something else instead.')",
-      "task_id": 4
+      "task_id": 4,
+      "output": "Hello, World! tree"
     },
     {
       "name": "ExampleHasStdoutOther > hello",
       "status": "fail",
       "message": "One or more variations of this test failed. Details can be found under each [variant#].",
       "test_code": "input_data = [1, 2, 5, 10, 15, 23, 33, 39]\nresult_data = [(\"Hello, World!\", param) for param in input_data]\nnumber_of_variants = range(1, len(input_data) + 1)\n\nfor variant, param, result in zip(number_of_variants, input_data, result_data):\n    with self.subTest(f\"variation #{variant}\", param=param, result=result):\n        self.assertEqual(hello(param), result,\n                         msg=f'Expected: {result} but got something else instead.')",
-      "task_id": 5,
-      "output": "Hello, World! 1\nuHello, World! 2\nuHello, World! 5\nuHello, World! 10\nuHello, World! 15\nuHello, World! 23\nuHello, World! 33\nuHello, World! 39"
+      "task_id": 5
     },
     {
-      "name": "ExampleHasStdoutOther > hello [variation #1] (param=1, result=('Hello, World!', 1))",
+      "name": "ExampleHasStdoutOther > hello [variation #1]",
       "status": "fail",
       "message": "AssertionError: None != ('Hello, World!', 1) : Expected: ('Hello, World!', 1) but got something else instead.",
       "test_code": "input_data = [1, 2, 5, 10, 15, 23, 33, 39]\nresult_data = [(\"Hello, World!\", param) for param in input_data]\nnumber_of_variants = range(1, len(input_data) + 1)\n\nfor variant, param, result in zip(number_of_variants, input_data, result_data):\n    with self.subTest(f\"variation #{variant}\", param=param, result=result):\n        self.assertEqual(hello(param), result,\n                         msg=f'Expected: {result} but got something else instead.')",
-      "task_id": 5
+      "task_id": 5,
+      "output": "Hello, World! 1"
     },
     {
-      "name": "ExampleHasStdoutOther > hello [variation #2] (param=2, result=('Hello, World!', 2))",
+      "name": "ExampleHasStdoutOther > hello [variation #2]",
       "status": "fail",
       "message": "AssertionError: None != ('Hello, World!', 2) : Expected: ('Hello, World!', 2) but got something else instead.",
       "test_code": "input_data = [1, 2, 5, 10, 15, 23, 33, 39]\nresult_data = [(\"Hello, World!\", param) for param in input_data]\nnumber_of_variants = range(1, len(input_data) + 1)\n\nfor variant, param, result in zip(number_of_variants, input_data, result_data):\n    with self.subTest(f\"variation #{variant}\", param=param, result=result):\n        self.assertEqual(hello(param), result,\n                         msg=f'Expected: {result} but got something else instead.')",
-      "task_id": 5
+      "task_id": 5,
+      "output": "Hello, World! 2"
     },
     {
-      "name": "ExampleHasStdoutOther > hello [variation #3] (param=5, result=('Hello, World!', 5))",
+      "name": "ExampleHasStdoutOther > hello [variation #3]",
       "status": "fail",
       "message": "AssertionError: None != ('Hello, World!', 5) : Expected: ('Hello, World!', 5) but got something else instead.",
       "test_code": "input_data = [1, 2, 5, 10, 15, 23, 33, 39]\nresult_data = [(\"Hello, World!\", param) for param in input_data]\nnumber_of_variants = range(1, len(input_data) + 1)\n\nfor variant, param, result in zip(number_of_variants, input_data, result_data):\n    with self.subTest(f\"variation #{variant}\", param=param, result=result):\n        self.assertEqual(hello(param), result,\n                         msg=f'Expected: {result} but got something else instead.')",
-      "task_id": 5
+      "task_id": 5,
+      "output": "Hello, World! 5"
     },
     {
-      "name": "ExampleHasStdoutOther > hello [variation #4] (param=10, result=('Hello, World!', 10))",
+      "name": "ExampleHasStdoutOther > hello [variation #4]",
       "status": "fail",
       "message": "AssertionError: None != ('Hello, World!', 10) : Expected: ('Hello, World!', 10) but got something else instead.",
       "test_code": "input_data = [1, 2, 5, 10, 15, 23, 33, 39]\nresult_data = [(\"Hello, World!\", param) for param in input_data]\nnumber_of_variants = range(1, len(input_data) + 1)\n\nfor variant, param, result in zip(number_of_variants, input_data, result_data):\n    with self.subTest(f\"variation #{variant}\", param=param, result=result):\n        self.assertEqual(hello(param), result,\n                         msg=f'Expected: {result} but got something else instead.')",
-      "task_id": 5
+      "task_id": 5,
+      "output": "Hello, World! 10"
     },
     {
-      "name": "ExampleHasStdoutOther > hello [variation #5] (param=15, result=('Hello, World!', 15))",
+      "name": "ExampleHasStdoutOther > hello [variation #5]",
       "status": "fail",
       "message": "AssertionError: None != ('Hello, World!', 15) : Expected: ('Hello, World!', 15) but got something else instead.",
       "test_code": "input_data = [1, 2, 5, 10, 15, 23, 33, 39]\nresult_data = [(\"Hello, World!\", param) for param in input_data]\nnumber_of_variants = range(1, len(input_data) + 1)\n\nfor variant, param, result in zip(number_of_variants, input_data, result_data):\n    with self.subTest(f\"variation #{variant}\", param=param, result=result):\n        self.assertEqual(hello(param), result,\n                         msg=f'Expected: {result} but got something else instead.')",
-      "task_id": 5
+      "task_id": 5,
+      "output": "Hello, World! 15"
     },
     {
-      "name": "ExampleHasStdoutOther > hello [variation #6] (param=23, result=('Hello, World!', 23))",
+      "name": "ExampleHasStdoutOther > hello [variation #6]",
       "status": "fail",
       "message": "AssertionError: None != ('Hello, World!', 23) : Expected: ('Hello, World!', 23) but got something else instead.",
       "test_code": "input_data = [1, 2, 5, 10, 15, 23, 33, 39]\nresult_data = [(\"Hello, World!\", param) for param in input_data]\nnumber_of_variants = range(1, len(input_data) + 1)\n\nfor variant, param, result in zip(number_of_variants, input_data, result_data):\n    with self.subTest(f\"variation #{variant}\", param=param, result=result):\n        self.assertEqual(hello(param), result,\n                         msg=f'Expected: {result} but got something else instead.')",
-      "task_id": 5
+      "task_id": 5,
+      "output": "Hello, World! 23"
     },
     {
-      "name": "ExampleHasStdoutOther > hello [variation #7] (param=33, result=('Hello, World!', 33))",
+      "name": "ExampleHasStdoutOther > hello [variation #7]",
       "status": "fail",
       "message": "AssertionError: None != ('Hello, World!', 33) : Expected: ('Hello, World!', 33) but got something else instead.",
       "test_code": "input_data = [1, 2, 5, 10, 15, 23, 33, 39]\nresult_data = [(\"Hello, World!\", param) for param in input_data]\nnumber_of_variants = range(1, len(input_data) + 1)\n\nfor variant, param, result in zip(number_of_variants, input_data, result_data):\n    with self.subTest(f\"variation #{variant}\", param=param, result=result):\n        self.assertEqual(hello(param), result,\n                         msg=f'Expected: {result} but got something else instead.')",
-      "task_id": 5
+      "task_id": 5,
+      "output": "Hello, World! 33"
     },
     {
-      "name": "ExampleHasStdoutOther > hello [variation #8] (param=39, result=('Hello, World!', 39))",
+      "name": "ExampleHasStdoutOther > hello [variation #8]",
       "status": "fail",
       "message": "AssertionError: None != ('Hello, World!', 39) : Expected: ('Hello, World!', 39) but got something else instead.",
       "test_code": "input_data = [1, 2, 5, 10, 15, 23, 33, 39]\nresult_data = [(\"Hello, World!\", param) for param in input_data]\nnumber_of_variants = range(1, len(input_data) + 1)\n\nfor variant, param, result in zip(number_of_variants, input_data, result_data):\n    with self.subTest(f\"variation #{variant}\", param=param, result=result):\n        self.assertEqual(hello(param), result,\n                         msg=f'Expected: {result} but got something else instead.')",
-      "task_id": 5
+      "task_id": 5,
+      "output": "Hello, World! 39"
     }
   ]
 }

@@ -17,84 +17,84 @@
       "task_id": 1
     },
     {
-      "name": "ExampleAllFail > hello [variation #1] (param=15, result=('Hello, World!', 15))",
+      "name": "ExampleAllFail > hello [variation #1]",
       "status": "fail",
       "message": "AssertionError: 'Goodbye!' != ('Hello, World!', 15) : Expected: ('Hello, World!', 15) but got something else instead.",
       "test_code": "input_data = [15, 23, 33, 39]\nresult_data = [(\"Hello, World!\", param) for param in input_data]\n\nfor variant, (param, result) in enumerate(zip(input_data, result_data), start=1):\n    failure_msg=f'Expected: {result} but got something else instead.'\n    with self.subTest(f\"variation #{variant}\", param=param, result=result):\n        self.assertEqual(hello(param), result, msg=failure_msg)",
       "task_id": 1
     },
     {
-      "name": "ExampleAllFail > hello [variation #2] (param=23, result=('Hello, World!', 23))",
+      "name": "ExampleAllFail > hello [variation #2]",
       "status": "fail",
       "message": "AssertionError: 'Goodbye!' != ('Hello, World!', 23) : Expected: ('Hello, World!', 23) but got something else instead.",
       "test_code": "input_data = [15, 23, 33, 39]\nresult_data = [(\"Hello, World!\", param) for param in input_data]\n\nfor variant, (param, result) in enumerate(zip(input_data, result_data), start=1):\n    failure_msg=f'Expected: {result} but got something else instead.'\n    with self.subTest(f\"variation #{variant}\", param=param, result=result):\n        self.assertEqual(hello(param), result, msg=failure_msg)",
       "task_id": 1
     },
     {
-      "name": "ExampleAllFail > hello [variation #3] (param=33, result=('Hello, World!', 33))",
+      "name": "ExampleAllFail > hello [variation #3]",
       "status": "fail",
       "message": "AssertionError: 'Goodbye!' != ('Hello, World!', 33) : Expected: ('Hello, World!', 33) but got something else instead.",
       "test_code": "input_data = [15, 23, 33, 39]\nresult_data = [(\"Hello, World!\", param) for param in input_data]\n\nfor variant, (param, result) in enumerate(zip(input_data, result_data), start=1):\n    failure_msg=f'Expected: {result} but got something else instead.'\n    with self.subTest(f\"variation #{variant}\", param=param, result=result):\n        self.assertEqual(hello(param), result, msg=failure_msg)",
       "task_id": 1
     },
     {
-      "name": "ExampleAllFail > hello [variation #4] (param=39, result=('Hello, World!', 39))",
+      "name": "ExampleAllFail > hello [variation #4]",
       "status": "fail",
       "message": "AssertionError: 'Goodbye!' != ('Hello, World!', 39) : Expected: ('Hello, World!', 39) but got something else instead.",
       "test_code": "input_data = [15, 23, 33, 39]\nresult_data = [(\"Hello, World!\", param) for param in input_data]\n\nfor variant, (param, result) in enumerate(zip(input_data, result_data), start=1):\n    failure_msg=f'Expected: {result} but got something else instead.'\n    with self.subTest(f\"variation #{variant}\", param=param, result=result):\n        self.assertEqual(hello(param), result, msg=failure_msg)",
       "task_id": 1
     },
     {
-      "name": "ExampleAllFail > abc [variation #1] (param='frog', result=('Hello, World!', 'frog'))",
+      "name": "ExampleAllFail > abc [variation #1]",
       "status": "fail",
       "message": "AssertionError: 'Goodbye!' != ('Hello, World!', 'frog') : Expected: ('Hello, World!', 'frog') but got something else instead.",
       "test_code": "input_data = ['frog', 'fish', 'coconut', 'pineapple', 'carrot', 'cucumber', 'grass', 'tree']\nresult_data = [(\"Hello, World!\", param) for param in input_data]\n\nfor variant, (param, result) in enumerate(zip(input_data, result_data), start=1):\n    failure_msg=f'Expected: {result} but got something else instead.'\n    with self.subTest(f\"variation #{variant}\", param=param, result=result):\n        self.assertEqual(hello(param), result, msg=failure_msg)",
       "task_id": 1
     },
     {
-      "name": "ExampleAllFail > abc [variation #2] (param='fish', result=('Hello, World!', 'fish'))",
+      "name": "ExampleAllFail > abc [variation #2]",
       "status": "fail",
       "message": "AssertionError: 'Goodbye!' != ('Hello, World!', 'fish') : Expected: ('Hello, World!', 'fish') but got something else instead.",
       "test_code": "input_data = ['frog', 'fish', 'coconut', 'pineapple', 'carrot', 'cucumber', 'grass', 'tree']\nresult_data = [(\"Hello, World!\", param) for param in input_data]\n\nfor variant, (param, result) in enumerate(zip(input_data, result_data), start=1):\n    failure_msg=f'Expected: {result} but got something else instead.'\n    with self.subTest(f\"variation #{variant}\", param=param, result=result):\n        self.assertEqual(hello(param), result, msg=failure_msg)",
       "task_id": 1
     },
     {
-      "name": "ExampleAllFail > abc [variation #3] (param='coconut', result=('Hello, World!', 'coconut'))",
+      "name": "ExampleAllFail > abc [variation #3]",
       "status": "fail",
       "message": "AssertionError: 'Goodbye!' != ('Hello, World!', 'coconut') : Expected: ('Hello, World!', 'coconut') but got something else instead.",
       "test_code": "input_data = ['frog', 'fish', 'coconut', 'pineapple', 'carrot', 'cucumber', 'grass', 'tree']\nresult_data = [(\"Hello, World!\", param) for param in input_data]\n\nfor variant, (param, result) in enumerate(zip(input_data, result_data), start=1):\n    failure_msg=f'Expected: {result} but got something else instead.'\n    with self.subTest(f\"variation #{variant}\", param=param, result=result):\n        self.assertEqual(hello(param), result, msg=failure_msg)",
       "task_id": 1
     },
     {
-      "name": "ExampleAllFail > abc [variation #4] (param='pineapple', result=('Hello, World!', 'pineapple'))",
+      "name": "ExampleAllFail > abc [variation #4]",
       "status": "fail",
       "message": "AssertionError: 'Goodbye!' != ('Hello, World!', 'pineapple') : Expected: ('Hello, World!', 'pineapple') but got something else instead.",
       "test_code": "input_data = ['frog', 'fish', 'coconut', 'pineapple', 'carrot', 'cucumber', 'grass', 'tree']\nresult_data = [(\"Hello, World!\", param) for param in input_data]\n\nfor variant, (param, result) in enumerate(zip(input_data, result_data), start=1):\n    failure_msg=f'Expected: {result} but got something else instead.'\n    with self.subTest(f\"variation #{variant}\", param=param, result=result):\n        self.assertEqual(hello(param), result, msg=failure_msg)",
       "task_id": 1
     },
     {
-      "name": "ExampleAllFail > abc [variation #5] (param='carrot', result=('Hello, World!', 'carrot'))",
+      "name": "ExampleAllFail > abc [variation #5]",
       "status": "fail",
       "message": "AssertionError: 'Goodbye!' != ('Hello, World!', 'carrot') : Expected: ('Hello, World!', 'carrot') but got something else instead.",
       "test_code": "input_data = ['frog', 'fish', 'coconut', 'pineapple', 'carrot', 'cucumber', 'grass', 'tree']\nresult_data = [(\"Hello, World!\", param) for param in input_data]\n\nfor variant, (param, result) in enumerate(zip(input_data, result_data), start=1):\n    failure_msg=f'Expected: {result} but got something else instead.'\n    with self.subTest(f\"variation #{variant}\", param=param, result=result):\n        self.assertEqual(hello(param), result, msg=failure_msg)",
       "task_id": 1
     },
     {
-      "name": "ExampleAllFail > abc [variation #6] (param='cucumber', result=('Hello, World!', 'cucumber'))",
+      "name": "ExampleAllFail > abc [variation #6]",
       "status": "fail",
       "message": "AssertionError: 'Goodbye!' != ('Hello, World!', 'cucumber') : Expected: ('Hello, World!', 'cucumber') but got something else instead.",
       "test_code": "input_data = ['frog', 'fish', 'coconut', 'pineapple', 'carrot', 'cucumber', 'grass', 'tree']\nresult_data = [(\"Hello, World!\", param) for param in input_data]\n\nfor variant, (param, result) in enumerate(zip(input_data, result_data), start=1):\n    failure_msg=f'Expected: {result} but got something else instead.'\n    with self.subTest(f\"variation #{variant}\", param=param, result=result):\n        self.assertEqual(hello(param), result, msg=failure_msg)",
       "task_id": 1
     },
     {
-      "name": "ExampleAllFail > abc [variation #7] (param='grass', result=('Hello, World!', 'grass'))",
+      "name": "ExampleAllFail > abc [variation #7]",
       "status": "fail",
       "message": "AssertionError: 'Goodbye!' != ('Hello, World!', 'grass') : Expected: ('Hello, World!', 'grass') but got something else instead.",
       "test_code": "input_data = ['frog', 'fish', 'coconut', 'pineapple', 'carrot', 'cucumber', 'grass', 'tree']\nresult_data = [(\"Hello, World!\", param) for param in input_data]\n\nfor variant, (param, result) in enumerate(zip(input_data, result_data), start=1):\n    failure_msg=f'Expected: {result} but got something else instead.'\n    with self.subTest(f\"variation #{variant}\", param=param, result=result):\n        self.assertEqual(hello(param), result, msg=failure_msg)",
       "task_id": 1
     },
     {
-      "name": "ExampleAllFail > abc [variation #8] (param='tree', result=('Hello, World!', 'tree'))",
+      "name": "ExampleAllFail > abc [variation #8]",
       "status": "fail",
       "message": "AssertionError: 'Goodbye!' != ('Hello, World!', 'tree') : Expected: ('Hello, World!', 'tree') but got something else instead.",
       "test_code": "input_data = ['frog', 'fish', 'coconut', 'pineapple', 'carrot', 'cucumber', 'grass', 'tree']\nresult_data = [(\"Hello, World!\", param) for param in input_data]\n\nfor variant, (param, result) in enumerate(zip(input_data, result_data), start=1):\n    failure_msg=f'Expected: {result} but got something else instead.'\n    with self.subTest(f\"variation #{variant}\", param=param, result=result):\n        self.assertEqual(hello(param), result, msg=failure_msg)",
@@ -115,84 +115,84 @@
       "task_id": 2
     },
     {
-      "name": "ExampleAllFailOther > dummy [variation #1] (param='frog', result=('Hello, World!', 'frog'))",
+      "name": "ExampleAllFailOther > dummy [variation #1]",
       "status": "fail",
       "message": "AssertionError: 'Goodbye!' != ('Hello, World!', 'frog') : Expected: ('Hello, World!', 'frog') but got something else instead.",
       "test_code": "input_data = ['frog', 'fish', 'coconut', 'pineapple', 'carrot', 'cucumber', 'grass', 'tree']\nresult_data = [(\"Hello, World!\", param) for param in input_data]\n\nfor variant, (param, result) in enumerate(zip(input_data, result_data), start=1):\n    failure_msg=f'Expected: {result} but got something else instead.'\n    with self.subTest(f\"variation #{variant}\", param=param, result=result):\n        self.assertEqual(hello(param), result, msg=failure_msg)",
       "task_id": 2
     },
     {
-      "name": "ExampleAllFailOther > dummy [variation #2] (param='fish', result=('Hello, World!', 'fish'))",
+      "name": "ExampleAllFailOther > dummy [variation #2]",
       "status": "fail",
       "message": "AssertionError: 'Goodbye!' != ('Hello, World!', 'fish') : Expected: ('Hello, World!', 'fish') but got something else instead.",
       "test_code": "input_data = ['frog', 'fish', 'coconut', 'pineapple', 'carrot', 'cucumber', 'grass', 'tree']\nresult_data = [(\"Hello, World!\", param) for param in input_data]\n\nfor variant, (param, result) in enumerate(zip(input_data, result_data), start=1):\n    failure_msg=f'Expected: {result} but got something else instead.'\n    with self.subTest(f\"variation #{variant}\", param=param, result=result):\n        self.assertEqual(hello(param), result, msg=failure_msg)",
       "task_id": 2
     },
     {
-      "name": "ExampleAllFailOther > dummy [variation #3] (param='coconut', result=('Hello, World!', 'coconut'))",
+      "name": "ExampleAllFailOther > dummy [variation #3]",
       "status": "fail",
       "message": "AssertionError: 'Goodbye!' != ('Hello, World!', 'coconut') : Expected: ('Hello, World!', 'coconut') but got something else instead.",
       "test_code": "input_data = ['frog', 'fish', 'coconut', 'pineapple', 'carrot', 'cucumber', 'grass', 'tree']\nresult_data = [(\"Hello, World!\", param) for param in input_data]\n\nfor variant, (param, result) in enumerate(zip(input_data, result_data), start=1):\n    failure_msg=f'Expected: {result} but got something else instead.'\n    with self.subTest(f\"variation #{variant}\", param=param, result=result):\n        self.assertEqual(hello(param), result, msg=failure_msg)",
       "task_id": 2
     },
     {
-      "name": "ExampleAllFailOther > dummy [variation #4] (param='pineapple', result=('Hello, World!', 'pineapple'))",
+      "name": "ExampleAllFailOther > dummy [variation #4]",
       "status": "fail",
       "message": "AssertionError: 'Goodbye!' != ('Hello, World!', 'pineapple') : Expected: ('Hello, World!', 'pineapple') but got something else instead.",
       "test_code": "input_data = ['frog', 'fish', 'coconut', 'pineapple', 'carrot', 'cucumber', 'grass', 'tree']\nresult_data = [(\"Hello, World!\", param) for param in input_data]\n\nfor variant, (param, result) in enumerate(zip(input_data, result_data), start=1):\n    failure_msg=f'Expected: {result} but got something else instead.'\n    with self.subTest(f\"variation #{variant}\", param=param, result=result):\n        self.assertEqual(hello(param), result, msg=failure_msg)",
       "task_id": 2
     },
     {
-      "name": "ExampleAllFailOther > dummy [variation #5] (param='carrot', result=('Hello, World!', 'carrot'))",
+      "name": "ExampleAllFailOther > dummy [variation #5]",
       "status": "fail",
       "message": "AssertionError: 'Goodbye!' != ('Hello, World!', 'carrot') : Expected: ('Hello, World!', 'carrot') but got something else instead.",
       "test_code": "input_data = ['frog', 'fish', 'coconut', 'pineapple', 'carrot', 'cucumber', 'grass', 'tree']\nresult_data = [(\"Hello, World!\", param) for param in input_data]\n\nfor variant, (param, result) in enumerate(zip(input_data, result_data), start=1):\n    failure_msg=f'Expected: {result} but got something else instead.'\n    with self.subTest(f\"variation #{variant}\", param=param, result=result):\n        self.assertEqual(hello(param), result, msg=failure_msg)",
       "task_id": 2
     },
     {
-      "name": "ExampleAllFailOther > dummy [variation #6] (param='cucumber', result=('Hello, World!', 'cucumber'))",
+      "name": "ExampleAllFailOther > dummy [variation #6]",
       "status": "fail",
       "message": "AssertionError: 'Goodbye!' != ('Hello, World!', 'cucumber') : Expected: ('Hello, World!', 'cucumber') but got something else instead.",
       "test_code": "input_data = ['frog', 'fish', 'coconut', 'pineapple', 'carrot', 'cucumber', 'grass', 'tree']\nresult_data = [(\"Hello, World!\", param) for param in input_data]\n\nfor variant, (param, result) in enumerate(zip(input_data, result_data), start=1):\n    failure_msg=f'Expected: {result} but got something else instead.'\n    with self.subTest(f\"variation #{variant}\", param=param, result=result):\n        self.assertEqual(hello(param), result, msg=failure_msg)",
       "task_id": 2
     },
     {
-      "name": "ExampleAllFailOther > dummy [variation #7] (param='grass', result=('Hello, World!', 'grass'))",
+      "name": "ExampleAllFailOther > dummy [variation #7]",
       "status": "fail",
       "message": "AssertionError: 'Goodbye!' != ('Hello, World!', 'grass') : Expected: ('Hello, World!', 'grass') but got something else instead.",
       "test_code": "input_data = ['frog', 'fish', 'coconut', 'pineapple', 'carrot', 'cucumber', 'grass', 'tree']\nresult_data = [(\"Hello, World!\", param) for param in input_data]\n\nfor variant, (param, result) in enumerate(zip(input_data, result_data), start=1):\n    failure_msg=f'Expected: {result} but got something else instead.'\n    with self.subTest(f\"variation #{variant}\", param=param, result=result):\n        self.assertEqual(hello(param), result, msg=failure_msg)",
       "task_id": 2
     },
     {
-      "name": "ExampleAllFailOther > dummy [variation #8] (param='tree', result=('Hello, World!', 'tree'))",
+      "name": "ExampleAllFailOther > dummy [variation #8]",
       "status": "fail",
       "message": "AssertionError: 'Goodbye!' != ('Hello, World!', 'tree') : Expected: ('Hello, World!', 'tree') but got something else instead.",
       "test_code": "input_data = ['frog', 'fish', 'coconut', 'pineapple', 'carrot', 'cucumber', 'grass', 'tree']\nresult_data = [(\"Hello, World!\", param) for param in input_data]\n\nfor variant, (param, result) in enumerate(zip(input_data, result_data), start=1):\n    failure_msg=f'Expected: {result} but got something else instead.'\n    with self.subTest(f\"variation #{variant}\", param=param, result=result):\n        self.assertEqual(hello(param), result, msg=failure_msg)",
       "task_id": 2
     },
     {
-      "name": "ExampleAllFailOther > hello [variation #1] (param=1, result=('Hello, World!', 1))",
+      "name": "ExampleAllFailOther > hello [variation #1]",
       "status": "fail",
       "message": "AssertionError: 'Goodbye!' != ('Hello, World!', 1) : Expected: ('Hello, World!', 1) but got something else instead.",
       "test_code": "input_data = [1, 2, 5, 10]\nresult_data = [(\"Hello, World!\", param) for param in input_data]\n\nfor variant, (param, result) in enumerate(zip(input_data, result_data), start=1):\n    failure_msg=f'Expected: {result} but got something else instead.'\n    with self.subTest(f\"variation #{variant}\", param=param, result=result):\n        self.assertEqual(hello(param), result, msg=failure_msg)",
       "task_id": 2
     },
     {
-      "name": "ExampleAllFailOther > hello [variation #2] (param=2, result=('Hello, World!', 2))",
+      "name": "ExampleAllFailOther > hello [variation #2]",
       "status": "fail",
       "message": "AssertionError: 'Goodbye!' != ('Hello, World!', 2) : Expected: ('Hello, World!', 2) but got something else instead.",
       "test_code": "input_data = [1, 2, 5, 10]\nresult_data = [(\"Hello, World!\", param) for param in input_data]\n\nfor variant, (param, result) in enumerate(zip(input_data, result_data), start=1):\n    failure_msg=f'Expected: {result} but got something else instead.'\n    with self.subTest(f\"variation #{variant}\", param=param, result=result):\n        self.assertEqual(hello(param), result, msg=failure_msg)",
       "task_id": 2
     },
     {
-      "name": "ExampleAllFailOther > hello [variation #3] (param=5, result=('Hello, World!', 5))",
+      "name": "ExampleAllFailOther > hello [variation #3]",
       "status": "fail",
       "message": "AssertionError: 'Goodbye!' != ('Hello, World!', 5) : Expected: ('Hello, World!', 5) but got something else instead.",
       "test_code": "input_data = [1, 2, 5, 10]\nresult_data = [(\"Hello, World!\", param) for param in input_data]\n\nfor variant, (param, result) in enumerate(zip(input_data, result_data), start=1):\n    failure_msg=f'Expected: {result} but got something else instead.'\n    with self.subTest(f\"variation #{variant}\", param=param, result=result):\n        self.assertEqual(hello(param), result, msg=failure_msg)",
       "task_id": 2
     },
     {
-      "name": "ExampleAllFailOther > hello [variation #4] (param=10, result=('Hello, World!', 10))",
+      "name": "ExampleAllFailOther > hello [variation #4]",
       "status": "fail",
       "message": "AssertionError: 'Goodbye!' != ('Hello, World!', 10) : Expected: ('Hello, World!', 10) but got something else instead.",
       "test_code": "input_data = [1, 2, 5, 10]\nresult_data = [(\"Hello, World!\", param) for param in input_data]\n\nfor variant, (param, result) in enumerate(zip(input_data, result_data), start=1):\n    failure_msg=f'Expected: {result} but got something else instead.'\n    with self.subTest(f\"variation #{variant}\", param=param, result=result):\n        self.assertEqual(hello(param), result, msg=failure_msg)",

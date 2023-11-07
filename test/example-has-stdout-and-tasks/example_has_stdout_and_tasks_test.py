@@ -16,7 +16,7 @@ class ExampleHasStdoutAndTasksTest(unittest.TestCase):
         self.assertEqual(hello(), "Hello, World!")
 
     @pytest.mark.task(taskno=3)
-    def test_trancation(self):
+    def test_truncation(self):
         self.assertEqual(must_truncate(), "Hello, World!")
 
 

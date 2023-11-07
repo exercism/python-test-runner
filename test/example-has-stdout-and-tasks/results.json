@@ -19,7 +19,7 @@
       "output": "Hello, World!"
     },
     {
-      "name": "ExampleHasStdoutAndTasks > trancation",
+      "name": "ExampleHasStdoutAndTasks > truncation",
       "status": "fail",
       "message": "AssertionError: 'Goodbye!' != 'Hello, World!'\n- Goodbye!\n+ Hello, World!",
       "test_code": "self.assertEqual(must_truncate(), \"Hello, World!\")",

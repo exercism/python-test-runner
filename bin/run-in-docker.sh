@@ -1,5 +1,4 @@
-#!/usr/bin/env bash
-set -e
+#!/usr/bin/env sh
 
 # Synopsis:
 # Test runner for run.sh in a docker container
@@ -18,6 +17,9 @@ set -e
 
 # Example:
 # ./run-in-docker.sh two-fer ./relative/path/to/two-fer/solution/folder/ ./relative/path/to/output/directory/
+
+# Stop executing when a command returns a non-zero return code
+set -e
 
 # If arguments not provided, print usage and exit
 if [ -z "$1" ] || [ -z "$2" ] || [ -z "$3" ]; then
