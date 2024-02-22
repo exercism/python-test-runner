@@ -1,5 +1,10 @@
-#! /usr/bin/env sh
+#! /bin/sh
 
-root="$( dirname "$( cd "$( dirname "$0" )" >/dev/null 2>&1 && pwd )" )"
+root="/opt/test-runner"
 export PYTHONPATH="$root:$PYTHONPATH"
-/usr/bin/env python3 bin/run.py "$@"
+
+mkdir autograding_output
+
+python3 /opt/test-runner/bin/run.py ./ ./autograding_output/
+
+echo "result=$(jq -c . autograding_output/results.json | jq -sRr @base64)" >> "$GITHUB_OUTPUT"

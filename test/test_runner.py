@@ -45,9 +45,19 @@ def test_results_matches_golden_file(test_with_golden):
     Test that the results of a run matches the golden file.
     """
     results, golden, rc = run_in_subprocess(*test_with_golden)
-    assert results == golden, "results must match the golden file"
-    assert rc == 0, f"return code must be 0 even when errors occur: got {rc}"
-
+       
+    # Ensure 'results' and 'golden' have the same structure, and 'duration' is present
+    assert len(results['tests']) == len(golden['tests']), "Number of tests must match"
+    for result_test, golden_test in zip(results['tests'], golden['tests']):
+        assert 'duration' in result_test, "Duration key must be present"
+        # Remove or ignore 'duration' for comparison
+        result_test.pop('duration')
+        golden_test.pop('duration', None)  # Remove duration from golden if present
+    
+    # Compare results and golden, ignoring duration
+    assert results == golden, "Results must match the golden file, ignoring duration"
+    
+    assert rc == 0, f"Return code must be 0 even when errors occur: got {rc}"
 
 # the below are the --tb=STYLE options for traceback styling, see pytest -h
 @pytest.fixture(params="auto/long/short/line/native/no".split("/"))
@@ -64,5 +74,15 @@ def test_style_matches_golden_file(test_with_golden, style):
     Test that --tb=STYLE arguments don't change the results.json contents.
     """
     results, golden, rc = run_in_subprocess(*test_with_golden, args=[f"--tb={style}"])
-    assert results == golden, f"results with --tb={style} must not change results.json"
-    assert rc == 0, f"return code must be 0 even when errors occur: got {rc}"
+    # Ensure 'results' and 'golden' have the same structure, and 'duration' is present
+    assert len(results['tests']) == len(golden['tests']), "Number of tests must match"
+    for result_test, golden_test in zip(results['tests'], golden['tests']):
+        assert 'duration' in result_test, "Duration key must be present"
+        # Remove or ignore 'duration' for comparison
+        result_test.pop('duration')
+        golden_test.pop('duration', None)  # Remove duration from golden if present
+    
+    # Compare results and golden, ignoring duration
+    assert results == golden, "Results must match the golden file, ignoring duration"
+    
+    assert rc == 0, f"Return code must be 0 even when errors occur: got {rc}"

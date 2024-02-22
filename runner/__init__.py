@@ -11,9 +11,8 @@ import shutil
 
 import pytest
 
-from .data import Slug, Directory, Hierarchy, Results, Test
+from .data import Directory, Hierarchy, Results, Test
 from .sort import TestOrder
-
 
 
 class ResultsReporter:
@@ -38,6 +37,7 @@ class ResultsReporter:
             for mark in item.iter_markers(name='task'):
                 self.tests[name] = Test(name=name, task_id=mark.kwargs['taskno'])
 
+
         def _sort_by_lineno(item):
             test_id = Hierarchy(item.nodeid)
             source = Path(item.fspath)
@@ -50,60 +50,32 @@ class ResultsReporter:
         Process a test setup / call / teardown report.
         """
 
-        name = ".".join(report.nodeid.split("::")[1:])
-        if report.head_line:
-            name = report.head_line.split(" (")[0]
-
-
-        #Add variation name to test output.
+        name = report.head_line if report.head_line else ".".join(report.nodeid.split("::")[1:])
         if name not in self.tests:
-            self.tests[name] = Test(name)
+            # Extract filename and line number
+            filename = report.location[0]
+            line_no = report.location[1]
+            # Initialize Test with filename and line number
+            self.tests[name] = Test(name, filename=filename, line_no=line_no)
 
         state = self.tests[name]
+
+        # Store duration
+        state.duration = report.duration
 
         # ignore successful setup and teardown stages
         if report.passed and report.when != "call":
             return
 
-        #Update tests that have already failed with capstdout and return.
+        # Update tests that have already failed with capstdout and return.
         if not state.is_passing():
-
-            #Check if a report is a concept exercise subtest parent.
-            if report.capstdout:
-
-                #split up the captured stdout by subtest result.
-                captures = [item for item in report.capstdout.split('\nu')]
-                if captures[0].startswith('u'):
-                    captures[0] = captures[0][1:]
-
-                parsed_captures = []
-
-                # Insert spacers for subtests and stdout entries in correct position.
-                for item in captures:
-                    empties = len(item) - len(item.lstrip('u'))
-                    if empties > 0:
-                        for number in range(1, empties+1):
-                            parsed_captures.append(' ')
-                        parsed_captures.append(item.lstrip('u'))
-                    else: parsed_captures.append(item)
-
-                # Generate variation numbers for each subtest output section.
-                variants = (f'[variation #{number}]: {item}' for
-                            item, number in zip(parsed_captures, range(1, len(parsed_captures)+1)))
-
-                # Go through the variations and match them to self.tests.
-                # Insert matched variation output into test output field.
-                for item in variants:
-                    for name in self.tests:
-                        if item.split(":")[0] in name and report.nodeid.split("::")[2] in name:
-                            self.tests[name].output = item.split("]: ")[1]
-            else:
-                state.output = report.capstdout
+            if report.capstdout.rstrip('FFFFFFFF ').rstrip('uuuuu'):
+                state.output = report.capstdout.rstrip('FFFFFFFF ').rstrip('uuuuu')
             return
 
-        else:
-            if report.capstdout:
-                state.output = report.capstdout
+        # Record captured relevant stdout content for passed tests.
+        if report.capstdout:
+            state.output = report.capstdout
 
         # Handle details of test failure
         if report.failed:
@@ -139,6 +111,7 @@ class ResultsReporter:
                     message="One or more variations of this test failed. Details can be found under each [variant#]."
                 )
                 self.tests[parent_test_name].test_code = state.test_code
+
 
     def pytest_sessionfinish(self, session, exitstatus):
         """
@@ -217,20 +190,16 @@ def _sanitize_args(args: List[str]) -> List[str]:
     return clean
 
 
-def run(slug: Slug, indir: Directory, outdir: Directory, args: List[str]) -> None:
+def run(indir: Directory, outdir: Directory, args: List[str]) -> None:
     """
     Run the tests for the given exercise and produce a results.json.
     """
     test_files = []
-    config_file = indir.joinpath(".meta").joinpath("config.json")
 
-    if config_file.is_file():
-        config_data = json.loads(config_file.read_text())
-        for filename in config_data.get('files', {}).get('test', []):
-            test_files.append(indir.joinpath(filename))
-
-    if not test_files:
-        test_files.append(indir.joinpath(slug.replace("-", "_") + "_test.py"))
+    for root, dirs, files in os.walk(indir):
+        for file in files:
+            if file.endswith("_test.py"):
+                test_files.append(Path(root) / file)
 
     out_file = outdir.joinpath("results.json")
 
@@ -240,9 +209,8 @@ def run(slug: Slug, indir: Directory, outdir: Directory, args: List[str]) -> Non
 
     # dump the report
     out_file.write_text(reporter.results.as_json())
-
     # remove cache directories
     for cache_dir in ['.pytest_cache', '__pycache__']:
         dirpath = indir / cache_dir
-        if dirpath.is_dir() and dirpath.owner() == out_file.owner():
+        if dirpath.is_dir():
             shutil.rmtree(dirpath)
