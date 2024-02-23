@@ -1,0 +1,10 @@
+name: "GitHub Classroom Python Grader"
+author: "GitHub"
+description: "A plugin for GitHub Classroom's Autograder using pytest to ensure student executables output the correct values on tests."
+outputs:
+  result:
+    description: "Runner output"
+runs:
+  using: docker
+  image: Dockerfile
+  entrypoint: "/opt/test-runner/bin/run.sh"

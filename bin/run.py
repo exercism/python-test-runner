@@ -9,13 +9,6 @@ import runner
 import runner.utils
 
 
-def _slug(arg):
-    try:
-        return runner.utils.slug(arg)
-    except ValueError as err:
-        raise ArgumentTypeError(str(err))
-
-
 def _directory(arg):
     try:
         return runner.utils.directory(arg)
@@ -28,10 +21,6 @@ def main():
     Parse CLI arguments and run the tests.
     """
     parser = ArgumentParser(description="Run the tests of a Python exercise.")
-
-    parser.add_argument(
-        "slug", metavar="SLUG", type=_slug, help="name of the exercise to process",
-    )
 
     parser.add_argument(
         "input",
@@ -50,7 +39,7 @@ def main():
     parser.add_argument("pytest_args", nargs=REMAINDER)
 
     args = parser.parse_args()
-    runner.run(args.slug, args.input, args.output, args.pytest_args)
+    runner.run(args.input, args.output, args.pytest_args)
 
 
 if __name__ == "__main__":

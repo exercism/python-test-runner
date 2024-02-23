@@ -6,7 +6,8 @@ RUN pip install -r /requirements.txt
 
 RUN apk update && apk upgrade\
  && apk --no-cache add curl bash\
- && apk cache clean
+ && apk cache clean\
+ && apt-get install jq -y \
 
 COPY . /opt/test-runner
 
