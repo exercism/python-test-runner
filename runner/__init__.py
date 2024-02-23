@@ -196,7 +196,7 @@ def run(indir: Directory, outdir: Directory, args: List[str]) -> None:
     """
     test_files = []
 
-    print(os.walk(indir))
+    print(indir)
     for root, dirs, files in os.walk(indir):
         for file in files:
             if file.endswith("_test.py"):
