@@ -196,9 +196,7 @@ def run(indir: Directory, outdir: Directory, args: List[str]) -> None:
     """
     test_files = []
 
-    print(indir)
     for root, dirs, files in os.walk(indir):
-        print(root, dirs, files)
         for file in files:
             if file.endswith("_test.py"):
                 test_files.append(Path(root) / file)
