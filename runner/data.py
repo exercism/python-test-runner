@@ -53,7 +53,9 @@ class Test:
     task_id: int = 0
     filename: str = ""
     line_no: int = 0
-    duration: float = 0.0 
+    duration: float = 0.0
+    max_score: int = 0
+    score: float = 0.0
 
     # for an explanation of why both of these are necessary see
     # https://florimond.dev/blog/articles/2018/10/reconciling-dataclasses-and-properties-in-python/
