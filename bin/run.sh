@@ -5,7 +5,7 @@ export PYTHONPATH="$root:$PYTHONPATH"
 
 mkdir autograding_output
 
-echo "$INPUT_TEST_NAME"
+echo "test name: $INPUT_TEST_NAME"
 
 python3 /opt/test-runner/bin/run.py ./ ./autograding_output/
 
