@@ -54,7 +54,6 @@ class Test:
     filename: str = ""
     line_no: int = 0
     duration: float = 0.0
-    max_score: int = 0
     score: float = 0.0
 
     # for an explanation of why both of these are necessary see
@@ -119,6 +118,7 @@ class Results:
     status: Status = Status.PASS
     message: Message = None
     tests: List[Test] = field(default_factory=list)
+    max_score: int = 0
 
     def add(self, test: Test) -> None:
         """
