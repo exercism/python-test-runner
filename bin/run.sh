@@ -5,6 +5,8 @@ export PYTHONPATH="$root:$PYTHONPATH"
 
 mkdir autograding_output
 
+echo "try this $1"
+
 MAX_SCORE="$1"
 
 echo "max score is $MAX_SCORE"
