@@ -5,11 +5,7 @@ export PYTHONPATH="$root:$PYTHONPATH"
 
 mkdir autograding_output
 
-echo "try this $1"
-
 MAX_SCORE="$1"
-
-echo "max score is $MAX_SCORE"
 
 python3 /opt/test-runner/bin/run.py ./ ./autograding_output/ "$MAX_SCORE"
 
