@@ -1,0 +1,33 @@
+name: CI
+
+on: [push]
+
+jobs:
+  integration:
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@v4
+      - uses: actions/setup-node@v3
+      - name: Install and build node assets
+        run: |
+          npm install --silent
+          npm run build
+      - name: Python test
+        uses: ./
+        id: python-test
+        with:
+          max-score: 100
+      - name: Decode and assert echo-test
+        uses: actions/github-script@v6
+        with:
+          github-token: ${{ github.token || 'act' }}
+          script: |
+            // Decode the Base64 output
+            const decodedResult = Buffer.from("${{ steps.echo-test.outputs.result }}", 'base64').toString('utf8');
+            console.log(`Decoded Result: ${decodedResult}`);
+            const json = JSON.parse(decodedResult)
+            if ( json["version"] != 1 &&
+                 json["status"] != "pass" &&
+                 json["tests"][0]["name"] != "Python test") {
+              throw new Error(`Assertion failed. Expected 'expected value', but got '${decodedResult}'`);
+            }
