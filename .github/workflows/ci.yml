@@ -12,13 +12,13 @@ jobs:
         id: python-test
         with:
           max-score: 100
-      - name: Decode and assert echo-test
+      - name: Decode and assert python-test
         uses: actions/github-script@v6
         with:
           github-token: ${{ github.token || 'act' }}
           script: |
             // Decode the Base64 output
-            const decodedResult = Buffer.from("${{ steps.echo-test.outputs.result }}", 'base64').toString('utf8');
+            const decodedResult = Buffer.from("${{ steps.python-test.outputs.result }}", 'base64').toString('utf8');
             console.log(`Decoded Result: ${decodedResult}`);
             const json = JSON.parse(decodedResult)
             if ( json["version"] != 1 &&
