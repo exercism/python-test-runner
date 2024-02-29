@@ -7,11 +7,6 @@ jobs:
     runs-on: ubuntu-latest
     steps:
       - uses: actions/checkout@v4
-      - uses: actions/setup-node@v3
-      - name: Install and build node assets
-        run: |
-          npm install --silent
-          npm run build
       - name: Python test
         uses: ./
         id: python-test
