@@ -133,6 +133,10 @@ class ResultsReporter:
             self.results.error(message)
 
         for test in self.tests.values():
+            if test.is_passing:
+                test.score = self.results.max_score / len(self.tests)
+            else:
+                test.score = 0 
             self.results.add(test)
 
     def pytest_terminal_summary(self, terminalreporter):
@@ -190,7 +194,7 @@ def _sanitize_args(args: List[str]) -> List[str]:
     return clean
 
 
-def run(indir: Directory, outdir: Directory, args: List[str]) -> None:
+def run(indir: Directory, outdir: Directory, max_score: int, args: List[str]) -> None:
     """
     Run the tests for the given exercise and produce a results.json.
     """
@@ -205,6 +209,7 @@ def run(indir: Directory, outdir: Directory, args: List[str]) -> None:
 
     # run the tests and report
     reporter = ResultsReporter()
+    reporter.results.max_score = max_score
     pytest.main(_sanitize_args(args or []) + [str(tf) for tf in test_files], plugins=[reporter])
 
     # dump the report

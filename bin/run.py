@@ -36,11 +36,17 @@ def main():
         help="directory where the results.json will be written",
     )
 
+    parser.add_argument(
+        "max_score",
+        metavar="MAX",
+        type=int,
+        help="max amount of points the test suite is worth",
+    )
+
     parser.add_argument("pytest_args", nargs=REMAINDER)
 
     args = parser.parse_args()
-    runner.run(args.input, args.output, args.pytest_args)
-
+    runner.run(args.input, args.output, args.max_score, args.pytest_args)
 
 if __name__ == "__main__":
     main()
