@@ -10,7 +10,8 @@ import json
 import shutil
 
 import pytest
-from timeout_decorator import timeout_decorator
+import timeout_decorator
+
 from .data import Directory, Hierarchy, Results, Test
 from .sort import TestOrder
 
@@ -212,7 +213,7 @@ def run(indir: Directory, outdir: Directory, max_score: int, timeout_duration: i
     reporter = ResultsReporter()
     reporter.results.max_score = max_score
     try:
-        @timeout_decorator(timeout_duration)
+        @timeout_decorator.timeout_decorator(timeout_duration)
         def run_tests():
             pytest.main(_sanitize_args(args or []) + [str(tf) for tf in test_files], plugins=[reporter])
 
