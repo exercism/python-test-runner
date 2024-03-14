@@ -8,14 +8,12 @@ from typing import List
 from pathlib import Path
 import json
 import shutil
-import time
-import timeout_decorator
 
 import pytest
+import timeout_decorator
 
 from .data import Directory, Hierarchy, Results, Test
 from .sort import TestOrder
-from time import timeout, TimeoutError
 
 
 
@@ -215,7 +213,7 @@ def run(indir: Directory, outdir: Directory, max_score: int, timeout_duration: i
     reporter = ResultsReporter()
     reporter.results.max_score = max_score
     try:
-        @timeout(timeout_duration)
+        @timeout_decorator(timeout_duration)
         def run_tests():
             pytest.main(_sanitize_args(args or []) + [str(tf) for tf in test_files], plugins=[reporter])
 
