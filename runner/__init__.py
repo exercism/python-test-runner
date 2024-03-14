@@ -10,8 +10,7 @@ import json
 import shutil
 
 import pytest
-import timeout_decorator
-
+from timeout_decorator import timeout_decorator
 from .data import Directory, Hierarchy, Results, Test
 from .sort import TestOrder
 
