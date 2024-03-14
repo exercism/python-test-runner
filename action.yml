@@ -2,6 +2,10 @@ name: "GitHub Classroom Python Grader"
 author: "GitHub"
 description: "A plugin for GitHub Classroom's Autograder using pytest to ensure student executables output the correct values on tests."
 inputs:
+  timeout:
+    description: "Duration (in minutes) before the test is terminated. Defaults to 10 minutes with a maximum limit of 60 minutes."
+    default: "10"
+    required: true
   max-score:
     description: "The maximum amount of points a student can receive for this test."
     required: false
