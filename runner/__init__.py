@@ -13,6 +13,8 @@ import pytest
 
 from .data import Directory, Hierarchy, Results, Test
 from .sort import TestOrder
+from time import timeout, TimeoutError
+
 
 
 class ResultsReporter:
@@ -194,7 +196,7 @@ def _sanitize_args(args: List[str]) -> List[str]:
     return clean
 
 
-def run(indir: Directory, outdir: Directory, max_score: int, args: List[str]) -> None:
+def run(indir: Directory, outdir: Directory, max_score: int, timeout_duration: int, args: List[str]) -> None:
     """
     Run the tests for the given exercise and produce a results.json.
     """
@@ -210,7 +212,14 @@ def run(indir: Directory, outdir: Directory, max_score: int, args: List[str]) ->
     # run the tests and report
     reporter = ResultsReporter()
     reporter.results.max_score = max_score
-    pytest.main(_sanitize_args(args or []) + [str(tf) for tf in test_files], plugins=[reporter])
+    try:
+        @timeout(timeout_duration)
+        def run_tests():
+            pytest.main(_sanitize_args(args or []) + [str(tf) for tf in test_files], plugins=[reporter])
+
+        run_tests()
+    except TimeoutError:
+        reporter.results.error("Tests timed out after {} seconds".format(timeout_duration))
 
     # dump the report
     out_file.write_text(reporter.results.as_json())

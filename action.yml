@@ -17,4 +17,5 @@ runs:
   image: Dockerfile
   entrypoint: "/opt/test-runner/bin/run.sh"
   args:
+    - ${{ inputs.timeout }}
     - ${{ inputs.max-score }}
