@@ -11,6 +11,7 @@ jobs:
         uses: ./
         id: python-test
         with:
+          timeout: 10
           max-score: 100
       - name: Decode and assert python-test
         uses: actions/github-script@v6
