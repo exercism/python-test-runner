@@ -14,7 +14,7 @@
 
 | Input Name      | Description                                                                                                     | Required |
 |-----------------|-----------------------------------------------------------------------------------------------------------------|----------|
-| `timeout`       | Duration (in minutes) before the test is terminated. Defaults to 10 minutes with a maximum limit of 6 hours.    | No       |
+| `timeout`       | Duration (in minutes) before the test is terminated. Defaults to 10 minutes with a maximum limit of 6 hours.    | Yes      |
 | `max-score`     | Points to be awarded if the test passes.                                                                        | No       |
 
 ### Outputs
