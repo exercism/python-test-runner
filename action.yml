@@ -9,6 +9,9 @@ inputs:
   max-score:
     description: "The maximum amount of points a student can receive for this test."
     required: false
+   setup-command:
+    description: "Command to execute prior to the test, typically for environment setup or dependency installation."
+    required: false
 outputs:
   result:
     description: "Runner output"
