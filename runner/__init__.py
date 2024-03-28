@@ -217,14 +217,7 @@ def run(indir: Directory, outdir: Directory, max_score: int, timeout_duration: i
     try:
         @timeout_decorator.timeout(timeout_duration)
         def run_tests():
-            old_stdout = sys.stdout
-            old_stderr = sys.stderr
-            sys.stdout = sys.stderr = StringIO()
             pytest.main(_sanitize_args(args or []) + [str(tf) for tf in test_files], plugins=[reporter])
-            output = sys.stdout.getvalue()
-            sys.stdout = old_stdout
-            sys.stderr = old_stderr
-            print(output)
         run_tests()
     except TimeoutError:
         reporter.results.error("Tests timed out after {} seconds".format(timeout_duration))
