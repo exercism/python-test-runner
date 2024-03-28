@@ -19,3 +19,4 @@ runs:
   args:
     - ${{ inputs.timeout }}
     - ${{ inputs.max-score }}
+    - ${{ inputs.setup-command }}
