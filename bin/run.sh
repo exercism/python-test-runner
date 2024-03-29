@@ -26,7 +26,11 @@ done
 
 echo "TIMEOUT is $TIMEOUT"
 echo "MAX_SCORE is $MAX_SCORE"
-echo "SETUP_COMMAND is $SETUP_COMMAND"
+
+if [ -n "$SETUP_COMMAND" ]; then
+  echo "Running setup command: $SETUP_COMMAND"
+  eval "$SETUP_COMMAND"
+fi
 
 python3 /opt/test-runner/bin/run.py ./ ./autograding_output/ "$MAX_SCORE" "$TIMEOUT"
 
