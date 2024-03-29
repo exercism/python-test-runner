@@ -5,13 +5,29 @@ export PYTHONPATH="$root:$PYTHONPATH"
 
 mkdir autograding_output
 
-TIMEOUT="$1"
-MAX_SCORE="${2:-0}"
-SETUP_COMMAND="$3"
+while [ $# -gt 0 ]; do
+  case "$1" in
+    --timeout=*)
+      TIMEOUT="${1#*=}"
+      ;;
+    --max_score=*)
+      MAX_SCORE="${1#*=}"
+      ;;
+    --setup_command=*)
+      SETUP_COMMAND="${1#*=}"
+      ;;
+    *)
+      printf "***************************\n"
+      printf "* Error: Invalid argument.*\n"
+      printf "***************************\n"
+      exit 1
+  esac
+  shift
+done
 
-if [ -n "$SETUP_COMMAND" ]; then
-  $SETUP_COMMAND
-fi
+echo "TIMEOUT is $TIMEOUT"
+echo "MAX_SCORE is $MAX_SCORE"
+echo "SETUP_COMMAND is $SETUP_COMMAND"
 
 python3 /opt/test-runner/bin/run.py ./ ./autograding_output/ "$MAX_SCORE" "$TIMEOUT"
 
