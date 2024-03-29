@@ -137,7 +137,7 @@ class ResultsReporter:
             self.results.error(message)
 
         for test in self.tests.values():
-            if test.is_passing:
+            if test.is_passing():
                 test.score = self.results.max_score / len(self.tests)
             else:
                 test.score = 0 
