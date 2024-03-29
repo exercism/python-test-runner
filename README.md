@@ -16,6 +16,7 @@
 |-----------------|-----------------------------------------------------------------------------------------------------------------|----------|
 | `timeout`       | Duration (in minutes) before the test is terminated. Defaults to 10 minutes with a maximum limit of 6 hours.    | Yes      |
 | `max-score`     | Points to be awarded if the test passes.                                                                        | No       |
+| `setup-command`         | Command to execute prior to the test, typically for environment setup or dependency installation.                                                                | No       |
 
 ### Outputs
 
@@ -45,6 +46,7 @@ jobs:
       with:
         timeout: '15'
         max-score: '100'
+        setup-command: 'pip install -r requirements.txt'
     - name: Autograding Reporter
       uses: ...
 ```

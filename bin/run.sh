@@ -5,12 +5,32 @@ export PYTHONPATH="$root:$PYTHONPATH"
 
 mkdir autograding_output
 
-TIMEOUT="$1"
-MAX_SCORE="${2:-0}"
-SETUP_COMMAND="$3"
+while [ $# -gt 0 ]; do
+  case "$1" in
+    --timeout=*)
+      TIMEOUT="${1#*=}"
+      ;;
+    --max-score=*)
+      MAX_SCORE="${1#*=}"
+      MAX_SCORE="${MAX_SCORE:-0}"
+      ;;
+    --setup-command=*)
+      SETUP_COMMAND="${1#*=}"
+      ;;
+    *)
+      printf "***************************\n"
+      printf "* Warning: Unknown argument.*\n"
+      printf "***************************\n"
+  esac
+  shift
+done
+
+echo "TIMEOUT is $TIMEOUT"
+echo "MAX_SCORE is $MAX_SCORE"
 
 if [ -n "$SETUP_COMMAND" ]; then
-  $SETUP_COMMAND
+  echo "Running setup command: $SETUP_COMMAND"
+  eval "$SETUP_COMMAND"
 fi
 
 python3 /opt/test-runner/bin/run.py ./ ./autograding_output/ "$MAX_SCORE" "$TIMEOUT"
