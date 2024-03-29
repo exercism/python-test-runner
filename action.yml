@@ -20,6 +20,6 @@ runs:
   image: Dockerfile
   entrypoint: "/opt/test-runner/bin/run.sh"
   args:
-    - "--timeout ${{ inputs.timeout }}"
-    - "--max-score ${{ inputs.max-score }}"
-    - "--setup-command${{ inputs.setup-command }}"
+    - "--timeout=${{ inputs.timeout }}"
+    - "--max-score=${{ inputs.max-score }}"
+    - "--setup-command=${{ inputs.setup-command }}"

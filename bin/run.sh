@@ -10,10 +10,10 @@ while [ $# -gt 0 ]; do
     --timeout=*)
       TIMEOUT="${1#*=}"
       ;;
-    --max_score=*)
+    --max-score=*)
       MAX_SCORE="${1#*=}"
       ;;
-    --setup_command=*)
+    --setup-command=*)
       SETUP_COMMAND="${1#*=}"
       ;;
     *)
