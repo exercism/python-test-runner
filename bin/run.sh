@@ -12,6 +12,7 @@ while [ $# -gt 0 ]; do
       ;;
     --max-score=*)
       MAX_SCORE="${1#*=}"
+      MAX_SCORE="${MAX_SCORE:-0}"
       ;;
     --setup-command=*)
       SETUP_COMMAND="${1#*=}"
