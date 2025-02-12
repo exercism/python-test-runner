@@ -153,15 +153,31 @@ class Results:
 
     def as_json(self):
         """
-        Trim off the TestClass name and test_ prefix from each test_name.
-        Replace underscores with spaces for more human-readable strings.
-        Sort the current tests array by task_id and then Dump all results to formatted JSON.
+        -  Trim off the TestClass name and test_ prefix from each test_name.
+        - Replace underscores with spaces for more human-readable strings.
+        - Add a sort order signifier (~) to parent tests with subtests.
+         (~) ensures parent tests sort to last position.
+
+        - If it is a concept exercise, sort the current tests array by
+          task_id and variation# then Dump all results to formatted JSON.
         """
+
+
         trim_name = compile(r'^(.+)(Test\.test_)')
         results = asdict(self, dict_factory=self._factory)
+        concept_exercise = False
 
         for item in results["tests"]:
-            item["name"] = sub(trim_name, '\\1 > ', item["name"]).replace('_', ' ')
 
-        results["tests"] = sorted(results["tests"], key= lambda item: item["task_id"])
+            if "[variation" not in item["name"] and item["task_id"] > 0:
+                item["name"] = sub(trim_name, '\\1 > ', item["name"]).replace('_', ' ') + "~"
+                concept_exercise = True
+            else:
+                item["name"] = sub(trim_name, '\\1 > ', item["name"]).replace('_', ' ')
+
+        if concept_exercise:
+          results["tests"] = sorted(results["tests"], key= lambda item: (item["task_id"], item["name"]))
+        else:
+          results["tests"] = sorted(results["tests"], key=lambda item: (item["task_id"]))
+
         return dumps(results, indent=2)
