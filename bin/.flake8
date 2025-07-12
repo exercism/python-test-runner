@@ -1,0 +1,13 @@
+[flake8]
+exclude =
+    .git,
+    __pycache__,
+    test,
+    bin,
+    problem-specifications,
+    python/bin,
+    python/exercises/concept,
+    runner,
+    old,
+    build,
+    dist

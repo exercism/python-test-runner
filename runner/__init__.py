@@ -101,9 +101,7 @@ class ResultsReporter:
                 state.output = report.capstdout
             return
 
-        else:
-            if report.capstdout:
-                state.output = report.capstdout
+
 
         # Handle details of test failure
         if report.failed:
@@ -134,7 +132,12 @@ class ResultsReporter:
 
 
             # Changes status of parent to fail if any of the subtests fail.
-            if state.fail:
+            if state.is_passing():
+                self.tests[parent_test_name].status = state.status
+
+                self.tests[parent_test_name].test_code = state.test_code
+
+            else:
                 self.tests[parent_test_name].fail(
                     message="One or more variations of this test failed. Details can be found under each [variant#]."
                 )

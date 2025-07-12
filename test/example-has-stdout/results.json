@@ -7,40 +7,35 @@
       "status": "fail",
       "message": "AssertionError: None != 'Hello, World!'",
       "test_code": "self.assertEqual(hello(), \"Hello, World!\")",
-      "task_id": 0,
-      "output": "Hello, World!"
+      "task_id": 0
     },
     {
       "name": "ExampleHasStdout > abc",
       "status": "fail",
       "message": "AssertionError: None != 'Hello, World!'",
       "test_code": "self.assertEqual(hello(), \"Hello, World!\")",
-      "task_id": 0,
-      "output": "Hello, World!"
+      "task_id": 0
     },
     {
       "name": "ExampleHasStdout > truncation",
       "status": "fail",
       "message": "AssertionError: 'Goodbye!' != 'Hello, World!'\n- Goodbye!\n+ Hello, World!",
       "test_code": "self.assertEqual(must_truncate(), \"Hello, World!\")",
-      "task_id": 0,
-      "output": "Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Vulputate ut pharetra sit amet aliquam. Amet dictum sit amet justo donec enim diam vulputate ut. Consequat nisl vel pretium lectus quam id leo. Maecenas accumsan lacus vel facilisis volutpat est velit egestas dui. Faucibus et molestie ac feugiat sed. Fringilla phasellus faucibus scelerisque eleifend donec pretium vulputate s [Output was truncated. Please limit to 500 chars]"
+      "task_id": 0
     },
     {
       "name": "ExampleHasStdoutOther > dummy",
       "status": "fail",
       "message": "AssertionError: 'hello, world.' != 'Hello, World!'\n- hello, world.\n? ^      ^    ^\n+ Hello, World!\n? ^      ^    ^",
       "test_code": "self.assertEqual(other(), \"Hello, World!\")",
-      "task_id": 0,
-      "output": "Hello, World!\n5 6 7"
+      "task_id": 0
     },
     {
       "name": "ExampleHasStdoutOther > hello",
       "status": "fail",
       "message": "AssertionError: 'hello, world.' != 'Hello, World!'\n- hello, world.\n? ^      ^    ^\n+ Hello, World!\n? ^      ^    ^",
       "test_code": "self.assertEqual(other(), \"Hello, World!\")",
-      "task_id": 0,
-      "output": "Hello, World!\n5 6 7"
+      "task_id": 0
     }
   ]
 }
