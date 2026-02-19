@@ -3,10 +3,40 @@
   "status": "fail",
   "tests": [
     {
+      "name": "CurrencyExchange > exchange money [variation #1]",
+      "status": "pass",
+      "test_code": "test_data = [(100000, 0.8), (700000, 10.0)]\nresult_data = [125000, 70000]\n\nfor variant, (params, expected) in enumerate(zip(test_data, result_data), start=1):\n    budget, exchange_rate = params\n\n    with self.subTest(f\"variation #{variant}\",\n                      budget=budget,\n                      exchange_rate=exchange_rate,\n                      expected=expected):\n\n        actual_result = exchange_money(*params)\n        error_message = (f'Called exchange_money{budget, exchange_rate}. '\n                         f'The function returned {actual_result}, but '\n                         f'The tests expected {expected} when exchanging'\n                         f' {budget} at a rate of {exchange_rate}.')\n\n        self.assertAlmostEqual(actual_result, expected, msg=error_message)",
+      "task_id": 1
+    },
+    {
+      "name": "CurrencyExchange > exchange money [variation #2]",
+      "status": "pass",
+      "test_code": "test_data = [(100000, 0.8), (700000, 10.0)]\nresult_data = [125000, 70000]\n\nfor variant, (params, expected) in enumerate(zip(test_data, result_data), start=1):\n    budget, exchange_rate = params\n\n    with self.subTest(f\"variation #{variant}\",\n                      budget=budget,\n                      exchange_rate=exchange_rate,\n                      expected=expected):\n\n        actual_result = exchange_money(*params)\n        error_message = (f'Called exchange_money{budget, exchange_rate}. '\n                         f'The function returned {actual_result}, but '\n                         f'The tests expected {expected} when exchanging'\n                         f' {budget} at a rate of {exchange_rate}.')\n\n        self.assertAlmostEqual(actual_result, expected, msg=error_message)",
+      "task_id": 1
+    },
+    {
       "name": "CurrencyExchange > exchange money~",
       "status": "pass",
       "test_code": "test_data = [(100000, 0.8), (700000, 10.0)]\nresult_data = [125000, 70000]\n\nfor variant, (params, expected) in enumerate(zip(test_data, result_data), start=1):\n    budget, exchange_rate = params\n\n    with self.subTest(f\"variation #{variant}\",\n                      budget=budget,\n                      exchange_rate=exchange_rate,\n                      expected=expected):\n\n        actual_result = exchange_money(*params)\n        error_message = (f'Called exchange_money{budget, exchange_rate}. '\n                         f'The function returned {actual_result}, but '\n                         f'The tests expected {expected} when exchanging'\n                         f' {budget} at a rate of {exchange_rate}.')\n\n        self.assertAlmostEqual(actual_result, expected, msg=error_message)",
       "task_id": 1
+    },
+    {
+      "name": "CurrencyExchange > get change [variation #1]",
+      "status": "pass",
+      "test_code": "test_data = [(463000, 5000), (1250, 120), (15000, 1380)]\nresult_data = [458000, 1130, 13620]\n\nfor variant, (params, expected) in enumerate(zip(test_data, result_data), start=1):\n    budget, exchanging_value = params\n\n    with self.subTest(f\"variation #{variant}\",\n                      budget=budget,\n                      exchanging_value=exchanging_value,\n                      expected=expected):\n\n        actual_result = get_change(*params)\n        error_message = (f'Called get_change{budget, exchanging_value}. '\n                         f'The function returned {actual_result}, but '\n                         f'The tests expected {expected} left in your budget.')\n\n        self.assertAlmostEqual(actual_result, expected, msg=error_message)",
+      "task_id": 2
+    },
+    {
+      "name": "CurrencyExchange > get change [variation #2]",
+      "status": "pass",
+      "test_code": "test_data = [(463000, 5000), (1250, 120), (15000, 1380)]\nresult_data = [458000, 1130, 13620]\n\nfor variant, (params, expected) in enumerate(zip(test_data, result_data), start=1):\n    budget, exchanging_value = params\n\n    with self.subTest(f\"variation #{variant}\",\n                      budget=budget,\n                      exchanging_value=exchanging_value,\n                      expected=expected):\n\n        actual_result = get_change(*params)\n        error_message = (f'Called get_change{budget, exchanging_value}. '\n                         f'The function returned {actual_result}, but '\n                         f'The tests expected {expected} left in your budget.')\n\n        self.assertAlmostEqual(actual_result, expected, msg=error_message)",
+      "task_id": 2
+    },
+    {
+      "name": "CurrencyExchange > get change [variation #3]",
+      "status": "pass",
+      "test_code": "test_data = [(463000, 5000), (1250, 120), (15000, 1380)]\nresult_data = [458000, 1130, 13620]\n\nfor variant, (params, expected) in enumerate(zip(test_data, result_data), start=1):\n    budget, exchanging_value = params\n\n    with self.subTest(f\"variation #{variant}\",\n                      budget=budget,\n                      exchanging_value=exchanging_value,\n                      expected=expected):\n\n        actual_result = get_change(*params)\n        error_message = (f'Called get_change{budget, exchanging_value}. '\n                         f'The function returned {actual_result}, but '\n                         f'The tests expected {expected} left in your budget.')\n\n        self.assertAlmostEqual(actual_result, expected, msg=error_message)",
+      "task_id": 2
     },
     {
       "name": "CurrencyExchange > get change~",
@@ -15,10 +45,40 @@
       "task_id": 2
     },
     {
+      "name": "CurrencyExchange > get value of bills [variation #1]",
+      "status": "pass",
+      "test_code": "test_data = [(10000, 128), (50, 360), (200, 200)]\nresult_data = [1280000, 18000, 40000]\n\nfor variant, (params, expected) in enumerate(zip(test_data, result_data), start=1):\n    denomination, number_of_bills = params\n\n    with self.subTest(f\"variation #{variant}\",\n                      denomination=denomination,\n                      number_of_bills=number_of_bills,\n                      expected=expected):\n\n        actual_result = get_value_of_bills(*params)\n        error_message = (f'Called get_value_of_bills{denomination, number_of_bills}. '\n                         f'The function returned {actual_result}, but '\n                         f'The tests expected {expected} for the bills value.')\n\n        self.assertEqual(actual_result, expected, msg=error_message)",
+      "task_id": 3
+    },
+    {
+      "name": "CurrencyExchange > get value of bills [variation #2]",
+      "status": "pass",
+      "test_code": "test_data = [(10000, 128), (50, 360), (200, 200)]\nresult_data = [1280000, 18000, 40000]\n\nfor variant, (params, expected) in enumerate(zip(test_data, result_data), start=1):\n    denomination, number_of_bills = params\n\n    with self.subTest(f\"variation #{variant}\",\n                      denomination=denomination,\n                      number_of_bills=number_of_bills,\n                      expected=expected):\n\n        actual_result = get_value_of_bills(*params)\n        error_message = (f'Called get_value_of_bills{denomination, number_of_bills}. '\n                         f'The function returned {actual_result}, but '\n                         f'The tests expected {expected} for the bills value.')\n\n        self.assertEqual(actual_result, expected, msg=error_message)",
+      "task_id": 3
+    },
+    {
+      "name": "CurrencyExchange > get value of bills [variation #3]",
+      "status": "pass",
+      "test_code": "test_data = [(10000, 128), (50, 360), (200, 200)]\nresult_data = [1280000, 18000, 40000]\n\nfor variant, (params, expected) in enumerate(zip(test_data, result_data), start=1):\n    denomination, number_of_bills = params\n\n    with self.subTest(f\"variation #{variant}\",\n                      denomination=denomination,\n                      number_of_bills=number_of_bills,\n                      expected=expected):\n\n        actual_result = get_value_of_bills(*params)\n        error_message = (f'Called get_value_of_bills{denomination, number_of_bills}. '\n                         f'The function returned {actual_result}, but '\n                         f'The tests expected {expected} for the bills value.')\n\n        self.assertEqual(actual_result, expected, msg=error_message)",
+      "task_id": 3
+    },
+    {
       "name": "CurrencyExchange > get value of bills~",
       "status": "pass",
       "test_code": "test_data = [(10000, 128), (50, 360), (200, 200)]\nresult_data = [1280000, 18000, 40000]\n\nfor variant, (params, expected) in enumerate(zip(test_data, result_data), start=1):\n    denomination, number_of_bills = params\n\n    with self.subTest(f\"variation #{variant}\",\n                      denomination=denomination,\n                      number_of_bills=number_of_bills,\n                      expected=expected):\n\n        actual_result = get_value_of_bills(*params)\n        error_message = (f'Called get_value_of_bills{denomination, number_of_bills}. '\n                         f'The function returned {actual_result}, but '\n                         f'The tests expected {expected} for the bills value.')\n\n        self.assertEqual(actual_result, expected, msg=error_message)",
       "task_id": 3
+    },
+    {
+      "name": "CurrencyExchange > get number of bills [variation #1]",
+      "status": "pass",
+      "test_code": "test_data = [(163270, 50000), (54361, 1000)]\nresult_data = [3, 54]\n\nfor variant, (params, expected) in enumerate(zip(test_data, result_data), start=1):\n    amount, denomination = params\n\n    with self.subTest(f\"variation #{variant}\",\n                      amount=amount,\n                      denomination=denomination,\n                      expected=expected):\n\n        actual_result = get_number_of_bills(amount, denomination)\n        error_message = (f'Called get_number_of_bills{amount, denomination}. '\n                         f'The function returned {actual_result} bills, but '\n                         f'The tests expected {expected} bills.')\n\n        self.assertEqual(actual_result, expected, msg=error_message)",
+      "task_id": 4
+    },
+    {
+      "name": "CurrencyExchange > get number of bills [variation #2]",
+      "status": "pass",
+      "test_code": "test_data = [(163270, 50000), (54361, 1000)]\nresult_data = [3, 54]\n\nfor variant, (params, expected) in enumerate(zip(test_data, result_data), start=1):\n    amount, denomination = params\n\n    with self.subTest(f\"variation #{variant}\",\n                      amount=amount,\n                      denomination=denomination,\n                      expected=expected):\n\n        actual_result = get_number_of_bills(amount, denomination)\n        error_message = (f'Called get_number_of_bills{amount, denomination}. '\n                         f'The function returned {actual_result} bills, but '\n                         f'The tests expected {expected} bills.')\n\n        self.assertEqual(actual_result, expected, msg=error_message)",
+      "task_id": 4
     },
     {
       "name": "CurrencyExchange > get number of bills~",
@@ -27,11 +87,35 @@
       "task_id": 4
     },
     {
+      "name": "CurrencyExchange > get leftover of bills [variation #1]",
+      "status": "pass",
+      "test_code": "test_data = [(10.1, 10), (654321.0, 5), (3.14, 2)]\nresult_data = [0.1, 1.0, 1.14]\n\nfor variant, (params, expected) in enumerate(zip(test_data, result_data), start=1):\n    amount, denomination = params\n\n    with self.subTest(f\"variation #{variant}\",\n                      amount=amount,\n                      denomination=denomination,\n                      expected=expected):\n\n        actual_result = get_leftover_of_bills(*params)\n        error_message = (f'Called get_leftover_of_bills{amount, denomination}. '\n                         f'The function returned {actual_result}, but '\n                         f'The tests expected {expected} as the leftover amount.')\n\n        self.assertAlmostEqual(actual_result, expected, msg=error_message)",
+      "task_id": 5
+    },
+    {
+      "name": "CurrencyExchange > get leftover of bills [variation #2]",
+      "status": "pass",
+      "test_code": "test_data = [(10.1, 10), (654321.0, 5), (3.14, 2)]\nresult_data = [0.1, 1.0, 1.14]\n\nfor variant, (params, expected) in enumerate(zip(test_data, result_data), start=1):\n    amount, denomination = params\n\n    with self.subTest(f\"variation #{variant}\",\n                      amount=amount,\n                      denomination=denomination,\n                      expected=expected):\n\n        actual_result = get_leftover_of_bills(*params)\n        error_message = (f'Called get_leftover_of_bills{amount, denomination}. '\n                         f'The function returned {actual_result}, but '\n                         f'The tests expected {expected} as the leftover amount.')\n\n        self.assertAlmostEqual(actual_result, expected, msg=error_message)",
+      "task_id": 5
+    },
+    {
+      "name": "CurrencyExchange > get leftover of bills [variation #3]",
+      "status": "pass",
+      "test_code": "test_data = [(10.1, 10), (654321.0, 5), (3.14, 2)]\nresult_data = [0.1, 1.0, 1.14]\n\nfor variant, (params, expected) in enumerate(zip(test_data, result_data), start=1):\n    amount, denomination = params\n\n    with self.subTest(f\"variation #{variant}\",\n                      amount=amount,\n                      denomination=denomination,\n                      expected=expected):\n\n        actual_result = get_leftover_of_bills(*params)\n        error_message = (f'Called get_leftover_of_bills{amount, denomination}. '\n                         f'The function returned {actual_result}, but '\n                         f'The tests expected {expected} as the leftover amount.')\n\n        self.assertAlmostEqual(actual_result, expected, msg=error_message)",
+      "task_id": 5
+    },
+    {
       "name": "CurrencyExchange > get leftover of bills~",
       "status": "pass",
       "test_code": "test_data = [(10.1, 10), (654321.0, 5), (3.14, 2)]\nresult_data = [0.1, 1.0, 1.14]\n\nfor variant, (params, expected) in enumerate(zip(test_data, result_data), start=1):\n    amount, denomination = params\n\n    with self.subTest(f\"variation #{variant}\",\n                      amount=amount,\n                      denomination=denomination,\n                      expected=expected):\n\n        actual_result = get_leftover_of_bills(*params)\n        error_message = (f'Called get_leftover_of_bills{amount, denomination}. '\n                         f'The function returned {actual_result}, but '\n                         f'The tests expected {expected} as the leftover amount.')\n\n        self.assertAlmostEqual(actual_result, expected, msg=error_message)",
-      "task_id": 5,
-      "output": "denomination is:: 10\nnumber of bills: 1\ndenomination is:: 5\nnumber of bills: 130864\ndenomination is:: 2\nnumber of bills: 1"
+      "task_id": 5
+    },
+    {
+      "name": "CurrencyExchange > exchangeable value [variation #1]",
+      "status": "pass",
+      "test_code": "test_data = [(100000, 10.61, 10, 1),\n             (1500, 0.84, 25, 40),\n             (470000, 1050, 30, 10000000000),\n             (470000, 0.00000009, 30, 700),\n             (425.33, 0.0009, 30, 700)]\n\nresult_data = [8568, 1400, 0, 4017094016600, 363300]\n\nfor variant, (params, expected) in enumerate(zip(test_data, result_data), start=1):\n    budget, exchange_rate, spread, denomination = params\n\n    with self.subTest(f\"variation #{variant}\",\n                      budget=budget,\n                      exchange_rate=exchange_rate,\n                      spread=spread,\n                      denomination=denomination,\n                      expected=expected):\n\n        actual_result = exchangeable_value(budget, exchange_rate, spread, denomination)\n        error_message = (f'Called exchangeable_value{budget, exchange_rate, spread, denomination}. '\n                         f'The function returned {actual_result}, but '\n                         f'The tests expected {expected} as the maximum '\n                         f'value of the new currency .')\n\n        self.assertEqual(actual_result, expected, msg=error_message)",
+      "task_id": 6,
+      "output": "params :: budget=100000, exchange_rate=10.61, spread=10, denomination=1\nfee is: 1.061\nrate is 11.671\namount is:: 8568.246080027418\n,params :: budget=1500, exchange_rate=0.84, spread=25, denomination=40\nfee is: 0.21\nrate is 1.05\namount is:: 1428.5714285714284"
     },
     {
       "name": "CurrencyExchange > exchangeable value [variation #2]",
@@ -39,7 +123,14 @@
       "message": "AssertionError: 35 != 1400 : Called exchangeable_value(1500, 0.84, 25, 40). The function returned 35, but The tests expected 1400 as the maximum value of the new currency .",
       "test_code": "test_data = [(100000, 10.61, 10, 1),\n             (1500, 0.84, 25, 40),\n             (470000, 1050, 30, 10000000000),\n             (470000, 0.00000009, 30, 700),\n             (425.33, 0.0009, 30, 700)]\n\nresult_data = [8568, 1400, 0, 4017094016600, 363300]\n\nfor variant, (params, expected) in enumerate(zip(test_data, result_data), start=1):\n    budget, exchange_rate, spread, denomination = params\n\n    with self.subTest(f\"variation #{variant}\",\n                      budget=budget,\n                      exchange_rate=exchange_rate,\n                      spread=spread,\n                      denomination=denomination,\n                      expected=expected):\n\n        actual_result = exchangeable_value(budget, exchange_rate, spread, denomination)\n        error_message = (f'Called exchangeable_value{budget, exchange_rate, spread, denomination}. '\n                         f'The function returned {actual_result}, but '\n                         f'The tests expected {expected} as the maximum '\n                         f'value of the new currency .')\n\n        self.assertEqual(actual_result, expected, msg=error_message)",
       "task_id": 6,
-      "output": "params :: budget=470000, exchange_rate=1050, spread=30, denomination=10000000000\nfee is: 315.0\nrate is 1365.0\namount is:: 344.32234432234435\nparams :: budget=470000, exchange_rate=9e-08, spread=30, denomination=700\nfee is: 2.7e-08\nrate is 1.17e-07\namount is:: 4017094017094.017"
+      "output": "params :: budget=470000, exchange_rate=1050, spread=30, denomination=10000000000\nfee is: 315.0\nrate is 1365.0\namount is:: 344.32234432234435\n,params :: budget=470000, exchange_rate=9e-08, spread=30, denomination=700\nfee is: 2.7e-08\nrate is 1.17e-07\namount is:: 4017094017094.017"
+    },
+    {
+      "name": "CurrencyExchange > exchangeable value [variation #3]",
+      "status": "pass",
+      "test_code": "test_data = [(100000, 10.61, 10, 1),\n             (1500, 0.84, 25, 40),\n             (470000, 1050, 30, 10000000000),\n             (470000, 0.00000009, 30, 700),\n             (425.33, 0.0009, 30, 700)]\n\nresult_data = [8568, 1400, 0, 4017094016600, 363300]\n\nfor variant, (params, expected) in enumerate(zip(test_data, result_data), start=1):\n    budget, exchange_rate, spread, denomination = params\n\n    with self.subTest(f\"variation #{variant}\",\n                      budget=budget,\n                      exchange_rate=exchange_rate,\n                      spread=spread,\n                      denomination=denomination,\n                      expected=expected):\n\n        actual_result = exchangeable_value(budget, exchange_rate, spread, denomination)\n        error_message = (f'Called exchangeable_value{budget, exchange_rate, spread, denomination}. '\n                         f'The function returned {actual_result}, but '\n                         f'The tests expected {expected} as the maximum '\n                         f'value of the new currency .')\n\n        self.assertEqual(actual_result, expected, msg=error_message)",
+      "task_id": 6,
+      "output": "params :: budget=425.33, exchange_rate=0.0009, spread=30, denomination=700\nfee is: 0.00027\nrate is 0.00117\namount is:: 363529.9145299145"
     },
     {
       "name": "CurrencyExchange > exchangeable value [variation #4]",

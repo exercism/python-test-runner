@@ -1,6 +1,8 @@
 {
-  "version": 3,
-  "status": "error",
-  "message": "  /usr/local/lib/python3.11/site-packages/_pytest/python.py:618: in _importtestmodule\n    mod = import_path(self.path, mode=importmode, root=self.config.rootpath)\n/usr/local/lib/python3.11/site-packages/_pytest/pathlib.py:533: in import_path\n    importlib.import_module(module_name)\n/usr/local/lib/python3.11/importlib/__init__.py:126: in import_module\n    return _bootstrap._gcd_import(name[level:], package, level)\n<frozen importlib._bootstrap>:1204: in _gcd_import\n    ???\n<frozen importlib._bootstrap>:1176: in _find_and_load\n    ???\n<frozen importlib._bootstrap>:1147: in _find_and_load_unlocked\n    ???\n<frozen importlib._bootstrap>:690: in _load_unlocked\n    ???\n/usr/local/lib/python3.11/site-packages/_pytest/assertion/rewrite.py:168: in exec_module\n    exec(co, module.__dict__)\ntest/example-syntax-error/example_syntax_error_test.py:4: in <module>\n    from example_syntax_error import hello\nE     File \"./test/example-syntax-error/example_syntax_error.py\", line 3\nE       def hello();\nE                  ^\nE   SyntaxError: expected ':'",
-  "tests": []
+   "version":3,
+   "status":"error",
+   "message":"  /usr/local/lib/python3.13/site-packages/_pytest/python.py:498: in importtestmodule\n    mod = import_path(\n/usr/local/lib/python3.13/site-packages/_pytest/pathlib.py:587: in import_path\n    importlib.import_module(module_name)\n/usr/local/lib/python3.13/importlib/__init__.py:88: in import_module\n    return _bootstrap._gcd_import(name[level:], package, level)\n           ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^\n<frozen importlib._bootstrap>:1387: in _gcd_import\n    ???\n<frozen importlib._bootstrap>:1360: in _find_and_load\n    ???\n<frozen importlib._bootstrap>:1331: in _find_and_load_unlocked\n    ???\n<frozen importlib._bootstrap>:935: in _load_unlocked\n    ???\n/usr/local/lib/python3.13/site-packages/_pytest/assertion/rewrite.py:186: in exec_module\n    exec(co, module.__dict__)\ntest/example-syntax-error/example_syntax_error_test.py:4: in <module>\n    from example_syntax_error import hello\nE     File \"./test/example-syntax-error/example_syntax_error.py\", line 3\nE       def hello();\nE                  ^\nE   SyntaxError: expected ':'",
+   "tests":[
+
+   ]
 }

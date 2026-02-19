@@ -6,57 +6,49 @@
       "name": "ExampleFirst > hello",
       "status": "pass",
       "test_code": "self.assertEqual(hello(), \"Hello, World!\")",
-      "task_id": 0,
-      "output": "User output is captured!"
+      "task_id": 0
     },
     {
       "name": "ExampleSecond > hello",
       "status": "pass",
       "test_code": "self.assertEqual(hello(), \"Hello, World!\")",
-      "task_id": 0,
-      "output": "User output is captured!"
+      "task_id": 0
     },
     {
       "name": "ExampleFirst > abc",
       "status": "pass",
       "test_code": "self.assertEqual(hello(), \"Hello, World!\")",
-      "task_id": 0,
-      "output": "User output is captured!"
+      "task_id": 0
     },
     {
       "name": "ExampleSecond > abc",
       "status": "pass",
       "test_code": "self.assertEqual(hello(), \"Hello, World!\")",
-      "task_id": 0,
-      "output": "User output is captured!"
+      "task_id": 0
     },
     {
       "name": "ExampleFirstOther > dummy",
       "status": "pass",
       "test_code": "self.assertEqual(hello(), \"Hello, World!\")",
-      "task_id": 0,
-      "output": "User output is captured!"
+      "task_id": 0
     },
     {
       "name": "ExampleSecondOther > dummy",
       "status": "pass",
       "test_code": "self.assertEqual(hello(), \"Hello, World!\")",
-      "task_id": 0,
-      "output": "User output is captured!"
+      "task_id": 0
     },
     {
       "name": "ExampleFirstOther > hello",
       "status": "pass",
       "test_code": "self.assertEqual(hello(), \"Hello, World!\")",
-      "task_id": 0,
-      "output": "User output is captured!"
+      "task_id": 0
     },
     {
       "name": "ExampleSecondOther > hello",
       "status": "pass",
       "test_code": "self.assertEqual(hello(), \"Hello, World!\")",
-      "task_id": 0,
-      "output": "User output is captured!"
+      "task_id": 0
     }
   ]
 }

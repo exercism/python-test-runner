@@ -6,29 +6,25 @@
       "name": "ExampleSuccess > hello",
       "status": "pass",
       "test_code": "self.assertEqual(hello(), \"Hello, World!\")",
-      "task_id": 0,
-      "output": "User output is captured!"
+      "task_id": 0
     },
     {
       "name": "ExampleSuccess > abc",
       "status": "pass",
       "test_code": "self.assertEqual(hello(), \"Hello, World!\")",
-      "task_id": 0,
-      "output": "User output is captured!"
+      "task_id": 0
     },
     {
       "name": "ExampleSuccessOther > dummy",
       "status": "pass",
       "test_code": "self.assertEqual(hello(), \"Hello, World!\")",
-      "task_id": 0,
-      "output": "User output is captured!"
+      "task_id": 0
     },
     {
       "name": "ExampleSuccessOther > hello",
       "status": "pass",
       "test_code": "self.assertEqual(hello(), \"Hello, World!\")",
-      "task_id": 0,
-      "output": "User output is captured!"
+      "task_id": 0
     }
   ]
 }

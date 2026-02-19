@@ -3,6 +3,54 @@
   "status": "fail",
   "tests": [
     {
+      "name": "ExamplePartialFailureWithSubtests > abc [variation #1]",
+      "status": "pass",
+      "test_code": "input_data = ['frog', 'fish', 'coconut', 'pineapple', 'carrot', 'cucumber', 'grass', 'tree']\nresult_data = [(\"Hello, World!\", param) for param in input_data]\n\nfor variant, (param, result) in enumerate(zip(input_data, result_data), start=1):\n    with self.subTest(f\"variation #{variant}\", param=param, result=result):\n        self.assertEqual(hello(param), result,\n                         msg=f'Expected: {result} but got something else instead.')",
+      "task_id": 1
+    },
+    {
+      "name": "ExamplePartialFailureWithSubtests > abc [variation #2]",
+      "status": "pass",
+      "test_code": "input_data = ['frog', 'fish', 'coconut', 'pineapple', 'carrot', 'cucumber', 'grass', 'tree']\nresult_data = [(\"Hello, World!\", param) for param in input_data]\n\nfor variant, (param, result) in enumerate(zip(input_data, result_data), start=1):\n    with self.subTest(f\"variation #{variant}\", param=param, result=result):\n        self.assertEqual(hello(param), result,\n                         msg=f'Expected: {result} but got something else instead.')",
+      "task_id": 1
+    },
+    {
+      "name": "ExamplePartialFailureWithSubtests > abc [variation #3]",
+      "status": "pass",
+      "test_code": "input_data = ['frog', 'fish', 'coconut', 'pineapple', 'carrot', 'cucumber', 'grass', 'tree']\nresult_data = [(\"Hello, World!\", param) for param in input_data]\n\nfor variant, (param, result) in enumerate(zip(input_data, result_data), start=1):\n    with self.subTest(f\"variation #{variant}\", param=param, result=result):\n        self.assertEqual(hello(param), result,\n                         msg=f'Expected: {result} but got something else instead.')",
+      "task_id": 1
+    },
+    {
+      "name": "ExamplePartialFailureWithSubtests > abc [variation #4]",
+      "status": "pass",
+      "test_code": "input_data = ['frog', 'fish', 'coconut', 'pineapple', 'carrot', 'cucumber', 'grass', 'tree']\nresult_data = [(\"Hello, World!\", param) for param in input_data]\n\nfor variant, (param, result) in enumerate(zip(input_data, result_data), start=1):\n    with self.subTest(f\"variation #{variant}\", param=param, result=result):\n        self.assertEqual(hello(param), result,\n                         msg=f'Expected: {result} but got something else instead.')",
+      "task_id": 1
+    },
+    {
+      "name": "ExamplePartialFailureWithSubtests > abc [variation #5]",
+      "status": "pass",
+      "test_code": "input_data = ['frog', 'fish', 'coconut', 'pineapple', 'carrot', 'cucumber', 'grass', 'tree']\nresult_data = [(\"Hello, World!\", param) for param in input_data]\n\nfor variant, (param, result) in enumerate(zip(input_data, result_data), start=1):\n    with self.subTest(f\"variation #{variant}\", param=param, result=result):\n        self.assertEqual(hello(param), result,\n                         msg=f'Expected: {result} but got something else instead.')",
+      "task_id": 1
+    },
+    {
+      "name": "ExamplePartialFailureWithSubtests > abc [variation #6]",
+      "status": "pass",
+      "test_code": "input_data = ['frog', 'fish', 'coconut', 'pineapple', 'carrot', 'cucumber', 'grass', 'tree']\nresult_data = [(\"Hello, World!\", param) for param in input_data]\n\nfor variant, (param, result) in enumerate(zip(input_data, result_data), start=1):\n    with self.subTest(f\"variation #{variant}\", param=param, result=result):\n        self.assertEqual(hello(param), result,\n                         msg=f'Expected: {result} but got something else instead.')",
+      "task_id": 1
+    },
+    {
+      "name": "ExamplePartialFailureWithSubtests > abc [variation #7]",
+      "status": "pass",
+      "test_code": "input_data = ['frog', 'fish', 'coconut', 'pineapple', 'carrot', 'cucumber', 'grass', 'tree']\nresult_data = [(\"Hello, World!\", param) for param in input_data]\n\nfor variant, (param, result) in enumerate(zip(input_data, result_data), start=1):\n    with self.subTest(f\"variation #{variant}\", param=param, result=result):\n        self.assertEqual(hello(param), result,\n                         msg=f'Expected: {result} but got something else instead.')",
+      "task_id": 1
+    },
+    {
+      "name": "ExamplePartialFailureWithSubtests > abc [variation #8]",
+      "status": "pass",
+      "test_code": "input_data = ['frog', 'fish', 'coconut', 'pineapple', 'carrot', 'cucumber', 'grass', 'tree']\nresult_data = [(\"Hello, World!\", param) for param in input_data]\n\nfor variant, (param, result) in enumerate(zip(input_data, result_data), start=1):\n    with self.subTest(f\"variation #{variant}\", param=param, result=result):\n        self.assertEqual(hello(param), result,\n                         msg=f'Expected: {result} but got something else instead.')",
+      "task_id": 1
+    },
+    {
       "name": "ExamplePartialFailureWithSubtests > abc~",
       "status": "pass",
       "test_code": "input_data = ['frog', 'fish', 'coconut', 'pineapple', 'carrot', 'cucumber', 'grass', 'tree']\nresult_data = [(\"Hello, World!\", param) for param in input_data]\n\nfor variant, (param, result) in enumerate(zip(input_data, result_data), start=1):\n    with self.subTest(f\"variation #{variant}\", param=param, result=result):\n        self.assertEqual(hello(param), result,\n                         msg=f'Expected: {result} but got something else instead.')",
@@ -42,6 +90,54 @@
       "message": "One or more variations of this test failed. Details can be found under each [variant#].",
       "test_code": "input_data = [1, 2, 5, 10]\nresult_data = [(\"Hello, World!\", param) for param in input_data]\n\nfor variant, (param, result) in enumerate(zip(input_data, result_data), start=1):\n    with self.subTest(f\"variation #{variant}\", param=param, result=result):\n        self.assertEqual(hello(param), result,\n                         msg=f'Expected: {result} but got something else instead.')",
       "task_id": 1
+    },
+    {
+      "name": "ExamplePartialFailureWithSubtestsOther > dummy [variation #1]",
+      "status": "pass",
+      "test_code": "input_data = ['frog', 'fish', 'coconut', 'pineapple', 'carrot', 'cucumber', 'grass', 'tree']\nresult_data = [(\"Hello, World!\", param) for param in input_data]\n\nfor variant, (param, result) in enumerate(zip(input_data, result_data), start=1):\n    with self.subTest(f\"variation #{variant}\", param=param, result=result):\n        self.assertEqual(hello(param), result,\n                         msg=f'Expected: {result} but got something else instead.')",
+      "task_id": 2
+    },
+    {
+      "name": "ExamplePartialFailureWithSubtestsOther > dummy [variation #2]",
+      "status": "pass",
+      "test_code": "input_data = ['frog', 'fish', 'coconut', 'pineapple', 'carrot', 'cucumber', 'grass', 'tree']\nresult_data = [(\"Hello, World!\", param) for param in input_data]\n\nfor variant, (param, result) in enumerate(zip(input_data, result_data), start=1):\n    with self.subTest(f\"variation #{variant}\", param=param, result=result):\n        self.assertEqual(hello(param), result,\n                         msg=f'Expected: {result} but got something else instead.')",
+      "task_id": 2
+    },
+    {
+      "name": "ExamplePartialFailureWithSubtestsOther > dummy [variation #3]",
+      "status": "pass",
+      "test_code": "input_data = ['frog', 'fish', 'coconut', 'pineapple', 'carrot', 'cucumber', 'grass', 'tree']\nresult_data = [(\"Hello, World!\", param) for param in input_data]\n\nfor variant, (param, result) in enumerate(zip(input_data, result_data), start=1):\n    with self.subTest(f\"variation #{variant}\", param=param, result=result):\n        self.assertEqual(hello(param), result,\n                         msg=f'Expected: {result} but got something else instead.')",
+      "task_id": 2
+    },
+    {
+      "name": "ExamplePartialFailureWithSubtestsOther > dummy [variation #4]",
+      "status": "pass",
+      "test_code": "input_data = ['frog', 'fish', 'coconut', 'pineapple', 'carrot', 'cucumber', 'grass', 'tree']\nresult_data = [(\"Hello, World!\", param) for param in input_data]\n\nfor variant, (param, result) in enumerate(zip(input_data, result_data), start=1):\n    with self.subTest(f\"variation #{variant}\", param=param, result=result):\n        self.assertEqual(hello(param), result,\n                         msg=f'Expected: {result} but got something else instead.')",
+      "task_id": 2
+    },
+    {
+      "name": "ExamplePartialFailureWithSubtestsOther > dummy [variation #5]",
+      "status": "pass",
+      "test_code": "input_data = ['frog', 'fish', 'coconut', 'pineapple', 'carrot', 'cucumber', 'grass', 'tree']\nresult_data = [(\"Hello, World!\", param) for param in input_data]\n\nfor variant, (param, result) in enumerate(zip(input_data, result_data), start=1):\n    with self.subTest(f\"variation #{variant}\", param=param, result=result):\n        self.assertEqual(hello(param), result,\n                         msg=f'Expected: {result} but got something else instead.')",
+      "task_id": 2
+    },
+    {
+      "name": "ExamplePartialFailureWithSubtestsOther > dummy [variation #6]",
+      "status": "pass",
+      "test_code": "input_data = ['frog', 'fish', 'coconut', 'pineapple', 'carrot', 'cucumber', 'grass', 'tree']\nresult_data = [(\"Hello, World!\", param) for param in input_data]\n\nfor variant, (param, result) in enumerate(zip(input_data, result_data), start=1):\n    with self.subTest(f\"variation #{variant}\", param=param, result=result):\n        self.assertEqual(hello(param), result,\n                         msg=f'Expected: {result} but got something else instead.')",
+      "task_id": 2
+    },
+    {
+      "name": "ExamplePartialFailureWithSubtestsOther > dummy [variation #7]",
+      "status": "pass",
+      "test_code": "input_data = ['frog', 'fish', 'coconut', 'pineapple', 'carrot', 'cucumber', 'grass', 'tree']\nresult_data = [(\"Hello, World!\", param) for param in input_data]\n\nfor variant, (param, result) in enumerate(zip(input_data, result_data), start=1):\n    with self.subTest(f\"variation #{variant}\", param=param, result=result):\n        self.assertEqual(hello(param), result,\n                         msg=f'Expected: {result} but got something else instead.')",
+      "task_id": 2
+    },
+    {
+      "name": "ExamplePartialFailureWithSubtestsOther > dummy [variation #8]",
+      "status": "pass",
+      "test_code": "input_data = ['frog', 'fish', 'coconut', 'pineapple', 'carrot', 'cucumber', 'grass', 'tree']\nresult_data = [(\"Hello, World!\", param) for param in input_data]\n\nfor variant, (param, result) in enumerate(zip(input_data, result_data), start=1):\n    with self.subTest(f\"variation #{variant}\", param=param, result=result):\n        self.assertEqual(hello(param), result,\n                         msg=f'Expected: {result} but got something else instead.')",
+      "task_id": 2
     },
     {
       "name": "ExamplePartialFailureWithSubtestsOther > dummy~",

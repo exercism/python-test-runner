@@ -6,29 +6,25 @@
       "name": "ExampleWithConfig > hello",
       "status": "pass",
       "test_code": "self.assertEqual(hello(), \"Hello, World!\")",
-      "task_id": 0,
-      "output": "User output is captured!"
+      "task_id": 0
     },
     {
       "name": "ExampleWithConfig > abc",
       "status": "pass",
       "test_code": "self.assertEqual(hello(), \"Hello, World!\")",
-      "task_id": 0,
-      "output": "User output is captured!"
+      "task_id": 0
     },
     {
       "name": "ExampleWithConfigOther > dummy",
       "status": "pass",
       "test_code": "self.assertEqual(hello(), \"Hello, World!\")",
-      "task_id": 0,
-      "output": "User output is captured!"
+      "task_id": 0
     },
     {
       "name": "ExampleWithConfigOther > hello",
       "status": "pass",
       "test_code": "self.assertEqual(hello(), \"Hello, World!\")",
-      "task_id": 0,
-      "output": "User output is captured!"
+      "task_id": 0
     }
   ]
 }

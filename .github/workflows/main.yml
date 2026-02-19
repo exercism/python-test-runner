@@ -16,10 +16,10 @@ jobs:
     runs-on: ubuntu-24.04
     steps:
       - name: Checkout code
-        uses: actions/checkout@c85c95e3d7251135ab7dc9ce3241c5835cc595a9
+        uses: actions/checkout@11bd71901bbe5b1630ceea73d27597364c9af683
 
       - name: Set up Docker Buildx
-        uses: docker/setup-buildx-action@4c0219f9ac95b02789c1075625400b2acbff50b1
+        uses: docker/setup-buildx-action@e468171a9de216ec08956ac3ada2f0791b6bd435
         with:
           install: true
 
@@ -35,3 +35,46 @@ jobs:
 
       - name: Run Tests in Docker
         run: bin/run-tests-in-docker.sh
+
+  housekeeping:
+    name: Python Content Validation
+    runs-on: ubuntu-24.04
+    container:
+      image: python:3.13.5-alpine3.22
+    steps:
+      - name: Checkout Runner Code
+        uses: actions/checkout@11bd71901bbe5b1630ceea73d27597364c9af683
+
+      - name: Checkout Problem Specs
+        uses: actions/checkout@11bd71901bbe5b1630ceea73d27597364c9af683
+        with:
+          repository: exercism/problem-specifications
+          ref: main
+          path: 'problem-specifications'
+
+      - name: Checkout Exercises
+        uses: actions/checkout@11bd71901bbe5b1630ceea73d27597364c9af683
+        with:
+          repository: exercism/python
+          ref: main
+          path: 'python'
+
+      - name: Install Dependencies
+        run: |
+          pip install -r requirements-generator.txt
+          
+      - name: Generate Tests from Templates
+        run: |
+          bin/generate_tests.py --verbose -p ./problem-specifications --check
+
+      - name: Lint Practice Exercises and Data with flake8
+        run: |
+          # stop the build if there are Python syntax errors or undefined names
+          flake8 ./python/exercises/practice --count --select=E9,F63,F7,F82 --show-source --statistics
+          # exit-zero treats all errors as warnings. The GitHub editor is 127 chars wide
+          flake8 ./python/exercises/practice --count --exit-zero --max-complexity=10 --max-line-length=127 --statistics
+
+      - name: Check Exercise Examples against Tests Using Test Runner
+        run: |
+          cd python
+          ../bin/test_exercises.py --runner test-runner
