@@ -1,10 +1,15 @@
+*.pyc
+*.pyd
+*.pyo
 .appends
+.dockerignore
 .git
+.gitattributes
 .github
 .gitignore
-.gitattributes
-.dockerignore
 Dockerfile
+__pycache__
 bin/run-in-docker.sh
 bin/run-tests-in-docker.sh
 test/
+venv/
