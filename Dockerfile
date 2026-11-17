@@ -14,6 +14,11 @@ RUN --mount=type=cache,target=/root/.cache/pip\
 
 COPY . /opt/test-runner
 
+# Compile every installed package, and the runner itself, to bytecode now.
+# The packages are installed with --no-compile, so without this step every run
+# compiled pytest and its dependencies from source before running any tests.
+RUN python3 -m compileall -q /usr/local/lib/python3.13/site-packages /opt/test-runner/runner /opt/test-runner/bin
+
 WORKDIR /opt/test-runner
 
 ENTRYPOINT ["sh", "/opt/test-runner/bin/run.sh" ]
