@@ -19,6 +19,11 @@ COPY . /opt/test-runner
 # compiled pytest and its dependencies from source before running any tests.
 RUN python3 -m compileall -q /usr/local/lib/python3.13/site-packages /opt/test-runner/runner /opt/test-runner/bin
 
+# Run pytest once on a dummy test so it caches its assertion-rewritten copies
+# of the installed plugins (such as pytest-subtests), which compileall can't make.
+RUN mkdir /tmp/warm && echo "def test_x(): assert True" > /tmp/warm/test_warm.py \
+ && python3 -m pytest --collect-only -q -p no:cacheprovider /tmp/warm && rm -rf /tmp/warm
+
 WORKDIR /opt/test-runner
 
 ENTRYPOINT ["sh", "/opt/test-runner/bin/run.sh" ]
